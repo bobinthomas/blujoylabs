@@ -29,13 +29,12 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-warm-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-[72px]">
-          <Link href="/" className="flex items-center gap-2.5 shrink-0">
-            <div className="w-9 h-9 bg-blue-600 rounded-lg flex items-center justify-center shadow-sm">
-              <span className="text-white font-bold text-lg leading-none">V</span>
-            </div>
-            <span className="text-navy-900 font-bold text-xl tracking-tight hidden sm:block">
-              VertexGov
-            </span>
+          <Link href="/" className="flex items-center shrink-0">
+            <img
+              src="/blujoy-logo.svg"
+              alt="Blujoy"
+              className="h-8 sm:h-9 w-auto"
+            />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-0.5">

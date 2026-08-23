@@ -68,7 +68,7 @@ export default function Footer() {
       <div className="border-t border-navy-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-navy-400">
-            &copy; 2026 VertexGov Consulting. All rights reserved.
+            &copy; 2026 Blujoy. All rights reserved.
           </p>
           <div className="flex items-center gap-4 text-xs text-navy-400">
             <span>CMMC Level 1 Compliant</span>

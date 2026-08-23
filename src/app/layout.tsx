@@ -12,8 +12,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "VertexGov | GovCon, SAP & UI/UX Services for Government and Enterprise",
-    template: "%s | VertexGov",
+    default: "Blujoy | GovCon, SAP & UI/UX Services for Government and Enterprise",
+    template: "%s | Blujoy",
   },
   description:
     "We help businesses win government contracts, modernize SAP systems, and design digital experiences that convert. Schedule a free consultation today.",
