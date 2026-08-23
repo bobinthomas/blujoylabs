@@ -1,26 +1,121 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-navy-50: #f0f3f8;
+  --color-navy-100: #dce3ed;
+  --color-navy-200: #b8c5d6;
+  --color-navy-300: #8fa2ba;
+  --color-navy-400: #6b82a0;
+  --color-navy-500: #4f6585;
+  --color-navy-600: #3e506b;
+  --color-navy-700: #334259;
+  --color-navy-800: #2c3849;
+  --color-navy-900: #1e2836;
+  --color-navy-950: #141c27;
+  --color-blue-50: #eef5ff;
+  --color-blue-100: #d9e8ff;
+  --color-blue-200: #bcdbff;
+  --color-blue-300: #8ec5ff;
+  --color-blue-400: #59a3ff;
+  --color-blue-500: #2b7fff;
+  --color-blue-600: #1563f5;
+  --color-blue-700: #0f4de1;
+  --color-blue-800: #1340b6;
+  --color-blue-900: #163a8f;
+  --color-accent-light: #e8f0fe;
+  --color-accent-hover: #c5d9f7;
+  --color-warm: #f9f8f6;
+  --color-warm-dark: #f0eeea;
+  --color-warm-card: #ffffff;
+  --color-warm-border: #e8e5df;
+  --color-silver: #f5f4f1;
+  --color-silver-dark: #e5e3de;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #faf9f6;
+  --foreground: #1e2836;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: #d9e8ff;
+  color: #1e2836;
+}
+
+.placeholder-content {
+  border: 2px dashed #b8c5d6;
+  border-radius: 12px;
+  padding: 2rem;
+  background-color: #f0f3f8;
+  color: #4f6585;
+  font-style: italic;
+  text-align: center;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f9f8f6;
+}
+::-webkit-scrollbar-thumb {
+  background: #b8c5d6;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8fa2ba;
+}
+
+/* Scroll reveal animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out both;
+}
+
+/* Staggered delays for children */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* Smooth card shadows */
+.card-shadow {
+  box-shadow: 0 1px 3px rgba(30, 40, 54, 0.04), 0 4px 12px rgba(30, 40, 54, 0.03);
+}
+
+.card-shadow-hover {
+  box-shadow: 0 4px 12px rgba(30, 40, 54, 0.06), 0 12px 28px rgba(30, 40, 54, 0.05);
 }
