@@ -110,10 +110,10 @@ export default function ResourcesPage() {
                 key={cat.title}
                 className="bg-white rounded-2xl p-8 border border-warm-border hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
               >
-                <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-5">
+                <div className="w-12 h-12 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mb-5">
                   {cat.icon}
                 </div>
-                <h3 className="text-xl font-bold text-navy-900 mb-4">{cat.title}</h3>
+                <h3 className="text-xl font-medium text-navy-900 mb-4">{cat.title}</h3>
                 <ul className="space-y-2.5">
                   {cat.items.map((item) => (
                     <li key={item}>

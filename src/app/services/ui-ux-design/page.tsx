@@ -98,8 +98,8 @@ export default function UIUXPage() {
       <section className="py-20 bg-warm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-6">
-            {services.map((s) => (
-              <ServiceCard key={s.number} {...s} />
+            {services.map((s, i) => (
+              <ServiceCard key={s.number} {...s} delay={(i % 2) * 80} />
             ))}
           </div>
         </div>

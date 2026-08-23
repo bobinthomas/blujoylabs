@@ -73,10 +73,10 @@ export default function SuccessStoriesPage() {
                 <span className="inline-flex items-center px-3 py-1 bg-white/15 text-sm font-medium rounded-full mb-4">
                   {cs.tag}
                 </span>
-                <div className="text-4xl sm:text-5xl font-bold">{cs.resultHighlight}</div>
+                <div className="text-4xl sm:text-5xl font-light">{cs.resultHighlight}</div>
                 <Link
                   href="#"
-                  className="mt-6 inline-flex items-center text-sm font-semibold text-blue-100 hover:text-white transition-colors"
+                  className="mt-6 inline-flex items-center text-sm font-medium text-blue-100 hover:text-white transition-colors"
                 >
                   Read Full Case Study
                   <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -86,22 +86,22 @@ export default function SuccessStoriesPage() {
               </div>
 
               <div className="lg:col-span-3 space-y-4">
-                <h3 className="text-2xl font-bold text-navy-900">{cs.title}</h3>
+                <h3 className="text-2xl font-medium text-navy-900">{cs.title}</h3>
                 <div className="space-y-3">
                   <div>
-                    <span className="text-xs font-bold text-navy-400 uppercase tracking-wider">Client</span>
+                    <span className="text-xs font-medium text-navy-400 uppercase tracking-wider">Client</span>
                     <p className="text-navy-600 text-[15px]">{cs.client}</p>
                   </div>
                   <div>
-                    <span className="text-xs font-bold text-navy-400 uppercase tracking-wider">Challenge</span>
+                    <span className="text-xs font-medium text-navy-400 uppercase tracking-wider">Challenge</span>
                     <p className="text-navy-600 text-[15px]">{cs.challenge}</p>
                   </div>
                   <div>
-                    <span className="text-xs font-bold text-navy-400 uppercase tracking-wider">Solution</span>
+                    <span className="text-xs font-medium text-navy-400 uppercase tracking-wider">Solution</span>
                     <p className="text-navy-600 text-[15px]">{cs.solution}</p>
                   </div>
                   <div>
-                    <span className="text-xs font-bold text-navy-400 uppercase tracking-wider">Result</span>
+                    <span className="text-xs font-medium text-navy-400 uppercase tracking-wider">Result</span>
                     <p className="text-navy-600 text-[15px]">{cs.result}</p>
                   </div>
                 </div>
@@ -126,7 +126,7 @@ export default function SuccessStoriesPage() {
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
             {metrics.map((m) => (
               <div key={m.label} className="bg-white rounded-2xl p-6 text-center border border-warm-border">
-                <div className="text-3xl font-bold text-blue-600">{m.value}</div>
+                <div className="text-3xl font-light text-blue-600">{m.value}</div>
                 <div className="mt-2 text-sm text-navy-600">{m.label}</div>
               </div>
             ))}

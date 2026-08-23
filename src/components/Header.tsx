@@ -26,7 +26,7 @@ export default function Header() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-warm-border">
+    <header className="sticky top-0 z-50 bg-white border-b border-warm-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-[72px]">
           <Link href="/" className="flex items-center shrink-0">
@@ -89,7 +89,7 @@ export default function Header() {
           <div className="flex items-center gap-3">
             <Link
               href="/contact"
-              className="hidden md:inline-flex items-center px-5 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-full hover:bg-blue-700 transition-all shadow-sm hover:shadow-md"
+              className="hidden md:inline-flex items-center px-5 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-full hover:bg-blue-700 transition-all shadow-sm hover:shadow-md"
             >
               Schedule a Free Consultation
             </Link>
@@ -125,7 +125,7 @@ export default function Header() {
                 </Link>
               ))}
               <div className="mt-2 pt-2 border-t border-warm-border">
-                <p className="px-3 py-1 text-xs font-semibold text-navy-400 uppercase tracking-wider">Services</p>
+                <p className="px-3 py-1 text-xs font-medium text-navy-400 uppercase tracking-wider">Services</p>
                 {servicesLinks.map((s) => (
                   <Link
                     key={s.href}
@@ -140,7 +140,7 @@ export default function Header() {
               <Link
                 href="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="mt-3 mx-3 text-center px-5 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-full hover:bg-blue-700 transition-colors"
+                className="mt-3 mx-3 text-center px-5 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-full hover:bg-blue-700 transition-colors"
               >
                 Schedule a Free Consultation
               </Link>

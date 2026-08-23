@@ -75,7 +75,7 @@ export default function AboutPage() {
       {/* Our Story */}
       <section className="py-20 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 tracking-tight">Our Story</h2>
+          <h2 className="text-3xl sm:text-4xl font-light text-navy-900 tracking-tight">Our Story</h2>
           <div className="mt-6 space-y-4 text-navy-600 leading-relaxed">
             <p>
               We started with a simple observation: businesses navigating government contracts,
@@ -98,7 +98,7 @@ export default function AboutPage() {
       <section className="py-20 bg-warm">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-6">
           <div className="bg-white rounded-2xl p-8 border border-warm-border">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-3">Mission</h3>
+            <h3 className="text-xs font-medium uppercase tracking-wider text-blue-600 mb-3">Mission</h3>
             <p className="text-navy-700 leading-relaxed">
               To simplify complexity. Whether it&apos;s a 200-page federal proposal, a multi-phase SAP
               migration, or a product interface that needs to feel effortless — we make the hard
@@ -106,7 +106,7 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="bg-white rounded-2xl p-8 border border-warm-border">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-3">Vision</h3>
+            <h3 className="text-xs font-medium uppercase tracking-wider text-blue-600 mb-3">Vision</h3>
             <p className="text-navy-700 leading-relaxed">
               To become the most trusted partner for organizations that operate at the intersection
               of government, enterprise technology, and digital experience.
@@ -122,11 +122,11 @@ export default function AboutPage() {
           <div className="space-y-4">
             {values.map((v) => (
               <div key={v.number} className="flex gap-5 bg-warm rounded-2xl p-6 border border-warm-border">
-                <div className="w-10 h-10 rounded-lg bg-blue-600 text-white font-bold text-sm flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-full bg-blue-600 text-white font-medium text-sm flex items-center justify-center shrink-0">
                   {v.number}
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-navy-900">{v.title}</h3>
+                  <h3 className="text-lg font-medium text-navy-900">{v.title}</h3>
                   <p className="mt-1 text-navy-600 leading-relaxed text-[15px]">{v.description}</p>
                 </div>
               </div>
@@ -147,7 +147,7 @@ export default function AboutPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
                 </div>
-                <p className="font-bold text-navy-900">{person.name}</p>
+                <p className="font-medium text-navy-900">{person.name}</p>
                 <p className="text-sm text-navy-500 mt-1">{person.title}</p>
               </div>
             ))}
@@ -198,11 +198,11 @@ export default function AboutPage() {
           <SectionHeading title="Locations" />
           <div className="grid sm:grid-cols-2 gap-6">
             <div className="bg-warm rounded-2xl p-8 border border-warm-border">
-              <h3 className="font-bold text-navy-900 mb-2">Primary Office</h3>
+              <h3 className="font-medium text-navy-900 mb-2">Primary Office</h3>
               <p className="text-navy-600">[Your Primary Address]</p>
             </div>
             <div className="bg-warm rounded-2xl p-8 border border-warm-border">
-              <h3 className="font-bold text-navy-900 mb-2">Secondary Office</h3>
+              <h3 className="font-medium text-navy-900 mb-2">Secondary Office</h3>
               <p className="text-navy-600">[Your Secondary Address, if applicable]</p>
             </div>
           </div>

@@ -10,5 +10,13 @@
 	},
 	"observability": {
 		"enabled": true
+	},
+	"env": {
+		"preview": {
+			"name": "blujaylabs-website-preview",
+			"observability": {
+				"enabled": true
+			}
+		}
 	}
 }

@@ -22,7 +22,7 @@ export default function ContactPage() {
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Consultation Form */}
             <div>
-              <h2 className="text-2xl font-bold text-navy-900 mb-2">Schedule a Consultation</h2>
+              <h2 className="text-2xl font-medium text-navy-900 mb-2">Schedule a Consultation</h2>
               <p className="text-navy-600 mb-8">
                 Book a free 30-minute strategy call with one of our senior consultants.
               </p>
@@ -31,7 +31,7 @@ export default function ContactPage() {
                   <svg className="w-12 h-12 text-green-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <h3 className="text-lg font-bold text-green-800">Thank you!</h3>
+                  <h3 className="text-lg font-medium text-green-800">Thank you!</h3>
                   <p className="text-green-700 mt-2">We&apos;ll be in touch within 24 hours.</p>
                 </div>
               ) : (
@@ -44,7 +44,7 @@ export default function ContactPage() {
                 >
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-sm font-semibold text-navy-800 mb-1.5">Full Name *</label>
+                      <label className="block text-sm font-medium text-navy-800 mb-1.5">Full Name *</label>
                       <input
                         type="text"
                         required
@@ -52,7 +52,7 @@ export default function ContactPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-navy-800 mb-1.5">Company Name</label>
+                      <label className="block text-sm font-medium text-navy-800 mb-1.5">Company Name</label>
                       <input
                         type="text"
                         className="w-full px-4 py-2.5 border border-warm-border rounded-xl text-navy-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-warm"
@@ -61,7 +61,7 @@ export default function ContactPage() {
                   </div>
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-sm font-semibold text-navy-800 mb-1.5">Email Address *</label>
+                      <label className="block text-sm font-medium text-navy-800 mb-1.5">Email Address *</label>
                       <input
                         type="email"
                         required
@@ -69,7 +69,7 @@ export default function ContactPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-navy-800 mb-1.5">Phone Number</label>
+                      <label className="block text-sm font-medium text-navy-800 mb-1.5">Phone Number</label>
                       <input
                         type="tel"
                         className="w-full px-4 py-2.5 border border-warm-border rounded-xl text-navy-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-warm"
@@ -77,7 +77,7 @@ export default function ContactPage() {
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-navy-800 mb-1.5">Service Interest *</label>
+                    <label className="block text-sm font-medium text-navy-800 mb-1.5">Service Interest *</label>
                     <select
                       required
                       className="w-full px-4 py-2.5 border border-warm-border rounded-xl text-navy-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-warm"
@@ -91,7 +91,7 @@ export default function ContactPage() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-navy-800 mb-1.5">Tell Us About Your Project *</label>
+                    <label className="block text-sm font-medium text-navy-800 mb-1.5">Tell Us About Your Project *</label>
                     <textarea
                       required
                       rows={4}
@@ -99,7 +99,7 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-navy-800 mb-1.5">Preferred Date/Time</label>
+                    <label className="block text-sm font-medium text-navy-800 mb-1.5">Preferred Date/Time</label>
                     <input
                       type="datetime-local"
                       className="w-full px-4 py-2.5 border border-warm-border rounded-xl text-navy-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-warm"
@@ -107,7 +107,7 @@ export default function ContactPage() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full px-6 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-all shadow-md"
+                    className="w-full px-6 py-3 bg-blue-600 text-white font-medium rounded-full hover:bg-blue-700 transition-all shadow-md"
                   >
                     Book My Free Consultation
                   </button>
@@ -117,7 +117,7 @@ export default function ContactPage() {
 
             {/* General Inquiry Form */}
             <div>
-              <h2 className="text-2xl font-bold text-navy-900 mb-2">General Inquiry</h2>
+              <h2 className="text-2xl font-medium text-navy-900 mb-2">General Inquiry</h2>
               <p className="text-navy-600 mb-8">
                 Have a question or want to learn more? Send us a message.
               </p>
@@ -126,7 +126,7 @@ export default function ContactPage() {
                   <svg className="w-12 h-12 text-green-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <h3 className="text-lg font-bold text-green-800">Message sent!</h3>
+                  <h3 className="text-lg font-medium text-green-800">Message sent!</h3>
                   <p className="text-green-700 mt-2">We&apos;ll get back to you shortly.</p>
                 </div>
               ) : (
@@ -139,7 +139,7 @@ export default function ContactPage() {
                 >
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-sm font-semibold text-navy-800 mb-1.5">Full Name *</label>
+                      <label className="block text-sm font-medium text-navy-800 mb-1.5">Full Name *</label>
                       <input
                         type="text"
                         required
@@ -147,7 +147,7 @@ export default function ContactPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-navy-800 mb-1.5">Company Name</label>
+                      <label className="block text-sm font-medium text-navy-800 mb-1.5">Company Name</label>
                       <input
                         type="text"
                         className="w-full px-4 py-2.5 border border-warm-border rounded-xl text-navy-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-warm"
@@ -155,7 +155,7 @@ export default function ContactPage() {
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-navy-800 mb-1.5">Email Address *</label>
+                    <label className="block text-sm font-medium text-navy-800 mb-1.5">Email Address *</label>
                     <input
                       type="email"
                       required
@@ -163,7 +163,7 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-navy-800 mb-1.5">Subject *</label>
+                    <label className="block text-sm font-medium text-navy-800 mb-1.5">Subject *</label>
                     <input
                       type="text"
                       required
@@ -171,7 +171,7 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-navy-800 mb-1.5">Message *</label>
+                    <label className="block text-sm font-medium text-navy-800 mb-1.5">Message *</label>
                     <textarea
                       required
                       rows={5}
@@ -180,7 +180,7 @@ export default function ContactPage() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full px-6 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-all shadow-md"
+                    className="w-full px-6 py-3 bg-blue-600 text-white font-medium rounded-full hover:bg-blue-700 transition-all shadow-md"
                   >
                     Send Message
                   </button>
@@ -190,20 +190,20 @@ export default function ContactPage() {
               {/* Office Locations */}
               <div className="mt-12 space-y-4">
                 <div className="bg-white rounded-2xl p-6 border border-warm-border">
-                  <h3 className="font-bold text-navy-900 mb-1">Primary Office</h3>
+                  <h3 className="font-medium text-navy-900 mb-1">Primary Office</h3>
                   <p className="text-navy-600 text-sm">[Your Primary Address]</p>
                   <p className="text-navy-600 text-sm mt-1">Phone: [Your Phone]</p>
                   <p className="text-navy-600 text-sm">Email: [Your Email]</p>
                 </div>
                 <div className="bg-white rounded-2xl p-6 border border-warm-border">
-                  <h3 className="font-bold text-navy-900 mb-1">Secondary Office</h3>
+                  <h3 className="font-medium text-navy-900 mb-1">Secondary Office</h3>
                   <p className="text-navy-600 text-sm">[Your Secondary Address, if applicable]</p>
                 </div>
               </div>
 
               {/* Social Links */}
               <div className="mt-8">
-                <h3 className="text-sm font-bold text-navy-400 uppercase tracking-wider mb-3">Connect With Us</h3>
+                <h3 className="text-sm font-medium text-navy-400 uppercase tracking-wider mb-3">Connect With Us</h3>
                 <div className="flex gap-3">
                   {["LinkedIn", "Twitter/X", "Instagram"].map((social) => (
                     <a

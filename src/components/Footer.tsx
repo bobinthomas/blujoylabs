@@ -41,12 +41,13 @@ const footerColumns = [
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-900 text-white">
+    <footer className="bg-white border-t border-warm-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <img src="/blujoy-logo.svg" alt="Blujoy" className="h-7 w-auto mb-10" />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           {footerColumns.map((col) => (
             <div key={col.title}>
-              <h3 className="text-sm font-bold uppercase tracking-wider text-navy-300 mb-5">
+              <h3 className="text-sm font-medium uppercase tracking-wider text-navy-900 mb-5">
                 {col.title}
               </h3>
               <ul className="space-y-3">
@@ -54,7 +55,7 @@ export default function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-navy-300 hover:text-white transition-colors"
+                      className="text-sm text-navy-600 hover:text-blue-600 transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -65,16 +66,16 @@ export default function Footer() {
           ))}
         </div>
       </div>
-      <div className="border-t border-navy-800">
+      <div className="border-t border-warm-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-navy-400">
             &copy; 2026 Blujoy. All rights reserved.
           </p>
           <div className="flex items-center gap-4 text-xs text-navy-400">
             <span>CMMC Level 1 Compliant</span>
-            <span className="text-navy-700">|</span>
+            <span className="text-navy-200">|</span>
             <span>ISO 9001:2015</span>
-            <span className="text-navy-700">|</span>
+            <span className="text-navy-200">|</span>
             <span>ISO 27001:2022</span>
           </div>
         </div>

@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Reveal from "@/components/Reveal";
+import GradientOrb from "@/components/GradientOrb";
 
 export default function HeroSection({
   headline,
@@ -20,29 +22,18 @@ export default function HeroSection({
   return (
     <section
       className={`relative py-20 sm:py-28 lg:py-36 overflow-hidden ${
-        dark ? "bg-blue-600 text-white" : "bg-warm text-navy-900"
+        dark ? "bg-ink text-white" : "bg-warm text-navy-900"
       }`}
     >
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div
-          className={`absolute -top-40 -right-40 w-96 h-96 rounded-full ${
-            dark ? "bg-white/5" : "bg-blue-100"
-          } opacity-60`}
-        />
-        <div
-          className={`absolute -bottom-20 -left-20 w-64 h-64 rounded-full ${
-            dark ? "bg-white/5" : "bg-blue-50"
-          } opacity-60`}
-        />
-      </div>
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1]">
+      <GradientOrb className="hidden lg:block absolute -top-16 -right-16 w-72 h-72 opacity-70 pointer-events-none" />
+      <Reveal className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-[1.1]">
           {headline}
         </h1>
         {subheadline && (
           <p
             className={`mt-6 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed ${
-              dark ? "text-blue-100" : "text-navy-600"
+              dark ? "text-white/70" : "text-navy-600"
             }`}
           >
             {subheadline}
@@ -51,10 +42,10 @@ export default function HeroSection({
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             href={ctaHref}
-            className={`inline-flex items-center px-8 py-3.5 font-semibold rounded-full transition-all shadow-md text-base ${
+            className={`inline-flex items-center px-8 py-3.5 font-medium rounded-full transition-all text-base ${
               dark
-                ? "bg-white text-blue-700 hover:bg-blue-50"
-                : "bg-blue-600 text-white hover:bg-blue-700 hover:shadow-lg"
+                ? "bg-white text-ink hover:bg-warm-taupe"
+                : "bg-blue-600 text-white hover:bg-blue-700"
             }`}
           >
             {ctaText}
@@ -62,9 +53,9 @@ export default function HeroSection({
           {secondaryCtaText && secondaryCtaHref && (
             <Link
               href={secondaryCtaHref}
-              className={`inline-flex items-center px-8 py-3.5 font-semibold rounded-full transition-colors text-base ${
+              className={`inline-flex items-center px-8 py-3.5 font-medium rounded-full transition-colors text-base ${
                 dark
-                  ? "border-2 border-white/30 text-white hover:bg-white/10"
+                  ? "border border-white/30 text-white hover:bg-white/10"
                   : "bg-white text-navy-700 border border-warm-border hover:bg-warm-dark"
               }`}
             >
@@ -72,7 +63,7 @@ export default function HeroSection({
             </Link>
           )}
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

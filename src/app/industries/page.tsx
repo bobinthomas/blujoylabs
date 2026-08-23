@@ -83,7 +83,7 @@ export default function IndustriesPage() {
                   i % 2 === 0 ? "bg-white border-warm-border" : "bg-navy-50 border-navy-100"
                 }`}
               >
-                <h2 className="text-2xl font-bold text-navy-900">{ind.title}</h2>
+                <h2 className="text-2xl font-medium text-navy-900">{ind.title}</h2>
                 <p className="mt-3 text-navy-600 leading-relaxed max-w-3xl text-[15px]">{ind.description}</p>
                 <div className="mt-6 grid sm:grid-cols-2 gap-3">
                   {ind.capabilities.map((cap) => (
