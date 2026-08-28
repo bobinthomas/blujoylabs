@@ -1,0 +1,25 @@
+{
+  "heroEyebrow": "Contact",
+  "heroHeadline": "Let's start a conversation",
+  "heroSubheadline": "Whether you're ready to engage or just exploring, we'd love to hear from you.",
+  "heroImage": null,
+
+  "consultationHeading": "Schedule a Consultation",
+  "consultationDescription": "Book a free 30-minute strategy call with one of our senior consultants.",
+
+  "inquiryHeading": "General Inquiry",
+  "inquiryDescription": "Have a question or want to learn more? Send us a message.",
+
+  "serviceOptions": ["GovCon Solutions", "SAP Services", "UI/UX & Digital Design", "Build & Engineering", "Other"],
+
+  "offices": [
+    { "name": "Primary Office", "address": "[Your Primary Address]", "phone": "[Your Phone]", "email": "[Your Email]" },
+    { "name": "Secondary Office", "address": "[Your Secondary Address, if applicable]", "phone": "", "email": "" }
+  ],
+
+  "socialLinks": [
+    { "label": "LinkedIn", "href": "#" },
+    { "label": "Twitter/X", "href": "#" },
+    { "label": "Instagram", "href": "#" }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "servicesLinks": [
+    {
+      "label": "GovCon Solutions",
+      "href": "/services/govcon"
+    },
+    {
+      "label": "SAP Services",
+      "href": "/services/sap"
+    },
+    {
+      "label": "UI/UX & Digital Design",
+      "href": "/services/ui-ux-design"
+    },
+    {
+      "label": "Build & Engineering",
+      "href": "/services/build-engineering"
+    }
+  ],
+  "headerCtaLabel": "Schedule a Free Consultation",
+  "headerCtaHref": "/contact",
+  "footerTagline": "Blujoy helps government contractors win more bids, enterprises modernize SAP, and brands build digital experiences that convert.",
+  "footerResourceLinks": [
+    {
+      "label": "Blog",
+      "href": "/resources"
+    },
+    {
+      "label": "Guides",
+      "href": "/resources"
+    },
+    {
+      "label": "FAQs",
+      "href": "/resources"
+    },
+    {
+      "label": "News & Events",
+      "href": "/resources"
+    }
+  ],
+  "footerCompanyLinks": [
+    {
+      "label": "About",
+      "href": "/about"
+    },
+    {
+      "label": "Careers",
+      "href": "/careers"
+    },
+    {
+      "label": "Success Stories",
+      "href": "/success-stories"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact"
+    }
+  ],
+  "footerSocialLinks": [
+    {
+      "platform": "linkedin",
+      "href": "#"
+    },
+    {
+      "platform": "x",
+      "href": "#"
+    },
+    {
+      "platform": "youtube",
+      "href": "#"
+    }
+  ],
+  "footerNewsletterHeading": "Get the latest updates from Blujoy",
+  "footerCopyrightText": "© 2026 Blujoy. All rights reserved."
+}

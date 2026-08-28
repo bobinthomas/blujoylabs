@@ -1,0 +1,84 @@
+import type { Metadata } from "next";
+import ServiceHero from "@/components/service-page/ServiceHero";
+import ServiceIntro from "@/components/service-page/ServiceIntro";
+import PathwaysGrid from "@/components/service-page/PathwaysGrid";
+import BenefitsGrid from "@/components/service-page/BenefitsGrid";
+import SupportingServicesGrid from "@/components/service-page/SupportingServicesGrid";
+import TestimonialSplit from "@/components/service-page/TestimonialSplit";
+import SplitCTA from "@/components/service-page/SplitCTA";
+import FAQDark from "@/components/service-page/FAQDark";
+import { getKeystaticReader } from "@/lib/keystatic-reader";
+import { ICONS, type IconKey } from "@/lib/icons";
+
+const SLUG = "sap";
+
+export const metadata: Metadata = {
+  title: "SAP Services",
+  description:
+    "SAP implementation, S/4HANA migration, integration, and managed services delivered by certified consultants.",
+};
+
+export default async function SAPPage() {
+  const reader = getKeystaticReader();
+  const page = await reader.collections.servicePages.read(SLUG);
+  if (!page) throw new Error(`servicePages/${SLUG} is missing`);
+
+  return (
+    <>
+      <ServiceHero
+        eyebrow={page.heroEyebrow}
+        headline={page.heroHeadline}
+        subheadline={page.heroSubheadline}
+        image={page.heroImage}
+        imagePlaceholderLabel="Hero photo"
+      />
+
+      <ServiceIntro
+        heading={page.introHeading}
+        paragraphs={[...page.introParagraphs]}
+        image={page.introImage}
+        imagePlaceholderLabel="Photo"
+      />
+
+      <PathwaysGrid
+        eyebrow={page.pathwaysEyebrow}
+        heading={page.pathwaysHeading}
+        subtitle={page.pathwaysSubtitle}
+        pathways={page.pathways.map((p) => ({ ...p, imagePlaceholderLabel: "Photo" }))}
+      />
+
+      <BenefitsGrid
+        eyebrow={page.benefitsEyebrow}
+        heading={page.benefitsHeading}
+        subtitle={page.benefitsSubtitle}
+        benefits={page.benefits.map((b) => ({ ...b, icon: ICONS[b.iconKey as IconKey] }))}
+      />
+
+      <SupportingServicesGrid
+        heading={page.supportingHeading}
+        subtitle={page.supportingSubtitle}
+        services={[...page.supportingServices]}
+      />
+
+      <TestimonialSplit
+        heading={page.testimonialHeading}
+        quote={page.testimonialQuote}
+        name={page.testimonialName}
+        title={page.testimonialTitle}
+        image={page.testimonialImage}
+        imagePlaceholderLabel="Photo"
+      />
+
+      <SplitCTA
+        heading={page.ctaHeading}
+        description={page.ctaDescription}
+        ctaText={page.ctaLabel}
+        ctaHref={page.ctaHref}
+        image={page.ctaImage}
+        imagePlaceholderLabel="Photo"
+      />
+
+      <FAQDark heading={page.faqHeading} faqs={[...page.faqs]} />
+    </>
+  );
+}

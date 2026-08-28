@@ -11,6 +11,9 @@
 	"observability": {
 		"enabled": true
 	},
+	"vars": {
+		"KEYSTATIC_GITHUB_CLIENT_ID": "Ov23licWqAwqa6b3o8Q3"
+	},
 	"env": {
 		"preview": {
 			"name": "blujaylabs-website-preview",

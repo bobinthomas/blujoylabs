@@ -1,0 +1,10 @@
+{
+  "tag": "SAP Success",
+  "title": "SAP S/4HANA Migration — Manufacturing Enterprise",
+  "client": "Mid-size manufacturing firm with legacy ECC system",
+  "challenge": "Outdated infrastructure, custom code debt, and a hard deadline from SAP maintenance sunset.",
+  "solution": "Brownfield conversion strategy, custom code remediation, data migration, and Fiori UX rollout.",
+  "result": "On-time migration with 30% reduction in custom code and 40% improvement in report generation speed.",
+  "resultHighlight": "30% Less Custom Code",
+  "order": 1
+}

@@ -1,0 +1,66 @@
+{
+  "slug": "govcon",
+  "metaTitle": "GovCon Solutions",
+  "metaDescription": "Win more government contracts with expert proposal development, capture management, and compliance support.",
+
+  "heroEyebrow": "GovCon Solutions",
+  "heroHeadline": "Win more government contracts",
+  "heroSubheadline": "From your first SAM registration to your hundredth proposal — we guide, write, and strategize so you compete to win.",
+  "heroImage": null,
+
+  "introHeading": "Unlock pipeline, positioning, and confidence",
+  "introParagraphs": [
+    "Getting a federal award off the ground takes more than a compliant proposal — it takes capture strategy, teaming relationships, and a compliance posture that holds up under review.",
+    "That's why we back contractors with proposal writers, capture strategists, and compliance specialists who've sat on both sides of the evaluation table. Skip the guesswork — you'll access the insight, process, and infrastructure to submit with confidence."
+  ],
+  "introImage": null,
+
+  "pathwaysEyebrow": "Core Services",
+  "pathwaysHeading": "Three pathways, one route to award",
+  "pathwaysSubtitle": "Wherever you are in your GovCon journey, our program portfolio meets you there.",
+  "pathways": [
+    { "title": "Capture Management & Strategy", "description": "Winning starts before the RFP drops. We help you identify, qualify, and position for opportunities long before the solicitation is released.", "href": "/contact", "linkLabel": "Start your capture plan", "image": null },
+    { "title": "Proposal Development & Writing", "description": "Federal proposals are compliance artifacts, technical narratives, and win strategies wrapped into one. We write proposals that score.", "href": "/contact", "linkLabel": "Get proposal support", "image": null },
+    { "title": "Contract Management & Administration", "description": "Winning is only half the battle. We help you manage deliverables, compliance, and reporting so you perform — and get recompeted.", "href": "/contact", "linkLabel": "Manage your award", "image": null }
+  ],
+
+  "benefitsEyebrow": "Benefits",
+  "benefitsHeading": "Support that starts when you do",
+  "benefitsSubtitle": "Bespoke proposal support, expert advice, and a pipeline you can build on from day one.",
+  "benefits": [
+    { "title": "Federal Expertise", "description": "Deep understanding of federal acquisition regulations, FAR/DFARS, and proposal best practices.", "iconKey": "shield" },
+    { "title": "Speed to Submission", "description": "Rapid turnaround on RFP responses without sacrificing compliance, quality, or your win probability.", "iconKey": "speed" },
+    { "title": "Proven Results", "description": "A track record of contract wins across GSA, DoD, and civilian agencies — 150+ proposals and counting.", "iconKey": "results" },
+    { "title": "True Partnership", "description": "We embed with your team through every milestone, not just deliver a document and disappear.", "iconKey": "partnership" }
+  ],
+
+  "supportingHeading": "Full-spectrum GovCon support",
+  "supportingSubtitle": "Beyond capture and proposals, we cover the full lifecycle of federal contracting.",
+  "supportingServices": [
+    { "title": "Opportunity Identification & Pipeline Building", "description": "Daily opportunity monitoring and capability-to-opportunity matching, so you chase fewer, better-fit RFPs." },
+    { "title": "Contract Vehicle Support", "description": "Navigate GSA Schedules, SEWP, IDIQs, and BPA vehicles from application to award." },
+    { "title": "Compliance & Regulatory Support", "description": "FAR/DFARS review, CMMC readiness, and small business program compliance (8(a), HUBZone, WOSB, SDVOSB)." }
+  ],
+
+  "testimonialHeading": "Hear from contractors we've helped win",
+  "testimonialQuote": "They guided us from zero GovCon experience to a $12M IDIQ win in under 8 months. Their team felt like an extension of our own.",
+  "testimonialName": "Sarah Mitchell",
+  "testimonialTitle": "CEO, TechBridge Federal",
+  "testimonialImage": null,
+
+  "ctaHeading": "Ready to win your next contract?",
+  "ctaDescription": "We'll help you navigate the federal marketplace and connect you with the strategy, writers, and compliance support you need — free and founder-first.",
+  "ctaLabel": "Let's Build Your Proposal Strategy",
+  "ctaHref": "/contact",
+  "ctaImage": null,
+
+  "faqHeading": "Frequently Asked Questions",
+  "faqs": [
+    { "question": "How long does a typical proposal take?", "answer": "A standard federal proposal takes 4-6 weeks from kickoff to submission. Expedited timelines are available for tight deadlines." },
+    { "question": "Do I need past performance to win a government contract?", "answer": "Not necessarily. We help first-time contractors build winning proposals using capability demonstrations, key personnel experience, and subcontracting history." },
+    { "question": "What certifications or set-asides can you help us pursue?", "answer": "We support 8(a), HUBZone, WOSB, SDVOSB, and other socio-economic certifications, from eligibility assessment through application." },
+    { "question": "Do you work with subcontractors or teaming partners?", "answer": "Yes — we help you evaluate and structure teaming arrangements, joint ventures, and subcontracting plans that strengthen your bid." },
+    { "question": "What's the difference between capture management and proposal writing?", "answer": "Capture management happens before the RFP is released — positioning, relationship-building, and competitive intelligence. Proposal writing is the compliant, compelling response once the solicitation drops." },
+    { "question": "How much does GovCon support cost?", "answer": "Engagements are scoped around your pipeline and stage — from a single proposal to ongoing capture retainer support. Book a free consultation and we'll put together a fit-for-purpose quote." }
+  ]
+}

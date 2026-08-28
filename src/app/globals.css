@@ -96,16 +96,6 @@ html {
   color: #121722;
 }
 
-.placeholder-content {
-  border: 2px dashed #cccccc;
-  border-radius: 16px;
-  padding: 2rem;
-  background-color: #fbfaf7;
-  color: #777c86;
-  font-style: italic;
-  text-align: center;
-}
-
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -178,4 +168,29 @@ html {
 
 .card-shadow-hover {
   box-shadow: rgba(0, 0, 0, 0.04) 0px 20px 20px -8px;
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Infinite marquee for the hero's overlapping card row — translates by
+   exactly one duplicated set-width, so the loop reads as continuous. */
+@keyframes marquee-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee-x 34s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
 }

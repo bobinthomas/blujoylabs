@@ -1,0 +1,344 @@
+diff --git a/node_modules/@keystatic/core/dist/index-5d64e651.js b/node_modules/@keystatic/core/dist/index-5d64e651.js
+index e104981..fde964c 100644
+--- a/node_modules/@keystatic/core/dist/index-5d64e651.js
++++ b/node_modules/@keystatic/core/dist/index-5d64e651.js
+@@ -2538,6 +2538,9 @@ function GitHubAppShellProvider(props) {
+       if ((x_2 === null || x_2 === void 0 || (_x_2$target = x_2.target) === null || _x_2$target === void 0 ? void 0 : _x_2$target.__typename) !== 'Commit') {
+         return [];
+       }
++      if (x_2.name !== (repo === null || repo === void 0 || repo.defaultBranchRef === null || repo.defaultBranchRef === void 0 ? void 0 : repo.defaultBranchRef.name)) {
++        return [];
++      }
+       return [[x_2.name, {
+         id: x_2.id,
+         commitSha: x_2.target.oid,
+diff --git a/node_modules/@keystatic/core/dist/keystatic-core-api-generic.js b/node_modules/@keystatic/core/dist/keystatic-core-api-generic.js
+index aabdb1a..a816104 100644
+--- a/node_modules/@keystatic/core/dist/keystatic-core-api-generic.js
++++ b/node_modules/@keystatic/core/dist/keystatic-core-api-generic.js
+@@ -186,9 +186,9 @@ function makeGenericAPIRouteHandler(_config, options) {
+ }
+ const tokenDataResultType = s.type({
+   access_token: s.string(),
+-  expires_in: s.number(),
+-  refresh_token: s.string(),
+-  refresh_token_expires_in: s.number(),
++  expires_in: s.optional(s.number()),
++  refresh_token: s.optional(s.string()),
++  refresh_token_expires_in: s.optional(s.number()),
+   scope: s.string(),
+   token_type: s.literal('bearer')
+ });
+@@ -234,10 +234,10 @@ async function githubOauthCallback(req, config) {
+   let tokenData;
+   try {
+     tokenData = tokenDataResultType.create(_tokenData);
+-  } catch {
++  } catch (e) {
+     return {
+       status: 401,
+-      body: 'Authorization failed'
++      body: `Authorization failed. GitHub response: ${JSON.stringify(_tokenData)} | Validation error: ${e && e.message}`
+     };
+   }
+   const headers = await getTokenCookies(tokenData, config);
+@@ -254,17 +254,18 @@ async function getTokenCookies(tokenData, config) {
+   const headers = [['Set-Cookie', cookie.serialize('keystatic-gh-access-token', tokenData.access_token, {
+     sameSite: 'lax',
+     secure: process.env.NODE_ENV === 'production',
+-    maxAge: tokenData.expires_in,
+-    expires: new Date(Date.now() + tokenData.expires_in * 1000),
+-    path: '/'
+-  })], ['Set-Cookie', cookie.serialize('keystatic-gh-refresh-token', await encryptValue(tokenData.refresh_token, config.secret), {
+-    sameSite: 'lax',
+-    secure: process.env.NODE_ENV === 'production',
+-    httpOnly: true,
+-    maxAge: tokenData.refresh_token_expires_in,
+-    expires: new Date(Date.now() + tokenData.refresh_token_expires_in * 100),
++    ...(tokenData.expires_in !== undefined ? { maxAge: tokenData.expires_in, expires: new Date(Date.now() + tokenData.expires_in * 1000) } : {}),
+     path: '/'
+   })]];
++  if (tokenData.refresh_token !== undefined) {
++    headers.push(['Set-Cookie', cookie.serialize('keystatic-gh-refresh-token', await encryptValue(tokenData.refresh_token, config.secret), {
++      sameSite: 'lax',
++      secure: process.env.NODE_ENV === 'production',
++      httpOnly: true,
++      ...(tokenData.refresh_token_expires_in !== undefined ? { maxAge: tokenData.refresh_token_expires_in, expires: new Date(Date.now() + tokenData.refresh_token_expires_in * 100) } : {}),
++      path: '/'
++    })]);
++  }
+   return headers;
+ }
+ async function getRefreshToken(req, config) {
+@@ -336,6 +337,7 @@ async function githubLogin(req, config) {
+   const url = new URL('https://github.com/login/oauth/authorize');
+   url.searchParams.set('client_id', config.clientId);
+   url.searchParams.set('redirect_uri', `${reqUrl.origin}/api/keystatic/github/oauth/callback`);
++  url.searchParams.set('scope', 'public_repo');
+   if (from === '/') {
+     return redirect(url.toString());
+   }
+diff --git a/node_modules/@keystatic/core/dist/keystatic-core-api-generic.node.js b/node_modules/@keystatic/core/dist/keystatic-core-api-generic.node.js
+index b4c82e2..c9a69ab 100644
+--- a/node_modules/@keystatic/core/dist/keystatic-core-api-generic.node.js
++++ b/node_modules/@keystatic/core/dist/keystatic-core-api-generic.node.js
+@@ -389,9 +389,9 @@ function makeGenericAPIRouteHandler(_config, options) {
+ }
+ const tokenDataResultType = s.type({
+   access_token: s.string(),
+-  expires_in: s.number(),
+-  refresh_token: s.string(),
+-  refresh_token_expires_in: s.number(),
++  expires_in: s.optional(s.number()),
++  refresh_token: s.optional(s.string()),
++  refresh_token_expires_in: s.optional(s.number()),
+   scope: s.string(),
+   token_type: s.literal('bearer')
+ });
+@@ -437,10 +437,10 @@ async function githubOauthCallback(req, config) {
+   let tokenData;
+   try {
+     tokenData = tokenDataResultType.create(_tokenData);
+-  } catch {
++  } catch (e) {
+     return {
+       status: 401,
+-      body: 'Authorization failed'
++      body: `Authorization failed. GitHub response: ${JSON.stringify(_tokenData)} | Validation error: ${e && e.message}`
+     };
+   }
+   const headers = await getTokenCookies(tokenData, config);
+@@ -457,17 +457,18 @@ async function getTokenCookies(tokenData, config) {
+   const headers = [['Set-Cookie', cookie.serialize('keystatic-gh-access-token', tokenData.access_token, {
+     sameSite: 'lax',
+     secure: process.env.NODE_ENV === 'production',
+-    maxAge: tokenData.expires_in,
+-    expires: new Date(Date.now() + tokenData.expires_in * 1000),
+-    path: '/'
+-  })], ['Set-Cookie', cookie.serialize('keystatic-gh-refresh-token', await encryptValue(tokenData.refresh_token, config.secret), {
+-    sameSite: 'lax',
+-    secure: process.env.NODE_ENV === 'production',
+-    httpOnly: true,
+-    maxAge: tokenData.refresh_token_expires_in,
+-    expires: new Date(Date.now() + tokenData.refresh_token_expires_in * 100),
++    ...(tokenData.expires_in !== undefined ? { maxAge: tokenData.expires_in, expires: new Date(Date.now() + tokenData.expires_in * 1000) } : {}),
+     path: '/'
+   })]];
++  if (tokenData.refresh_token !== undefined) {
++    headers.push(['Set-Cookie', cookie.serialize('keystatic-gh-refresh-token', await encryptValue(tokenData.refresh_token, config.secret), {
++      sameSite: 'lax',
++      secure: process.env.NODE_ENV === 'production',
++      httpOnly: true,
++      ...(tokenData.refresh_token_expires_in !== undefined ? { maxAge: tokenData.refresh_token_expires_in, expires: new Date(Date.now() + tokenData.refresh_token_expires_in * 100) } : {}),
++      path: '/'
++    })]);
++  }
+   return headers;
+ }
+ async function getRefreshToken(req, config) {
+@@ -539,6 +540,7 @@ async function githubLogin(req, config) {
+   const url = new URL('https://github.com/login/oauth/authorize');
+   url.searchParams.set('client_id', config.clientId);
+   url.searchParams.set('redirect_uri', `${reqUrl.origin}/api/keystatic/github/oauth/callback`);
++  url.searchParams.set('scope', 'public_repo');
+   if (from === '/') {
+     return redirect(url.toString());
+   }
+diff --git a/node_modules/@keystatic/core/dist/keystatic-core-api-generic.node.react-server.js b/node_modules/@keystatic/core/dist/keystatic-core-api-generic.node.react-server.js
+index fb21fd0..6a0b17d 100644
+--- a/node_modules/@keystatic/core/dist/keystatic-core-api-generic.node.react-server.js
++++ b/node_modules/@keystatic/core/dist/keystatic-core-api-generic.node.react-server.js
+@@ -389,9 +389,9 @@ function makeGenericAPIRouteHandler(_config, options) {
+ }
+ const tokenDataResultType = s.type({
+   access_token: s.string(),
+-  expires_in: s.number(),
+-  refresh_token: s.string(),
+-  refresh_token_expires_in: s.number(),
++  expires_in: s.optional(s.number()),
++  refresh_token: s.optional(s.string()),
++  refresh_token_expires_in: s.optional(s.number()),
+   scope: s.string(),
+   token_type: s.literal('bearer')
+ });
+@@ -437,10 +437,10 @@ async function githubOauthCallback(req, config) {
+   let tokenData;
+   try {
+     tokenData = tokenDataResultType.create(_tokenData);
+-  } catch {
++  } catch (e) {
+     return {
+       status: 401,
+-      body: 'Authorization failed'
++      body: `Authorization failed. GitHub response: ${JSON.stringify(_tokenData)} | Validation error: ${e && e.message}`
+     };
+   }
+   const headers = await getTokenCookies(tokenData, config);
+@@ -457,17 +457,18 @@ async function getTokenCookies(tokenData, config) {
+   const headers = [['Set-Cookie', cookie.serialize('keystatic-gh-access-token', tokenData.access_token, {
+     sameSite: 'lax',
+     secure: process.env.NODE_ENV === 'production',
+-    maxAge: tokenData.expires_in,
+-    expires: new Date(Date.now() + tokenData.expires_in * 1000),
+-    path: '/'
+-  })], ['Set-Cookie', cookie.serialize('keystatic-gh-refresh-token', await encryptValue(tokenData.refresh_token, config.secret), {
+-    sameSite: 'lax',
+-    secure: process.env.NODE_ENV === 'production',
+-    httpOnly: true,
+-    maxAge: tokenData.refresh_token_expires_in,
+-    expires: new Date(Date.now() + tokenData.refresh_token_expires_in * 100),
++    ...(tokenData.expires_in !== undefined ? { maxAge: tokenData.expires_in, expires: new Date(Date.now() + tokenData.expires_in * 1000) } : {}),
+     path: '/'
+   })]];
++  if (tokenData.refresh_token !== undefined) {
++    headers.push(['Set-Cookie', cookie.serialize('keystatic-gh-refresh-token', await encryptValue(tokenData.refresh_token, config.secret), {
++      sameSite: 'lax',
++      secure: process.env.NODE_ENV === 'production',
++      httpOnly: true,
++      ...(tokenData.refresh_token_expires_in !== undefined ? { maxAge: tokenData.refresh_token_expires_in, expires: new Date(Date.now() + tokenData.refresh_token_expires_in * 100) } : {}),
++      path: '/'
++    })]);
++  }
+   return headers;
+ }
+ async function getRefreshToken(req, config) {
+@@ -539,6 +540,7 @@ async function githubLogin(req, config) {
+   const url = new URL('https://github.com/login/oauth/authorize');
+   url.searchParams.set('client_id', config.clientId);
+   url.searchParams.set('redirect_uri', `${reqUrl.origin}/api/keystatic/github/oauth/callback`);
++  url.searchParams.set('scope', 'public_repo');
+   if (from === '/') {
+     return redirect(url.toString());
+   }
+diff --git a/node_modules/@keystatic/core/dist/keystatic-core-api-generic.react-server.js b/node_modules/@keystatic/core/dist/keystatic-core-api-generic.react-server.js
+index 2246207..afc27e8 100644
+--- a/node_modules/@keystatic/core/dist/keystatic-core-api-generic.react-server.js
++++ b/node_modules/@keystatic/core/dist/keystatic-core-api-generic.react-server.js
+@@ -205,9 +205,9 @@ function makeGenericAPIRouteHandler(_config, options) {
+ }
+ const tokenDataResultType = s.type({
+   access_token: s.string(),
+-  expires_in: s.number(),
+-  refresh_token: s.string(),
+-  refresh_token_expires_in: s.number(),
++  expires_in: s.optional(s.number()),
++  refresh_token: s.optional(s.string()),
++  refresh_token_expires_in: s.optional(s.number()),
+   scope: s.string(),
+   token_type: s.literal('bearer')
+ });
+@@ -253,10 +253,10 @@ async function githubOauthCallback(req, config) {
+   let tokenData;
+   try {
+     tokenData = tokenDataResultType.create(_tokenData);
+-  } catch {
++  } catch (e) {
+     return {
+       status: 401,
+-      body: 'Authorization failed'
++      body: `Authorization failed. GitHub response: ${JSON.stringify(_tokenData)} | Validation error: ${e && e.message}`
+     };
+   }
+   const headers = await getTokenCookies(tokenData, config);
+@@ -273,17 +273,18 @@ async function getTokenCookies(tokenData, config) {
+   const headers = [['Set-Cookie', cookie.serialize('keystatic-gh-access-token', tokenData.access_token, {
+     sameSite: 'lax',
+     secure: process.env.NODE_ENV === 'production',
+-    maxAge: tokenData.expires_in,
+-    expires: new Date(Date.now() + tokenData.expires_in * 1000),
+-    path: '/'
+-  })], ['Set-Cookie', cookie.serialize('keystatic-gh-refresh-token', await encryptValue(tokenData.refresh_token, config.secret), {
+-    sameSite: 'lax',
+-    secure: process.env.NODE_ENV === 'production',
+-    httpOnly: true,
+-    maxAge: tokenData.refresh_token_expires_in,
+-    expires: new Date(Date.now() + tokenData.refresh_token_expires_in * 100),
++    ...(tokenData.expires_in !== undefined ? { maxAge: tokenData.expires_in, expires: new Date(Date.now() + tokenData.expires_in * 1000) } : {}),
+     path: '/'
+   })]];
++  if (tokenData.refresh_token !== undefined) {
++    headers.push(['Set-Cookie', cookie.serialize('keystatic-gh-refresh-token', await encryptValue(tokenData.refresh_token, config.secret), {
++      sameSite: 'lax',
++      secure: process.env.NODE_ENV === 'production',
++      httpOnly: true,
++      ...(tokenData.refresh_token_expires_in !== undefined ? { maxAge: tokenData.refresh_token_expires_in, expires: new Date(Date.now() + tokenData.refresh_token_expires_in * 100) } : {}),
++      path: '/'
++    })]);
++  }
+   return headers;
+ }
+ async function getRefreshToken(req, config) {
+@@ -355,6 +356,7 @@ async function githubLogin(req, config) {
+   const url = new URL('https://github.com/login/oauth/authorize');
+   url.searchParams.set('client_id', config.clientId);
+   url.searchParams.set('redirect_uri', `${reqUrl.origin}/api/keystatic/github/oauth/callback`);
++  url.searchParams.set('scope', 'public_repo');
+   if (from === '/') {
+     return redirect(url.toString());
+   }
+diff --git a/node_modules/@keystatic/core/dist/keystatic-core-api-generic.worker.js b/node_modules/@keystatic/core/dist/keystatic-core-api-generic.worker.js
+index 2246207..afc27e8 100644
+--- a/node_modules/@keystatic/core/dist/keystatic-core-api-generic.worker.js
++++ b/node_modules/@keystatic/core/dist/keystatic-core-api-generic.worker.js
+@@ -205,9 +205,9 @@ function makeGenericAPIRouteHandler(_config, options) {
+ }
+ const tokenDataResultType = s.type({
+   access_token: s.string(),
+-  expires_in: s.number(),
+-  refresh_token: s.string(),
+-  refresh_token_expires_in: s.number(),
++  expires_in: s.optional(s.number()),
++  refresh_token: s.optional(s.string()),
++  refresh_token_expires_in: s.optional(s.number()),
+   scope: s.string(),
+   token_type: s.literal('bearer')
+ });
+@@ -253,10 +253,10 @@ async function githubOauthCallback(req, config) {
+   let tokenData;
+   try {
+     tokenData = tokenDataResultType.create(_tokenData);
+-  } catch {
++  } catch (e) {
+     return {
+       status: 401,
+-      body: 'Authorization failed'
++      body: `Authorization failed. GitHub response: ${JSON.stringify(_tokenData)} | Validation error: ${e && e.message}`
+     };
+   }
+   const headers = await getTokenCookies(tokenData, config);
+@@ -273,17 +273,18 @@ async function getTokenCookies(tokenData, config) {
+   const headers = [['Set-Cookie', cookie.serialize('keystatic-gh-access-token', tokenData.access_token, {
+     sameSite: 'lax',
+     secure: process.env.NODE_ENV === 'production',
+-    maxAge: tokenData.expires_in,
+-    expires: new Date(Date.now() + tokenData.expires_in * 1000),
+-    path: '/'
+-  })], ['Set-Cookie', cookie.serialize('keystatic-gh-refresh-token', await encryptValue(tokenData.refresh_token, config.secret), {
+-    sameSite: 'lax',
+-    secure: process.env.NODE_ENV === 'production',
+-    httpOnly: true,
+-    maxAge: tokenData.refresh_token_expires_in,
+-    expires: new Date(Date.now() + tokenData.refresh_token_expires_in * 100),
++    ...(tokenData.expires_in !== undefined ? { maxAge: tokenData.expires_in, expires: new Date(Date.now() + tokenData.expires_in * 1000) } : {}),
+     path: '/'
+   })]];
++  if (tokenData.refresh_token !== undefined) {
++    headers.push(['Set-Cookie', cookie.serialize('keystatic-gh-refresh-token', await encryptValue(tokenData.refresh_token, config.secret), {
++      sameSite: 'lax',
++      secure: process.env.NODE_ENV === 'production',
++      httpOnly: true,
++      ...(tokenData.refresh_token_expires_in !== undefined ? { maxAge: tokenData.refresh_token_expires_in, expires: new Date(Date.now() + tokenData.refresh_token_expires_in * 100) } : {}),
++      path: '/'
++    })]);
++  }
+   return headers;
+ }
+ async function getRefreshToken(req, config) {
+@@ -355,6 +356,7 @@ async function githubLogin(req, config) {
+   const url = new URL('https://github.com/login/oauth/authorize');
+   url.searchParams.set('client_id', config.clientId);
+   url.searchParams.set('redirect_uri', `${reqUrl.origin}/api/keystatic/github/oauth/callback`);
++  url.searchParams.set('scope', 'public_repo');
+   if (from === '/') {
+     return redirect(url.toString());
+   }

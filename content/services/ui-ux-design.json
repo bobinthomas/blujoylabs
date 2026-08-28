@@ -1,0 +1,65 @@
+{
+  "slug": "ui-ux-design",
+  "metaTitle": "UI/UX & Digital Design",
+  "metaDescription": "Brand identity, product design, web and app design, and design systems built around real users and business outcomes.",
+
+  "heroEyebrow": "UI/UX & Digital Design",
+  "heroHeadline": "Design that works as hard as you do",
+  "heroSubheadline": "Brand identity, product design, and digital experiences built around real users — and real business outcomes.",
+  "heroImage": null,
+
+  "introHeading": "Unlock clarity, consistency, and conversion",
+  "introParagraphs": [
+    "Getting a product or brand to feel intentional takes more than a good-looking screen — it takes research, systems thinking, and design that holds up as you scale.",
+    "That's why we pair every engagement with designers who've shipped brand systems, product interfaces, and design systems for startups and enterprises alike. Skip the guesswork — you'll get the process and craft to launch with confidence."
+  ],
+  "introImage": null,
+
+  "pathwaysEyebrow": "Core Services",
+  "pathwaysHeading": "Three pathways, one cohesive experience",
+  "pathwaysSubtitle": "Wherever you are in your brand or product journey, our program portfolio meets you there.",
+  "pathways": [
+    { "title": "Brand Identity & Systems", "description": "Your brand is more than a logo. It's a system of visual rules that ensures consistency across every touchpoint — from your website to your investor deck.", "href": "/contact", "linkLabel": "Build your brand system", "image": null },
+    { "title": "Product & UX Design", "description": "We don't design screens. We design workflows. Every interaction is mapped to a user goal, tested for clarity, and refined for conversion.", "href": "/contact", "linkLabel": "Start a product design", "image": null },
+    { "title": "Web Design", "description": "Your website is your hardest-working salesperson. We design sites that communicate authority, load fast, and guide visitors to action — on any device.", "href": "/contact", "linkLabel": "Redesign your website", "image": null }
+  ],
+
+  "benefitsEyebrow": "Benefits",
+  "benefitsHeading": "Support that starts when you do",
+  "benefitsSubtitle": "Research-backed process, systems that scale, and a partner fluent in both design and code.",
+  "benefits": [
+    { "title": "User-Centered Process", "description": "Every interface starts with real user research and personas, not assumptions about what users want.", "iconKey": "partnership" },
+    { "title": "Systems Thinking", "description": "Reusable components and design tokens that scale across your whole product, not one-off screens.", "iconKey": "layers" },
+    { "title": "Proven Results", "description": "100+ design systems shipped — and past clients have seen inbound leads triple within a quarter.", "iconKey": "results" },
+    { "title": "Design + Dev Fluency", "description": "We speak both design and code, so nothing gets lost between the mockup and the merged pull request.", "iconKey": "speed" }
+  ],
+
+  "supportingHeading": "Full-spectrum design support",
+  "supportingSubtitle": "Beyond brand and product, we cover the full range of your digital design needs.",
+  "supportingServices": [
+    { "title": "App Design", "description": "Native or cross-platform, consumer or enterprise — mobile experiences that users actually want to open." },
+    { "title": "Design Systems in Figma", "description": "Component libraries, token architecture, and documentation that unify your product and speed up development." }
+  ],
+
+  "testimonialHeading": "Hear from teams we've helped design for",
+  "testimonialQuote": "The brand redesign transformed our credibility. Inbound leads tripled within the first quarter.",
+  "testimonialName": "David Chen",
+  "testimonialTitle": "VP Marketing, Atlas Defense",
+  "testimonialImage": null,
+
+  "ctaHeading": "Let's design something worth remembering",
+  "ctaDescription": "We'll help you scope the right starting point — brand, product, or web — with a plan built around your users and your goals.",
+  "ctaLabel": "Start a Design Project",
+  "ctaHref": "/contact",
+  "ctaImage": null,
+
+  "faqHeading": "Frequently Asked Questions",
+  "faqs": [
+    { "question": "How much does a design system cost?", "answer": "Design systems typically range from $25K-$100K depending on scope, components needed, and platform complexity. We offer phased approaches to spread investment over time." },
+    { "question": "How long does a typical brand identity project take?", "answer": "A full brand identity — logo, type, color, and guidelines — typically takes 4-8 weeks depending on the number of stakeholders and revision rounds." },
+    { "question": "Do you design for both web and mobile?", "answer": "Yes — we design responsive web experiences and native iOS/Android or cross-platform mobile apps, and can build one design system that covers both." },
+    { "question": "Can you work within our existing brand guidelines?", "answer": "Absolutely. We can design within an established brand system, or help evolve it if it's holding your product back." },
+    { "question": "What tools do you use for design systems?", "answer": "Figma is our primary tool — component libraries, auto-layout, and variant systems — paired with documentation your engineering team can build from directly." },
+    { "question": "Do you provide developer handoff documentation?", "answer": "Yes — every project includes handoff specs, redlines, and component documentation so your development team can implement without guesswork." }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "slug": "sap",
+  "metaTitle": "SAP Services",
+  "metaDescription": "SAP implementation, S/4HANA migration, integration, and managed services delivered by certified consultants.",
+
+  "heroEyebrow": "SAP Services",
+  "heroHeadline": "Run your enterprise on SAP — smarter",
+  "heroSubheadline": "Implementation, migration, integration, and support. Delivered by consultants who understand both the technology and the business it powers.",
+  "heroImage": null,
+
+  "introHeading": "Modernize with confidence, not disruption",
+  "introParagraphs": [
+    "An SAP transformation touches every part of your business — finance, operations, HR, and the people who rely on the system every day. Getting it right takes more than technical know-how.",
+    "That's why we back your project with certified consultants who've led implementations, migrations, and integrations across manufacturing, enterprise, and regulated industries. You get the process discipline and technical depth to modernize without the downtime."
+  ],
+  "introImage": null,
+
+  "pathwaysEyebrow": "Core Services",
+  "pathwaysHeading": "Three pathways, one smoother SAP journey",
+  "pathwaysSubtitle": "Wherever you are in your SAP lifecycle, our program portfolio meets you there.",
+  "pathways": [
+    { "title": "SAP Implementation & Migration", "description": "Whether you're going live for the first time or moving from ECC to S/4HANA, we plan, execute, and stabilize your SAP journey.", "href": "/contact", "linkLabel": "Plan your migration", "image": null },
+    { "title": "SAP S/4HANA Consulting", "description": "S/4HANA isn't just an upgrade — it's a transformation. We help you realize the full value of real-time analytics, simplified data models, and Fiori UX.", "href": "/contact", "linkLabel": "Explore S/4HANA readiness", "image": null },
+    { "title": "SAP Support & Managed Services", "description": "Keep your SAP environment healthy, secure, and evolving — without building an internal army.", "href": "/contact", "linkLabel": "Get managed support", "image": null }
+  ],
+
+  "benefitsEyebrow": "Benefits",
+  "benefitsHeading": "Support that starts when you do",
+  "benefitsSubtitle": "Certified expertise, structured delivery, and a partner who stays through go-live and beyond.",
+  "benefits": [
+    { "title": "Certified Expertise", "description": "SAP-certified consultants with real-world experience across S/4HANA, integrations, and enterprise deployments.", "iconKey": "shield" },
+    { "title": "Faster Time to Value", "description": "A structured migration methodology that minimizes downtime and accelerates your go-live date.", "iconKey": "speed" },
+    { "title": "Proven Track Record", "description": "50+ SAP projects delivered across manufacturing, enterprise, and regulated industries.", "iconKey": "results" },
+    { "title": "Embedded Partnership", "description": "We work alongside your team through go-live and beyond — not just handoff and disappear.", "iconKey": "partnership" }
+  ],
+
+  "supportingHeading": "Full-spectrum SAP support",
+  "supportingSubtitle": "Beyond implementation and consulting, we cover the full range of your SAP landscape.",
+  "supportingServices": [
+    { "title": "SAP Integration & Custom Development", "description": "API and middleware integration (SAP PI/PO, CPI), custom ABAP and Fiori development, and third-party connectivity." },
+    { "title": "SAP Analytics & Reporting", "description": "SAP Analytics Cloud, BW/4HANA, custom reports, and executive dashboards that turn your data into decisions." },
+    { "title": "SAP Compliance & Security", "description": "GRC implementation, access control and role design, and audit preparation for regulated environments." }
+  ],
+
+  "testimonialHeading": "Hear from teams we've helped modernize",
+  "testimonialQuote": "Our SAP migration was complex and time-sensitive. They delivered on time with 30% less custom code than expected.",
+  "testimonialName": "James Rodriguez",
+  "testimonialTitle": "CTO, Precision Manufacturing",
+  "testimonialImage": null,
+
+  "ctaHeading": "Let's modernize your SAP environment",
+  "ctaDescription": "We'll help you scope the right path — implementation, migration, or ongoing support — with a plan built around your systems and your team.",
+  "ctaLabel": "Talk to an SAP Consultant",
+  "ctaHref": "/contact",
+  "ctaImage": null,
+
+  "faqHeading": "Frequently Asked Questions",
+  "faqs": [
+    { "question": "What's the difference between ECC and S/4HANA?", "answer": "S/4HANA is SAP's next-generation ERP suite built on an in-memory database. It offers real-time analytics, simplified data models, and a modern Fiori user interface compared to the legacy ECC platform." },
+    { "question": "How long does a typical SAP migration take?", "answer": "Timelines vary by scope, but a mid-size S/4HANA conversion typically runs 4-9 months from blueprint to go-live, with hypercare support afterward." },
+    { "question": "Do you support Brownfield, Greenfield, or Hybrid conversions?", "answer": "Yes — we assess your current landscape and recommend the conversion path that best balances cost, risk, and how much of your existing configuration you want to carry forward." },
+    { "question": "Can you integrate SAP with our existing CRM and finance systems?", "answer": "Absolutely. We build API and middleware integrations (SAP PI/PO, CPI) to connect SAP with the rest of your system landscape." },
+    { "question": "Do you offer ongoing support after go-live?", "answer": "Yes — our managed services cover 24/7 monitoring, patch management, performance tuning, and a functional/technical support desk." },
+    { "question": "How much does an SAP engagement cost?", "answer": "Cost depends on scope — a single module implementation looks very different from a full S/4HANA conversion. Book a free consultation and we'll scope a fit-for-purpose quote." }
+  ]
+}

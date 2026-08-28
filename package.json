@@ -10,11 +10,15 @@
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "deploy:preview": "opennextjs-cloudflare build && opennextjs-cloudflare deploy --env preview",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "postinstall": "patch-package"
   },
   "dependencies": {
+    "@keystatic/core": "^0.6.9",
+    "@keystatic/next": "^5.0.5",
     "@opennextjs/cloudflare": "^1.20.2",
     "next": "16.3.1",
+    "patch-package": "^8.0.1",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },

@@ -1,0 +1,105 @@
+{
+  "heroBadge": "GovCon • SAP • Digital Design",
+  "heroHeadline": "From Strategy to Submission. From Design to Deployment.",
+  "heroSubheadline": "We help government contractors win more bids, enterprises run smarter on SAP, and brands build digital experiences that convert.",
+  "heroImage": "/api/media/images/hero-image.jpg",
+  "heroCtaPrimaryLabel": "Schedule a Free Consultation",
+  "heroCtaPrimaryHref": "/contact",
+  "heroCtaSecondaryLabel": "Explore Our Services",
+  "heroCtaSecondaryHref": "/services/govcon",
+
+  "floatingCards": [
+    { "type": "logo", "eyebrow": "Certified Partner", "value": "SAP", "title": "Certified implementation partner across every engagement.", "image": null, "iconKey": "check" },
+    { "type": "feature", "eyebrow": "Nationwide Reach", "value": "", "title": "Supporting federal contractors and enterprises across the U.S.", "image": null, "iconKey": "globe" },
+    { "type": "photo", "eyebrow": "Advisory", "value": "", "title": "Consultants who embed with your team through every milestone.", "image": "/api/media/images/hero-image.jpg", "iconKey": "users" },
+    { "type": "stat", "eyebrow": "", "value": "20+", "title": "Years of combined GovCon, SAP, and design expertise.", "image": null, "iconKey": "" },
+    { "type": "feature", "eyebrow": "Delivery", "value": "", "title": "100+ design systems and digital platforms shipped.", "image": null, "iconKey": "layers" },
+    { "type": "stat", "eyebrow": "Client Retention", "value": "95%", "title": "Retention rate across every long-term engagement.", "image": null, "iconKey": "arrowUp" }
+  ],
+
+  "pillarsEyebrow": "Core Services",
+  "pillarsHeading": "What We Do Best",
+  "pillarsSubtitle": "Three pillars of expertise. One unified partner.",
+  "pillars": [
+    {
+      "title": "GovCon Solutions",
+      "description": "Navigate the federal marketplace with confidence. From opportunity identification to proposal submission and contract management, we position your business to win.",
+      "href": "/services/govcon",
+      "stats": "150+ Proposals",
+      "image": "/api/media/images/gov-con-illustration.svg",
+      "labelPosition": "bottom",
+      "color": "#0068f9"
+    },
+    {
+      "title": "SAP Services",
+      "description": "Modernize, migrate, and maximize your SAP investment. Implementation, S/4HANA, integration, and ongoing support — delivered by certified consultants.",
+      "href": "/services/sap",
+      "stats": "50+ SAP Projects",
+      "image": "/api/media/images/sap-illustration.svg",
+      "labelPosition": "top",
+      "color": "#6736eb"
+    },
+    {
+      "title": "UI/UX & Digital Design",
+      "description": "Interfaces that feel intentional. Brands that feel unmistakably you. From product design to design systems, we craft digital experiences that drive results.",
+      "href": "/services/ui-ux-design",
+      "stats": "100+ Design Systems",
+      "image": "/api/media/images/ui-ux-illustration.svg",
+      "labelPosition": "bottom",
+      "color": "#046645"
+    }
+  ],
+
+  "whyUsEyebrow": "Why Blujoy",
+  "whyUsHeading": "Built for Complexity. Delivered with Clarity.",
+  "whyUs": [
+    { "title": "GovCon Expertise", "description": "Deep understanding of federal acquisition, compliance, and proposal best practices.", "iconKey": "govcon" },
+    { "title": "SAP-Certified Consultants", "description": "Real-world experience across S/4HANA, integrations, and enterprise deployments.", "iconKey": "sap" },
+    { "title": "Design-Led Thinking", "description": "Every interface, brand, and system we build starts with the user in mind.", "iconKey": "design" },
+    { "title": "Compliance-First", "description": "CMMC, ISO 27001, and ISO 9001 aligned processes across every engagement.", "iconKey": "compliance" },
+    { "title": "Flexible Engagement Models", "description": "Project-based, retainer, or fractional support — tailored to your pace and budget.", "iconKey": "flexible" },
+    { "title": "Measurable Results", "description": "Proposal wins, system uptime, and design metrics we report on every engagement.", "iconKey": "results" }
+  ],
+
+  "logos": [
+    { "name": "SAM.gov" },
+    { "name": "SAP" },
+    { "name": "Figma" },
+    { "name": "AWS" },
+    { "name": "Microsoft" },
+    { "name": "Salesforce" },
+    { "name": "ServiceNow" }
+  ],
+
+  "caseStudyBadge": "Featured Case Study",
+  "caseStudyHeadline": "$12M Contract Win for a First-Time GovCon Entrant",
+  "caseStudyDescription": "We guided a small technology firm from SAM registration to their first major federal award — in under 8 months. Full GovCon readiness program including pipeline development and proposal writing.",
+  "caseStudyLinkLabel": "Read the Full Story",
+  "caseStudyHref": "/success-stories",
+
+  "stepsHeading": "How We Work",
+  "stepsSubtitle": "A clear process from first conversation to measurable results.",
+  "steps": [
+    { "title": "Discovery Call", "description": "We learn about your business, challenges, and goals in a free 30-minute consultation." },
+    { "title": "Strategy & Proposal", "description": "Our team develops a tailored engagement plan with clear deliverables and timelines." },
+    { "title": "Execute & Deliver", "description": "We get to work — with regular check-ins, transparent progress, and measurable results." }
+  ],
+
+  "testimonials": ["sarah-mitchell", "james-rodriguez", "david-chen"],
+
+  "faqHeading": "Frequently Asked Questions",
+  "faqSubtitle": "Quick answers to common questions.",
+  "faqs": [
+    { "question": "How long does a typical proposal take?", "answer": "A standard federal proposal takes 4-6 weeks from kickoff to submission. Expedited timelines are available for tight deadlines." },
+    { "question": "Do I need past performance to win a government contract?", "answer": "Not necessarily. We help first-time contractors build winning proposals using capability demonstrations, key personnel experience, and subcontracting history." },
+    { "question": "What's the difference between ECC and S/4HANA?", "answer": "S/4HANA is SAP's next-generation ERP suite built on an in-memory database. It offers real-time analytics, simplified data models, and a modern Fiori user interface compared to the legacy ECC platform." },
+    { "question": "How much does a design system cost?", "answer": "Design systems typically range from $25K-$100K depending on scope, components needed, and platform complexity. We offer phased approaches to spread investment over time." }
+  ],
+
+  "finalCtaHeadline": "Ready to Win, Modernize, or Stand Out?",
+  "finalCtaDescription": "Let's talk about where you are — and where you want to go.",
+  "finalCtaPrimaryLabel": "Book Your Free Strategy Call",
+  "finalCtaPrimaryHref": "/contact",
+  "finalCtaSecondaryLabel": "See Our Results",
+  "finalCtaSecondaryHref": "/success-stories"
+}

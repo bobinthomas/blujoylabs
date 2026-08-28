@@ -1,0 +1,23 @@
+{
+  "heroEyebrow": "Success Stories",
+  "heroHeadline": "Results that speak",
+  "heroSubheadline": "Real wins, real transformations, real partnerships.",
+  "heroImage": null,
+
+  "metricsHeading": "By the Numbers",
+  "metrics": [
+    { "value": "150+", "label": "Proposals Delivered" },
+    { "value": "$500M+", "label": "Contract Value Supported" },
+    { "value": "50+", "label": "SAP Projects Completed" },
+    { "value": "100+", "label": "Design Systems Shipped" },
+    { "value": "95%", "label": "Client Retention Rate" }
+  ],
+
+  "testimonialsHeading": "What Our Clients Say",
+  "testimonials": ["sarah-mitchell", "james-rodriguez", "david-chen"],
+
+  "ctaHeading": "Ready to write your own success story?",
+  "ctaDescription": "Let's talk about where you are — and how we can help you get the kind of result worth featuring here.",
+  "ctaLabel": "Schedule a Free Consultation",
+  "ctaImage": null
+}

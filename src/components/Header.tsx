@@ -3,31 +3,36 @@
 import Link from "next/link";
 import { useState } from "react";
 
-const servicesLinks = [
-  { label: "GovCon Solutions", href: "/services/govcon" },
-  { label: "SAP Services", href: "/services/sap" },
-  { label: "UI/UX & Design", href: "/services/ui-ux-design" },
-  { label: "Build & Engineering", href: "/services/build-engineering" },
-];
+type NavLink = { label: string; href: string };
 
-const navLinks = [
+const navLinks: (NavLink & { hasDropdown?: boolean })[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services/govcon", hasDropdown: true },
   { label: "Industries", href: "/industries" },
-  { label: "Success Stories", href: "/success-stories" },
   { label: "Resources", href: "/resources" },
-  { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
 ];
 
-export default function Header() {
+export default function Header({
+  servicesLinks,
+  ctaLabel,
+  ctaHref,
+}: {
+  servicesLinks: readonly NavLink[];
+  ctaLabel: string;
+  ctaHref: string;
+}) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-warm-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="absolute top-0 inset-x-0 z-50 pt-4 sm:pt-6 px-4 sm:px-6">
+      <div
+        className={`max-w-7xl mx-auto bg-white border border-warm-border shadow-sm px-4 sm:px-6 transition-[border-radius] ${
+          mobileOpen ? "rounded-[28px]" : "rounded-full"
+        }`}
+      >
         <div className="flex items-center justify-between h-16 lg:h-[72px]">
           <Link href="/" className="flex items-center shrink-0">
             <img
@@ -87,12 +92,15 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <Link
-              href="/contact"
-              className="hidden md:inline-flex items-center px-5 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-full hover:bg-blue-700 transition-all shadow-sm hover:shadow-md"
-            >
-              Schedule a Free Consultation
-            </Link>
+            <div className="hidden md:flex items-center gap-3 pl-3 border-l border-warm-border">
+              <Link
+                href={ctaHref}
+                className="inline-flex items-center px-5 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-full hover:bg-blue-700 transition-all shadow-sm hover:shadow-md"
+              >
+                {ctaLabel}
+              </Link>
+              <span className="w-2 h-2 rounded-full bg-blue-600 shrink-0" aria-hidden="true" />
+            </div>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className="lg:hidden p-2 text-navy-700 hover:bg-warm-dark rounded-lg"
@@ -138,11 +146,11 @@ export default function Header() {
                 ))}
               </div>
               <Link
-                href="/contact"
+                href={ctaHref}
                 onClick={() => setMobileOpen(false)}
                 className="mt-3 mx-3 text-center px-5 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-full hover:bg-blue-700 transition-colors"
               >
-                Schedule a Free Consultation
+                {ctaLabel}
               </Link>
             </div>
           </div>
