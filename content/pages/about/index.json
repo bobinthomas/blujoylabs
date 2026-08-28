@@ -1,55 +1,84 @@
 {
   "heroEyebrow": "About Us",
-  "heroHeadline": "A team built for the hard stuff",
+  "heroHeadline": "A team built for the hard stuff today",
   "heroSubheadline": "Government contracting. Enterprise SAP. Human-centered design. Three complex worlds. One partner who understands them all.",
-  "heroImage": null,
-
   "storyHeading": "Our Story",
   "storyParagraphs": [
     "We started with a simple observation: businesses navigating government contracts, enterprise technology, and digital transformation were working with three different partners — and losing time, money, and coherence in the gaps between them.",
     "So we built something different. Today, we operate as a unified partner for organizations that need to win in the federal marketplace, run smarter on SAP, and present themselves digitally with precision and purpose — deep GovCon expertise, SAP-certified consultants, and senior product designers, all under one roof, all aligned to your success."
   ],
-  "storyImage": null,
-
   "missionHeading": "Mission",
   "missionText": "To simplify complexity — whether it's a 200-page federal proposal, a multi-phase SAP migration, or a product interface that needs to feel effortless.",
   "visionHeading": "Vision",
   "visionText": "To become the most trusted partner for organizations operating at the intersection of government, enterprise technology, and digital experience.",
-
   "valuesHeading": "Core Values",
   "values": [
-    { "title": "Clarity Over Noise", "description": "We cut through jargon, complexity, and ambiguity. Every recommendation, every deliverable, every conversation is designed to move you forward with confidence." },
-    { "title": "Ownership, Not Handoffs", "description": "We don't pass work down a chain. The people you meet are the people who do the work. Accountability is non-negotiable." },
-    { "title": "Compliance as Foundation", "description": "In GovCon and enterprise tech, compliance isn't a checkbox — it's the floor. We build everything on a foundation of security, quality, and regulatory rigor." },
-    { "title": "Design with Purpose", "description": "Every pixel, every workflow, every interaction should earn its place. We design for outcomes, not aesthetics alone." },
-    { "title": "Partnership Over Transaction", "description": "We succeed when you succeed. Our best relationships are long-term, not one-off." }
+    {
+      "title": "Clarity Over Noise",
+      "description": "We cut through jargon, complexity, and ambiguity. Every recommendation, every deliverable, every conversation is designed to move you forward with confidence."
+    },
+    {
+      "title": "Ownership, Not Handoffs",
+      "description": "We don't pass work down a chain. The people you meet are the people who do the work. Accountability is non-negotiable."
+    },
+    {
+      "title": "Compliance as Foundation",
+      "description": "In GovCon and enterprise tech, compliance isn't a checkbox — it's the floor. We build everything on a foundation of security, quality, and regulatory rigor."
+    },
+    {
+      "title": "Design with Purpose",
+      "description": "Every pixel, every workflow, every interaction should earn its place. We design for outcomes, not aesthetics alone."
+    },
+    {
+      "title": "Partnership Over Transaction",
+      "description": "We succeed when you succeed. Our best relationships are long-term, not one-off."
+    }
   ],
-
   "leadershipHeading": "Leadership Team",
-
   "trustHeading": "Certified. Compliant. Connected.",
   "certifications": [
-    { "label": "CMMC Level 1 Compliant" },
-    { "label": "ISO 9001:2015 Certified" },
-    { "label": "ISO/IEC 27001:2022 Certified" },
-    { "label": "SAP-Certified Consultants" },
-    { "label": "Small Business Certified" }
+    {
+      "label": "CMMC Level 1 Compliant"
+    },
+    {
+      "label": "ISO 9001:2015 Certified"
+    },
+    {
+      "label": "ISO/IEC 27001:2022 Certified"
+    },
+    {
+      "label": "SAP-Certified Consultants"
+    },
+    {
+      "label": "Small Business Certified"
+    }
   ],
   "partnerships": [
-    { "label": "Northern Virginia Technology Council" },
-    { "label": "National Small Business Gov Contractors Assoc." },
-    { "label": "Military Spouse Employment Partnership" },
-    { "label": "Virginia Values Veterans" }
+    {
+      "label": "Northern Virginia Technology Council"
+    },
+    {
+      "label": "National Small Business Gov Contractors Assoc."
+    },
+    {
+      "label": "Military Spouse Employment Partnership"
+    },
+    {
+      "label": "Virginia Values Veterans"
+    }
   ],
-
   "locationsHeading": "Locations",
   "locations": [
-    { "name": "Primary Office", "address": "[Your Primary Address]" },
-    { "name": "Secondary Office", "address": "[Your Secondary Address, if applicable]" }
+    {
+      "name": "Primary Office",
+      "address": "[Your Primary Address]"
+    },
+    {
+      "name": "Secondary Office",
+      "address": "[Your Secondary Address, if applicable]"
+    }
   ],
-
   "ctaHeading": "Ready to work with a partner who gets it?",
   "ctaDescription": "Whether it's a federal proposal, an SAP migration, or a product that needs to feel effortless — let's talk about where you're headed.",
-  "ctaLabel": "Schedule a Free Consultation",
-  "ctaImage": null
+  "ctaLabel": "Schedule a Free Consultation"
 }
