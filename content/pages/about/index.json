@@ -2,11 +2,13 @@
   "heroEyebrow": "About Us",
   "heroHeadline": "A team built for the hard stuff today",
   "heroSubheadline": "Government contracting. Enterprise SAP. Human-centered design. Three complex worlds. One partner who understands them all.",
+  "heroImage": "/api/media/images/heroImage.jpg",
   "storyHeading": "Our Story",
   "storyParagraphs": [
     "We started with a simple observation: businesses navigating government contracts, enterprise technology, and digital transformation were working with three different partners — and losing time, money, and coherence in the gaps between them.",
     "So we built something different. Today, we operate as a unified partner for organizations that need to win in the federal marketplace, run smarter on SAP, and present themselves digitally with precision and purpose — deep GovCon expertise, SAP-certified consultants, and senior product designers, all under one roof, all aligned to your success."
   ],
+  "storyImage": "/api/media/images/storyImage.jpg",
   "missionHeading": "Mission",
   "missionText": "To simplify complexity — whether it's a 200-page federal proposal, a multi-phase SAP migration, or a product interface that needs to feel effortless.",
   "visionHeading": "Vision",
