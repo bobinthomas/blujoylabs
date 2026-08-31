@@ -20,6 +20,9 @@ export const ICONS = {
   users: "M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m5-5.13a4 4 0 100-8 4 4 0 000 8zm6 1a4 4 0 100-8 4 4 0 000 8z",
   arrowUp: "M7 17L17 7M17 7H8M17 7v9",
   check: "M5 13l4 4L19 7",
+  search: "M11 4a7 7 0 100 14 7 7 0 000-14zM21 21l-4.35-4.35",
+  chat: "M4 5h16v11H8l-4 4V5z",
+  document: "M6 2h9l5 5v15H6V2zM14 2v6h6M9 13h6M9 17h6",
 } as const;
 
 export type IconKey = keyof typeof ICONS;

@@ -1,0 +1,112 @@
+{
+  "heroEyebrow": "AI Consulting & Solution Engineering",
+  "heroHeadline": "From Requirement to\nWorking Solution.",
+  "heroLead": "Bring us a business requirement, process challenge, product idea or complex opportunity. We turn it into a practical solution - shaping the approach, identifying where AI adds real value, building rapidly, integrating with your environment, and taking it through to a deployable outcome.",
+  "heroPrimaryLabel": "Discuss a Requirement",
+  "heroPrimaryHref": "/contact",
+  "heroSecondaryLabel": "Explore Feasibility",
+  "heroSecondaryHref": "/contact",
+  "heroImage": null,
+
+  "gapHeading": "The Gap We Solve",
+  "gapParagraphs": [
+    "Most technology initiatives do not begin with a perfect specification. They begin with an outcome someone needs, a workflow that is not working, an opportunity that needs to be tested, a customer ask, a tender or RFP, or simply a belief that there must be a better way to do something.",
+    "The difficult part is turning that starting point into a solution that is clear enough to build, sensible enough to invest in, and robust enough to use in the real world.",
+    "That is where we work. We combine consulting, solution architecture and AI-enabled engineering to move from ambiguity to a working outcome - without forcing every challenge into an AI-shaped answer."
+  ],
+  "gapImage": null,
+  "gapCalloutQuote": "AI is a means, not the starting point.",
+  "gapCalloutText": "We begin with the business outcome. The right answer may be an AI-enabled application, an intelligent workflow, an agentic process, a conventional software solution, an integration layer, or a combination of them. The technology follows the requirement - not the other way around.",
+  "gapEntryHeading": "You can come to us with...",
+  "gapEntryPoints": [
+    { "title": "A business problem", "description": "A manual, slow, fragmented or error-prone process that needs a better digital approach.", "iconKey": "flexible" },
+    { "title": "A product or service idea", "description": "An opportunity that needs to be shaped, validated and converted into a working MVP or application.", "iconKey": "design" },
+    { "title": "A customer requirement", "description": "A need that is commercially promising but technically unclear, complex or cross-functional.", "iconKey": "partnership" },
+    { "title": "An RFP or tender", "description": "A formal requirement that needs solution interpretation, feasibility assessment and a credible delivery approach.", "iconKey": "document" }
+  ],
+
+  "capabilitiesEyebrow": "Capabilities",
+  "capabilitiesHeading": "What We Do",
+  "capabilitiesLead": "One partner across the journey from requirement discovery to solution delivery.",
+  "capabilities": [
+    { "title": "Requirement & Solution Discovery", "description": "We decode the need behind the request, clarify outcomes, identify constraints and assumptions, and translate ambiguity into a buildable solution direction.", "iconKey": "design" },
+    { "title": "AI Opportunity & Feasibility", "description": "We determine where AI can materially improve speed, intelligence, automation or user experience - and where deterministic software is the better design.", "iconKey": "speed" },
+    { "title": "Rapid Product & Application Engineering", "description": "We design and build internal tools, workflow applications, portals, accelerators, MVPs and bespoke digital solutions using modern AI-assisted engineering practices.", "iconKey": "code" },
+    { "title": "GenAI & Knowledge Solutions", "description": "We build practical generative AI experiences such as enterprise assistants, retrieval-based applications, document intelligence, summarization, extraction and knowledge workflows.", "iconKey": "chat" },
+    { "title": "Agentic & Intelligent Automation", "description": "Where the use case justifies it, we design agents and orchestrated workflows that can reason across tasks, use tools, interact with systems and keep humans in control at the right points.", "iconKey": "flexible" },
+    { "title": "Integration & Modernization", "description": "We connect solutions to APIs, identity, enterprise applications, data sources and existing technology landscapes so new capability works inside the real operating environment.", "iconKey": "globe" },
+    { "title": "Prototype-to-Production Hardening", "description": "We help convert promising prototypes into dependable software through architecture review, testing, security controls, observability, error handling, performance work and deployment discipline.", "iconKey": "shield" },
+    { "title": "Technical Advisory & Delivery Partnership", "description": "We can support an internal team, consulting partner or prime contractor with solutioning, architecture, AI engineering, rapid prototyping and specialist delivery capacity.", "iconKey": "partnership" }
+  ],
+  "capabilitiesNoteHeading": "AI-Enabled Delivery. Engineering-Owned.",
+  "capabilitiesNoteText": "We use AI throughout the engineering lifecycle to accelerate analysis, coding, test generation, documentation, refactoring and experimentation. But speed does not replace engineering responsibility. Architecture, code review, security, validation, release decisions and customer accountability remain human-owned.",
+  "capabilitiesCalloutQuote": "The objective is not to demonstrate that AI can build something.",
+  "capabilitiesCalloutText": "The objective is to deliver something worth building - and make it usable, supportable and extensible after the first release.",
+
+  "methodEyebrow": "Delivery Approach",
+  "methodHeading": "How We Build: The Requirement-to-Solution Method",
+  "methodLead": "Our build methodology moves from business understanding to production delivery in six disciplined stages. We use AI to accelerate analysis, prototyping, coding, testing and iteration while keeping architecture, security, quality and release accountability engineering-owned.",
+  "stages": [
+    { "number": "01", "label": "UNDERSTAND", "title": "Clarify the real need", "description": "Business outcome, users, current process, constraints, dependencies, success criteria and the evidence available today.", "iconKey": "search" },
+    { "number": "02", "label": "SHAPE", "title": "Design the right answer", "description": "Solution options, AI fit, architecture, build-vs-buy-vs-integrate choices, assumptions, risks and delivery boundaries.", "iconKey": "design" },
+    { "number": "03", "label": "VALIDATE", "title": "Prove the riskiest parts", "description": "Prototype, thin-slice or feasibility work focused on the assumptions that could make or break the solution.", "iconKey": "check" },
+    { "number": "04", "label": "BUILD", "title": "Engineer the solution", "description": "Iterative development with AI-assisted delivery, technical review, integration and visible progress against the intended outcome.", "iconKey": "code" },
+    { "number": "05", "label": "HARDEN", "title": "Make it dependable", "description": "Testing, security, performance, observability, fallback behaviour, documentation and operational readiness.", "iconKey": "shield" },
+    { "number": "06", "label": "DELIVER", "title": "Put it into use", "description": "Deployment support, handover, knowledge transfer, adoption support and a clear path for future enhancement.", "iconKey": "flexible" }
+  ],
+
+  "leverageHeading": "Where AI Can Create Leverage",
+  "leverageAreas": [
+    { "title": "Inside the solution", "description": "Assistants, retrieval, classification, extraction, summarization, recommendations, natural-language experiences, document intelligence and agents.", "iconKey": "chat" },
+    { "title": "Inside the workflow", "description": "Intelligent routing, decision support, content generation, exception handling, human-in-the-loop automation and cross-system orchestration.", "iconKey": "flexible" },
+    { "title": "Inside engineering", "description": "Faster analysis, code acceleration, test generation, refactoring, documentation, interface scaffolding and rapid experimentation.", "iconKey": "code" },
+    { "title": "Inside quality", "description": "Evaluation sets, automated regression coverage, review assistance, traceability and repeatable checks combined with human release gates.", "iconKey": "check" }
+  ],
+  "principleHeading": "A Simple Principle",
+  "principleText": "If AI makes the solution better, faster or more useful, we use it. If it introduces unnecessary complexity or risk, we do not. That discipline is part of the consulting value.",
+
+  "techEyebrow": "Technology & Engineering",
+  "techHeading": "Modern Technology, Applied with Purpose",
+  "techText": "We combine advanced AI capabilities with modern software engineering to build solutions that are faster to create, easier to integrate and ready for real operating environments. The technology stack is selected around the requirement, security posture, data landscape, performance needs and economics of each engagement.",
+  "techImage": null,
+  "techStack": [
+    { "title": "Foundation & Generative AI", "description": "Large language models, multimodal models, embeddings, structured generation, model routing and prompt orchestration for practical enterprise use cases." },
+    { "title": "Agentic Systems", "description": "Tool-using agents, multi-step orchestration, controlled autonomy, human approval points and standards-based integrations such as MCP where they add value." },
+    { "title": "Enterprise Knowledge & RAG", "description": "Retrieval-augmented generation, semantic search, vector retrieval, grounded responses, document intelligence and knowledge-centric workflows." },
+    { "title": "AI-Assisted Software Engineering", "description": "Coding agents, AI-assisted architecture, test generation, refactoring, code review, documentation and engineering automation to compress delivery cycles." },
+    { "title": "Cloud & AI Platforms", "description": "Solutions can work across leading ecosystems including OpenAI, Anthropic Claude, Google Gemini / Vertex AI, Microsoft Azure AI, AWS AI services and open-source models, depending on the engagement." },
+    { "title": "Data & Enterprise Integration", "description": "APIs, databases, event-driven services, identity, enterprise applications, data pipelines and secure integration patterns that connect new capability to existing systems." },
+    { "title": "Evaluation, Guardrails & Security", "description": "Model and workflow evaluation, grounding checks, access controls, privacy protections, auditability, prompt-risk controls and human-in-the-loop safeguards." },
+    { "title": "Production Operations", "description": "CI/CD, containers, observability, model and application monitoring, cost and latency controls, fallback behaviour and resilience for dependable production use." }
+  ],
+  "techPlatforms": ["OpenAI", "Anthropic Claude", "Google Gemini / Vertex AI", "Microsoft Azure AI", "AWS AI", "Open-source models"],
+  "techAgnosticHeading": "Model & Platform Agnostic",
+  "techAgnosticText": "We do not force every problem into one model, cloud or framework. We choose the combination that best fits the business outcome, deployment constraints, security requirements, performance expectations and cost profile - and design for change as the AI ecosystem evolves.",
+
+  "engagementEyebrow": "Engagement & Fit",
+  "engagementHeading": "Start at the Level of Certainty You Have",
+  "engagementLead": "You do not need a finished specification before speaking with us. We can begin with a question, an opportunity, a requirement, or a defined delivery scope.",
+  "engagementModels": [
+    { "number": "01", "title": "Requirement & Feasibility Review", "description": "A focused assessment of the need, solution direction, AI applicability, major dependencies, delivery risks and the most credible next step." },
+    { "number": "02", "title": "Solution Discovery Sprint", "description": "A structured engagement that turns an ambiguous requirement into scope, architecture, assumptions, priorities, prototype direction and an executable plan." },
+    { "number": "03", "title": "Prototype / MVP", "description": "A rapid build to validate user value, workflow, technical feasibility, data access, integrations and the riskiest assumptions before larger investment." },
+    { "number": "04", "title": "End-to-End Solution Delivery", "description": "Design, engineering, AI implementation, integration, testing, hardening, deployment support, documentation and handover under a defined delivery model." }
+  ],
+  "crossIndustryHeading": "Cross-Industry by Design",
+  "crossIndustryText": "Our model is requirement-led, which allows us to work across functions and sectors while bringing in domain specialists where deeper regulatory or operational expertise is required. Typical opportunities may span enterprise operations, financial services, healthcare and life sciences, manufacturing, retail, logistics, professional services, GCC transformation, public-sector programs, technology and SaaS.",
+  "whyUsHeading": "Why Work With Us",
+  "whyUs": [
+    { "title": "Requirement-first thinking", "description": "We begin with what must be achieved, not with a technology we need to sell.", "iconKey": "results" },
+    { "title": "Consulting connected to engineering", "description": "The people shaping the answer stay close to the people building it.", "iconKey": "partnership" },
+    { "title": "AI-aware, not AI-dependent", "description": "We use the right mix of AI, automation, integration and conventional software.", "iconKey": "flexible" },
+    { "title": "Fast learning before heavy investment", "description": "We validate risky assumptions early and create evidence before scaling the build.", "iconKey": "speed" },
+    { "title": "Flexible partnership", "description": "We can work directly with customers, alongside consulting firms, or as a specialist solution and engineering partner.", "iconKey": "globe" },
+    { "title": "Built for ownership", "description": "We aim for understandable architecture, maintainable delivery, practical documentation and a clean handover path.", "iconKey": "layers" }
+  ],
+
+  "ctaHeading": "Have a Requirement? Let’s Find the Best Way to Build It.",
+  "ctaText": "Share the problem, requirement, workflow, opportunity or RFP. We’ll help determine what is feasible, where AI can create real leverage, what the solution should look like, and the most credible path from idea to working outcome.",
+  "ctaLabel": "Discuss a Requirement",
+  "ctaHref": "/contact",
+  "ctaImage": null
+}

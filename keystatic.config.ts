@@ -29,7 +29,7 @@ const linkObject = (label: string) =>
  * Local mode is dev-only (`next dev`) — never bake it into a Workers build.
  * Set KEYSTATIC_STORAGE=local + NEXT_PUBLIC_KEYSTATIC_STORAGE=local in .env.local.
  */
-const isLocalStorage =
+export const isLocalStorage =
   process.env.NODE_ENV === "development" &&
   (process.env.KEYSTATIC_STORAGE === "local" || process.env.NEXT_PUBLIC_KEYSTATIC_STORAGE === "local");
 
@@ -130,7 +130,7 @@ export default config({
       path: "content/services/*",
       format: { data: "json" },
       schema: {
-        slug: fields.slug({ name: { label: "URL Slug", description: "e.g. govcon, sap, ui-ux-design, build-engineering" } }),
+        slug: fields.slug({ name: { label: "URL Slug", description: "e.g. govcon, sap, design-engineering" } }),
         metaTitle: fields.text({ label: "Meta Title" }),
         metaDescription: fields.text({ label: "Meta Description", multiline: true }),
 
@@ -590,6 +590,133 @@ export default config({
           label: "Connect With Us Links",
           itemLabel: (props) => props.fields.label.value,
         }),
+      },
+    }),
+
+    aiConsultingPage: singleton({
+      label: "AI Consulting Page",
+      path: "content/pages/ai-consulting/",
+      format: { data: "json" },
+      schema: {
+        heroEyebrow: fields.text({ label: "Hero Eyebrow", defaultValue: "AI Consulting & Solution Engineering" }),
+        heroHeadline: fields.text({
+          label: "Hero Headline",
+          multiline: true,
+          description: "Line break where the headline should wrap, e.g. after \"From Requirement to\"",
+        }),
+        heroLead: fields.text({ label: "Hero Lead Paragraph", multiline: true }),
+        heroPrimaryLabel: fields.text({ label: "Primary Button Label", defaultValue: "Discuss a Requirement" }),
+        heroPrimaryHref: fields.text({ label: "Primary Button URL", defaultValue: "/contact" }),
+        heroSecondaryLabel: fields.text({ label: "Secondary Button Label", defaultValue: "Explore Feasibility" }),
+        heroSecondaryHref: fields.text({ label: "Secondary Button URL", defaultValue: "/contact" }),
+        heroImage: imageField("Hero Photo"),
+
+        gapHeading: fields.text({ label: "Heading", defaultValue: "The Gap We Solve" }),
+        gapParagraphs: fields.array(fields.text({ label: "Paragraph", multiline: true }), {
+          label: "Paragraphs",
+          itemLabel: (props) => props.value.slice(0, 60) || "Paragraph",
+        }),
+        gapImage: imageField("Supporting Photo"),
+        gapCalloutQuote: fields.text({ label: "Callout Quote" }),
+        gapCalloutText: fields.text({ label: "Callout Text", multiline: true }),
+        gapEntryHeading: fields.text({ label: "Entry Points Heading", defaultValue: "You can come to us with..." }),
+        gapEntryPoints: fields.array(
+          fields.object({
+            title: fields.text({ label: "Title" }),
+            description: fields.text({ label: "Description", multiline: true }),
+            iconKey: iconKeyField(),
+          }),
+          { label: "Entry Points (4)", itemLabel: (props) => props.fields.title.value }
+        ),
+
+        capabilitiesEyebrow: fields.text({ label: "Eyebrow", defaultValue: "Capabilities" }),
+        capabilitiesHeading: fields.text({ label: "Heading", defaultValue: "What We Do" }),
+        capabilitiesLead: fields.text({ label: "Lead Paragraph", multiline: true }),
+        capabilities: fields.array(
+          fields.object({
+            title: fields.text({ label: "Title" }),
+            description: fields.text({ label: "Description", multiline: true }),
+            iconKey: iconKeyField(),
+          }),
+          { label: "Capabilities (8)", itemLabel: (props) => props.fields.title.value }
+        ),
+        capabilitiesNoteHeading: fields.text({ label: "Note Heading", defaultValue: "AI-Enabled Delivery. Engineering-Owned." }),
+        capabilitiesNoteText: fields.text({ label: "Note Text", multiline: true }),
+        capabilitiesCalloutQuote: fields.text({ label: "Callout Quote" }),
+        capabilitiesCalloutText: fields.text({ label: "Callout Text", multiline: true }),
+
+        methodEyebrow: fields.text({ label: "Eyebrow", defaultValue: "Delivery Approach" }),
+        methodHeading: fields.text({ label: "Heading", defaultValue: "How We Build: The Requirement-to-Solution Method" }),
+        methodLead: fields.text({ label: "Lead Paragraph", multiline: true }),
+        stages: fields.array(
+          fields.object({
+            number: fields.text({ label: "Number", description: "e.g. 01" }),
+            label: fields.text({ label: "Stage Label", description: "e.g. UNDERSTAND" }),
+            title: fields.text({ label: "Title", description: "e.g. Clarify the real need" }),
+            description: fields.text({ label: "Description", multiline: true }),
+            iconKey: iconKeyField(),
+          }),
+          { label: "Delivery Stages (6)", itemLabel: (props) => `${props.fields.number.value} ${props.fields.label.value}` }
+        ),
+
+        leverageHeading: fields.text({ label: "Leverage Heading", defaultValue: "Where AI Can Create Leverage" }),
+        leverageAreas: fields.array(
+          fields.object({
+            title: fields.text({ label: "Title" }),
+            description: fields.text({ label: "Description", multiline: true }),
+            iconKey: iconKeyField(),
+          }),
+          { label: "Leverage Areas (4)", itemLabel: (props) => props.fields.title.value }
+        ),
+        principleHeading: fields.text({ label: "Principle Heading", defaultValue: "A Simple Principle" }),
+        principleText: fields.text({ label: "Principle Text", multiline: true }),
+
+        techEyebrow: fields.text({ label: "Eyebrow", defaultValue: "Technology & Engineering" }),
+        techHeading: fields.text({ label: "Heading", defaultValue: "Modern Technology, Applied with Purpose" }),
+        techText: fields.text({ label: "Text", multiline: true }),
+        techImage: imageField("Supporting Photo"),
+        techStack: fields.array(
+          fields.object({
+            title: fields.text({ label: "Title" }),
+            description: fields.text({ label: "Description", multiline: true }),
+          }),
+          { label: "Technology Stack (8)", itemLabel: (props) => props.fields.title.value }
+        ),
+        techPlatforms: fields.array(fields.text({ label: "Platform" }), {
+          label: "Platforms Chip List",
+          itemLabel: (props) => props.value,
+        }),
+        techAgnosticHeading: fields.text({ label: "Agnostic Heading", defaultValue: "Model & Platform Agnostic" }),
+        techAgnosticText: fields.text({ label: "Agnostic Text", multiline: true }),
+
+        engagementEyebrow: fields.text({ label: "Eyebrow", defaultValue: "Engagement & Fit" }),
+        engagementHeading: fields.text({ label: "Heading", defaultValue: "Start at the Level of Certainty You Have" }),
+        engagementLead: fields.text({ label: "Lead Paragraph", multiline: true }),
+        engagementModels: fields.array(
+          fields.object({
+            number: fields.text({ label: "Number", description: "e.g. 01" }),
+            title: fields.text({ label: "Title" }),
+            description: fields.text({ label: "Description", multiline: true }),
+          }),
+          { label: "Engagement Models (4)", itemLabel: (props) => props.fields.title.value }
+        ),
+        crossIndustryHeading: fields.text({ label: "Cross-Industry Heading", defaultValue: "Cross-Industry by Design" }),
+        crossIndustryText: fields.text({ label: "Cross-Industry Text", multiline: true }),
+        whyUsHeading: fields.text({ label: "Why Us Heading", defaultValue: "Why Work With Us" }),
+        whyUs: fields.array(
+          fields.object({
+            title: fields.text({ label: "Title" }),
+            description: fields.text({ label: "Description", multiline: true }),
+            iconKey: iconKeyField(),
+          }),
+          { label: "Why Us (6)", itemLabel: (props) => props.fields.title.value }
+        ),
+
+        ctaHeading: fields.text({ label: "CTA Heading" }),
+        ctaText: fields.text({ label: "CTA Text", multiline: true }),
+        ctaLabel: fields.text({ label: "CTA Button Label", defaultValue: "Discuss a Requirement" }),
+        ctaHref: fields.text({ label: "CTA URL", defaultValue: "/contact" }),
+        ctaImage: imageField("CTA Photo"),
       },
     }),
   },

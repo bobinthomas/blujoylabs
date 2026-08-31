@@ -1,13 +1,17 @@
 export default function ImagePlaceholder({
   label,
   className = "",
+  dark = false,
 }: {
   label: string;
   className?: string;
+  dark?: boolean;
 }) {
   return (
     <div
-      className={`flex flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-navy-300 bg-navy-100 text-navy-400 ${className}`}
+      className={`flex flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed ${
+        dark ? "border-white/15 bg-white/[0.03] text-white/25" : "border-navy-300 bg-navy-100 text-navy-400"
+      } ${className}`}
     >
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path

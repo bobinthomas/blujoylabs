@@ -10,15 +10,15 @@ import FAQDark from "@/components/service-page/FAQDark";
 import { getKeystaticReader } from "@/lib/keystatic-reader";
 import { ICONS, type IconKey } from "@/lib/icons";
 
-const SLUG = "ui-ux-design";
+const SLUG = "design-engineering";
 
 export const metadata: Metadata = {
-  title: "UI/UX & Digital Design",
+  title: "Design & Engineering",
   description:
-    "Brand identity, product design, web and app design, and design systems built around real users and business outcomes.",
+    "Brand identity, product design, and production-grade web development — from first pixel to shipped code, under one roof.",
 };
 
-export default async function UIUXPage() {
+export default async function DesignEngineeringPage() {
   const reader = getKeystaticReader();
   const page = await reader.collections.servicePages.read(SLUG);
   if (!page) throw new Error(`servicePages/${SLUG} is missing`);

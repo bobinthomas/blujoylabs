@@ -1,5 +1,6 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
+import { isLocalStorage } from "../../keystatic.config";
 
 const REPO = "bobinthomas/blujoylabs";
 const MEDIA_ROOT = "content/media/images";
@@ -66,7 +67,7 @@ async function readFromDisk(repoPath: string): Promise<ArrayBuffer> {
 
 /** Read image bytes from the repo — GitHub API when a token is configured (Workers/prod), disk otherwise (dev). */
 export async function readMediaBytes(repoPath: string): Promise<ArrayBuffer> {
-  if (process.env.KEYSTATIC_GITHUB_TOKEN) {
+  if (process.env.KEYSTATIC_GITHUB_TOKEN && !isLocalStorage) {
     return readFromGitHub(repoPath);
   }
   return readFromDisk(repoPath);

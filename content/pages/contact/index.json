@@ -10,7 +10,7 @@
   "inquiryHeading": "General Inquiry",
   "inquiryDescription": "Have a question or want to learn more? Send us a message.",
 
-  "serviceOptions": ["GovCon Solutions", "SAP Services", "UI/UX & Digital Design", "Build & Engineering", "Other"],
+  "serviceOptions": ["GovCon Solutions", "AI Consulting", "Design & Engineering", "SAP Services", "Other"],
 
   "offices": [
     { "name": "Primary Office", "address": "[Your Primary Address]", "phone": "[Your Phone]", "email": "[Your Email]" },

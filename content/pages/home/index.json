@@ -1,7 +1,7 @@
 {
-  "heroBadge": "GovCon • SAP • Digital Design",
+  "heroBadge": "GovCon • AI Consulting • Design & Engineering",
   "heroHeadline": "From Strategy to Submission. From Design to Deployment.",
-  "heroSubheadline": "We help government contractors win more bids, enterprises run smarter on SAP, and brands build digital experiences that convert.",
+  "heroSubheadline": "We help government contractors win more bids, ship AI-powered products, and build digital experiences that convert — plus SAP modernization for enterprises that need it.",
   "heroImage": "/api/media/images/hero-image.jpg",
   "heroCtaPrimaryLabel": "Schedule a Free Consultation",
   "heroCtaPrimaryHref": "/contact",
@@ -9,12 +9,12 @@
   "heroCtaSecondaryHref": "/services/govcon",
 
   "floatingCards": [
-    { "type": "logo", "eyebrow": "Certified Partner", "value": "SAP", "title": "Certified implementation partner across every engagement.", "image": null, "iconKey": "check" },
     { "type": "feature", "eyebrow": "Nationwide Reach", "value": "", "title": "Supporting federal contractors and enterprises across the U.S.", "image": null, "iconKey": "globe" },
     { "type": "photo", "eyebrow": "Advisory", "value": "", "title": "Consultants who embed with your team through every milestone.", "image": "/api/media/images/hero-image.jpg", "iconKey": "users" },
-    { "type": "stat", "eyebrow": "", "value": "20+", "title": "Years of combined GovCon, SAP, and design expertise.", "image": null, "iconKey": "" },
+    { "type": "stat", "eyebrow": "", "value": "20+", "title": "Years of combined GovCon, design, and SAP expertise.", "image": null, "iconKey": "" },
     { "type": "feature", "eyebrow": "Delivery", "value": "", "title": "100+ design systems and digital platforms shipped.", "image": null, "iconKey": "layers" },
-    { "type": "stat", "eyebrow": "Client Retention", "value": "95%", "title": "Retention rate across every long-term engagement.", "image": null, "iconKey": "arrowUp" }
+    { "type": "stat", "eyebrow": "Client Retention", "value": "95%", "title": "Retention rate across every long-term engagement.", "image": null, "iconKey": "arrowUp" },
+    { "type": "logo", "eyebrow": "Certified Partner", "value": "SAP", "title": "Certified implementation partner across every engagement.", "image": null, "iconKey": "check" }
   ],
 
   "pillarsEyebrow": "Core Services",
@@ -31,19 +31,19 @@
       "color": "#0068f9"
     },
     {
-      "title": "SAP Services",
-      "description": "Modernize, migrate, and maximize your SAP investment. Implementation, S/4HANA, integration, and ongoing support — delivered by certified consultants.",
-      "href": "/services/sap",
-      "stats": "50+ SAP Projects",
-      "image": "/api/media/images/sap-illustration.svg",
+      "title": "AI Consulting",
+      "description": "From strategy to shipped features. We find the real leverage points in your business and build production-ready AI products — not proofs of concept that stall.",
+      "href": "/services/ai-consulting",
+      "stats": "New Service",
+      "image": null,
       "labelPosition": "top",
       "color": "#6736eb"
     },
     {
-      "title": "UI/UX & Digital Design",
-      "description": "Interfaces that feel intentional. Brands that feel unmistakably you. From product design to design systems, we craft digital experiences that drive results.",
-      "href": "/services/ui-ux-design",
-      "stats": "100+ Design Systems",
+      "title": "Design & Engineering",
+      "description": "Interfaces that feel intentional, built on code that ships. From brand and product design to production-grade development, we craft digital experiences that drive results.",
+      "href": "/services/design-engineering",
+      "stats": "100+ Products Shipped",
       "image": "/api/media/images/ui-ux-illustration.svg",
       "labelPosition": "bottom",
       "color": "#046645"
@@ -54,8 +54,8 @@
   "whyUsHeading": "Built for Complexity. Delivered with Clarity.",
   "whyUs": [
     { "title": "GovCon Expertise", "description": "Deep understanding of federal acquisition, compliance, and proposal best practices.", "iconKey": "govcon" },
-    { "title": "SAP-Certified Consultants", "description": "Real-world experience across S/4HANA, integrations, and enterprise deployments.", "iconKey": "sap" },
     { "title": "Design-Led Thinking", "description": "Every interface, brand, and system we build starts with the user in mind.", "iconKey": "design" },
+    { "title": "AI-Native Delivery", "description": "AI-assisted workflows across every engagement — from proposal drafting to product prototyping — without cutting corners on quality.", "iconKey": "chat" },
     { "title": "Compliance-First", "description": "CMMC, ISO 27001, and ISO 9001 aligned processes across every engagement.", "iconKey": "compliance" },
     { "title": "Flexible Engagement Models", "description": "Project-based, retainer, or fractional support — tailored to your pace and budget.", "iconKey": "flexible" },
     { "title": "Measurable Results", "description": "Proposal wins, system uptime, and design metrics we report on every engagement.", "iconKey": "results" }
@@ -63,12 +63,12 @@
 
   "logos": [
     { "name": "SAM.gov" },
-    { "name": "SAP" },
     { "name": "Figma" },
     { "name": "AWS" },
     { "name": "Microsoft" },
     { "name": "Salesforce" },
-    { "name": "ServiceNow" }
+    { "name": "ServiceNow" },
+    { "name": "SAP" }
   ],
 
   "caseStudyBadge": "Featured Case Study",
@@ -92,8 +92,8 @@
   "faqs": [
     { "question": "How long does a typical proposal take?", "answer": "A standard federal proposal takes 4-6 weeks from kickoff to submission. Expedited timelines are available for tight deadlines." },
     { "question": "Do I need past performance to win a government contract?", "answer": "Not necessarily. We help first-time contractors build winning proposals using capability demonstrations, key personnel experience, and subcontracting history." },
-    { "question": "What's the difference between ECC and S/4HANA?", "answer": "S/4HANA is SAP's next-generation ERP suite built on an in-memory database. It offers real-time analytics, simplified data models, and a modern Fiori user interface compared to the legacy ECC platform." },
-    { "question": "How much does a design system cost?", "answer": "Design systems typically range from $25K-$100K depending on scope, components needed, and platform complexity. We offer phased approaches to spread investment over time." }
+    { "question": "How much does a design system cost?", "answer": "Design systems typically range from $25K-$100K depending on scope, components needed, and platform complexity. We offer phased approaches to spread investment over time." },
+    { "question": "What's the difference between ECC and S/4HANA?", "answer": "S/4HANA is SAP's next-generation ERP suite built on an in-memory database. It offers real-time analytics, simplified data models, and a modern Fiori user interface compared to the legacy ECC platform." }
   ],
 
   "finalCtaHeadline": "Ready to Win, Modernize, or Stand Out?",

@@ -5,21 +5,21 @@
       "href": "/services/govcon"
     },
     {
+      "label": "AI Consulting",
+      "href": "/services/ai-consulting"
+    },
+    {
+      "label": "Design & Engineering",
+      "href": "/services/design-engineering"
+    },
+    {
       "label": "SAP Services",
       "href": "/services/sap"
-    },
-    {
-      "label": "UI/UX & Digital Design",
-      "href": "/services/ui-ux-design"
-    },
-    {
-      "label": "Build & Engineering",
-      "href": "/services/build-engineering"
     }
   ],
   "headerCtaLabel": "Schedule a Free Consultation",
   "headerCtaHref": "/contact",
-  "footerTagline": "Blujoy helps government contractors win more bids, enterprises modernize SAP, and brands build digital experiences that convert.",
+  "footerTagline": "Blujoy helps government contractors win more bids, ships AI-powered products, and builds digital experiences that convert — plus SAP modernization for enterprises that need it.",
   "footerResourceLinks": [
     {
       "label": "Blog",

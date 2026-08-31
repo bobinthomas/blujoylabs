@@ -2,6 +2,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getKeystaticReader } from "@/lib/keystatic-reader";
 
+// Content comes from the GitHub reader's uncached fetches at request time, so these
+// routes can't be statically generated/ISR'd — force real per-request rendering.
+export const dynamic = "force-dynamic";
+
 export default async function MarketingLayout({ children }: { children: React.ReactNode }) {
   const settings = await getKeystaticReader().singletons.siteSettings.read();
 

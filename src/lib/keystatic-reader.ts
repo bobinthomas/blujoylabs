@@ -1,6 +1,6 @@
 import { createReader } from "@keystatic/core/reader";
 import { createGitHubReader } from "@keystatic/core/reader/github";
-import keystaticConfig from "../../keystatic.config";
+import keystaticConfig, { isLocalStorage } from "../../keystatic.config";
 
 const REPO = "bobinthomas/blujoylabs" as const;
 
@@ -24,7 +24,7 @@ function patchFetchForGitHubApi() {
 function createContentReader() {
   const token = process.env.KEYSTATIC_GITHUB_TOKEN;
 
-  if (token) {
+  if (token && !isLocalStorage) {
     patchFetchForGitHubApi();
     return createGitHubReader(keystaticConfig, { repo: REPO, token });
   }
