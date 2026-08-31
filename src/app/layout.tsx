@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Epunda_Sans, Epunda_Slab, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const epundaSans = Epunda_Sans({
+  variable: "--font-epunda-sans",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const epundaSlab = Epunda_Slab({
+  variable: "--font-epunda-slab",
   subsets: ["latin"],
   display: "swap",
 });
@@ -26,7 +32,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} h-full`}>
+    <html lang="en" className={`${epundaSans.variable} ${epundaSlab.variable} ${jetbrainsMono.variable} h-full`}>
       <body className="min-h-full flex flex-col font-sans antialiased">{children}</body>
     </html>
   );

@@ -42,8 +42,8 @@ export default function HairlineGrid({
                 <span />
               )}
             </div>
-            <div className={`mt-3 text-sm font-medium ${titleText}`}>{item.title}</div>
-            <div className={`mt-1.5 text-xs leading-relaxed ${mutedText}`}>{item.description}</div>
+            <div className={`mt-3 text-base font-medium ${titleText}`}>{item.title}</div>
+            <div className={`mt-1.5 text-sm leading-relaxed ${mutedText}`}>{item.description}</div>
           </Reveal>
         );
       })}

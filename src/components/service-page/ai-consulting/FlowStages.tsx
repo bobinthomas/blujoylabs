@@ -76,7 +76,7 @@ function StageNode({ stage, state }: { stage: Stage; state: "idle" | "current" |
       </div>
       <div className={`mt-3.5 text-xs font-mono tracking-wider transition-colors duration-300 ${accentClass}`}>{stage.label}</div>
       <div className={`mt-1 text-base font-medium transition-colors duration-300 ${titleClass}`}>{stage.title}</div>
-      <div className={`mt-2 text-xs leading-relaxed transition-colors duration-300 ${descClass}`}>{stage.description}</div>
+      <div className={`mt-2 text-sm leading-relaxed transition-colors duration-300 ${descClass}`}>{stage.description}</div>
     </div>
   );
 }

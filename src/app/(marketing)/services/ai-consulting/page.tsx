@@ -206,7 +206,7 @@ export default async function AIConsultingPage() {
           <div className="mt-16 grid lg:grid-cols-2 gap-12">
             <Reveal>
               <h3 className="text-xs font-mono tracking-wider uppercase text-navy-500 mb-4">{page.crossIndustryHeading}</h3>
-              <p className="text-sm text-navy-600 leading-relaxed">{page.crossIndustryText}</p>
+              <p className="text-navy-600 leading-relaxed">{page.crossIndustryText}</p>
             </Reveal>
             <Reveal delay={100}>
               <h3 className="text-xs font-mono tracking-wider uppercase text-navy-500 mb-4">{page.whyUsHeading}</h3>
@@ -221,8 +221,8 @@ export default async function AIConsultingPage() {
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d={ICONS[item.iconKey as IconKey]} />
                     </svg>
-                    <span className="text-sm font-medium text-navy-900 shrink-0 w-40">{item.title}</span>
-                    <span className="text-xs text-navy-600 leading-relaxed">{item.description}</span>
+                    <span className="text-base font-medium text-navy-900 shrink-0 w-40">{item.title}</span>
+                    <span className="text-sm text-navy-600 leading-relaxed">{item.description}</span>
                   </div>
                 ))}
               </div>
