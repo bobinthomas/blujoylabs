@@ -6,22 +6,22 @@
   "heroEyebrow": "SAP Services",
   "heroHeadline": "Run your enterprise on SAP — smarter",
   "heroSubheadline": "Implementation, migration, integration, and support. Delivered by consultants who understand both the technology and the business it powers.",
-  "heroImage": null,
+  "heroImage": "/api/media/images/sap/heroImage.jpg",
 
   "introHeading": "Modernize with confidence, not disruption",
   "introParagraphs": [
     "An SAP transformation touches every part of your business — finance, operations, HR, and the people who rely on the system every day. Getting it right takes more than technical know-how.",
     "That's why we back your project with certified consultants who've led implementations, migrations, and integrations across manufacturing, enterprise, and regulated industries. You get the process discipline and technical depth to modernize without the downtime."
   ],
-  "introImage": null,
+  "introImage": "/api/media/images/sap/introImage.jpg",
 
   "pathwaysEyebrow": "Core Services",
   "pathwaysHeading": "Three pathways, one smoother SAP journey",
   "pathwaysSubtitle": "Wherever you are in your SAP lifecycle, our program portfolio meets you there.",
   "pathways": [
-    { "title": "SAP Implementation & Migration", "description": "Whether you're going live for the first time or moving from ECC to S/4HANA, we plan, execute, and stabilize your SAP journey.", "href": "/contact", "linkLabel": "Plan your migration", "image": null },
-    { "title": "SAP S/4HANA Consulting", "description": "S/4HANA isn't just an upgrade — it's a transformation. We help you realize the full value of real-time analytics, simplified data models, and Fiori UX.", "href": "/contact", "linkLabel": "Explore S/4HANA readiness", "image": null },
-    { "title": "SAP Support & Managed Services", "description": "Keep your SAP environment healthy, secure, and evolving — without building an internal army.", "href": "/contact", "linkLabel": "Get managed support", "image": null }
+    { "title": "SAP Implementation & Migration", "description": "Whether you're going live for the first time or moving from ECC to S/4HANA, we plan, execute, and stabilize your SAP journey.", "href": "/contact", "linkLabel": "Plan your migration", "image": "/api/media/images/sap/pathways/0/image.jpg" },
+    { "title": "SAP S/4HANA Consulting", "description": "S/4HANA isn't just an upgrade — it's a transformation. We help you realize the full value of real-time analytics, simplified data models, and Fiori UX.", "href": "/contact", "linkLabel": "Explore S/4HANA readiness", "image": "/api/media/images/sap/pathways/1/image.jpg" },
+    { "title": "SAP Support & Managed Services", "description": "Keep your SAP environment healthy, secure, and evolving — without building an internal army.", "href": "/contact", "linkLabel": "Get managed support", "image": "/api/media/images/sap/pathways/2/image.jpg" }
   ],
 
   "benefitsEyebrow": "Benefits",
@@ -52,7 +52,7 @@
   "ctaDescription": "We'll help you scope the right path — implementation, migration, or ongoing support — with a plan built around your systems and your team.",
   "ctaLabel": "Talk to an SAP Consultant",
   "ctaHref": "/contact",
-  "ctaImage": null,
+  "ctaImage": "/api/media/images/sap/ctaImage.jpg",
 
   "faqHeading": "Frequently Asked Questions",
   "faqs": [

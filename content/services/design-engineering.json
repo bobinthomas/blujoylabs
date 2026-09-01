@@ -6,7 +6,7 @@
   "heroEyebrow": "Design & Engineering",
   "heroHeadline": "Designed with intention. Built to scale",
   "heroSubheadline": "Brand, product, and web design paired with production-grade engineering — one team, from first pixel to shipped code.",
-  "heroImage": null,
+  "heroImage": "/api/media/images/design-engineering/heroImage.jpg",
 
   "introHeading": "Unlock clarity, speed, and confidence",
   "introParagraphs": [
@@ -14,18 +14,18 @@
     "Turning that design into a real, working product takes more than writing code — it takes an engineering process that protects performance, accessibility, and quality as you move fast.",
     "That's why we back every engagement with one connected team — designers who've shipped brand systems and product interfaces, and engineers who've shipped production web apps, bridged design-to-dev gaps, and prototyped AI products under real deadlines. Skip the guesswork and the handoff — you'll get the process and craft to launch with confidence."
   ],
-  "introImage": null,
+  "introImage": "/api/media/images/design-engineering/introImage.jpg",
 
   "pathwaysEyebrow": "Core Services",
   "pathwaysHeading": "Six pathways, one connected team",
   "pathwaysSubtitle": "Wherever you are in your brand or product journey, our program portfolio meets you there — from first concept through shipped code.",
   "pathways": [
-    { "title": "Brand Identity & Systems", "description": "Your brand is more than a logo. It's a system of visual rules that ensures consistency across every touchpoint — from your website to your investor deck.", "href": "/contact", "linkLabel": "Build your brand system", "image": null },
-    { "title": "Product & UX Design", "description": "We don't design screens. We design workflows. Every interaction is mapped to a user goal, tested for clarity, and refined for conversion.", "href": "/contact", "linkLabel": "Start a product design", "image": null },
-    { "title": "Web Design", "description": "Your website is your hardest-working salesperson. We design sites that communicate authority, load fast, and guide visitors to action — on any device.", "href": "/contact", "linkLabel": "Redesign your website", "image": null },
-    { "title": "Web Development", "description": "We build websites and web applications that perform. Clean code, responsive layouts, and SEO-friendly architecture — from marketing sites to complex dashboards.", "href": "/contact", "linkLabel": "Start your build", "image": null },
-    { "title": "UX Engineering", "description": "The gap between design and development is where great products die. Our UX engineers bridge it — designing in code, prototyping in the browser, and shipping faster.", "href": "/contact", "linkLabel": "Bridge design and dev", "image": null },
-    { "title": "AI Product & MVP Prototyping", "description": "Have an AI-powered product idea? We prototype it fast — using modern AI-assisted development tools to go from concept to clickable demo in record time.", "href": "/contact", "linkLabel": "Prototype your idea", "image": null }
+    { "title": "Brand Identity & Systems", "description": "Your brand is more than a logo. It's a system of visual rules that ensures consistency across every touchpoint — from your website to your investor deck.", "href": "/contact", "linkLabel": "Build your brand system", "image": "/api/media/images/design-engineering/pathways/0/image.jpg" },
+    { "title": "Product & UX Design", "description": "We don't design screens. We design workflows. Every interaction is mapped to a user goal, tested for clarity, and refined for conversion.", "href": "/contact", "linkLabel": "Start a product design", "image": "/api/media/images/design-engineering/pathways/1/image.jpg" },
+    { "title": "Web Design", "description": "Your website is your hardest-working salesperson. We design sites that communicate authority, load fast, and guide visitors to action — on any device.", "href": "/contact", "linkLabel": "Redesign your website", "image": "/api/media/images/design-engineering/pathways/2/image.jpg" },
+    { "title": "Web Development", "description": "We build websites and web applications that perform. Clean code, responsive layouts, and SEO-friendly architecture — from marketing sites to complex dashboards.", "href": "/contact", "linkLabel": "Start your build", "image": "/api/media/images/design-engineering/pathways/3/image.jpg" },
+    { "title": "UX Engineering", "description": "The gap between design and development is where great products die. Our UX engineers bridge it — designing in code, prototyping in the browser, and shipping faster.", "href": "/contact", "linkLabel": "Bridge design and dev", "image": "/api/media/images/design-engineering/pathways/4/image.jpg" },
+    { "title": "AI Product & MVP Prototyping", "description": "Have an AI-powered product idea? We prototype it fast — using modern AI-assisted development tools to go from concept to clickable demo in record time.", "href": "/contact", "linkLabel": "Prototype your idea", "image": "/api/media/images/design-engineering/pathways/5/image.jpg" }
   ],
 
   "benefitsEyebrow": "Benefits",
@@ -60,7 +60,7 @@
   "ctaDescription": "We'll help you scope the right starting point — brand, product, web design, or a full build — with a plan built around your users, your product, and your timeline.",
   "ctaLabel": "Start a Project",
   "ctaHref": "/contact",
-  "ctaImage": null,
+  "ctaImage": "/api/media/images/design-engineering/ctaImage.jpg",
 
   "faqHeading": "Frequently Asked Questions",
   "faqs": [

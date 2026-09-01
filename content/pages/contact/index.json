@@ -2,7 +2,7 @@
   "heroEyebrow": "Contact",
   "heroHeadline": "Let's start a conversation",
   "heroSubheadline": "Whether you're ready to engage or just exploring, we'd love to hear from you.",
-  "heroImage": null,
+  "heroImage": "/api/media/images/contact/heroImage.jpg",
 
   "consultationHeading": "Schedule a Consultation",
   "consultationDescription": "Book a free 30-minute strategy call with one of our senior consultants.",

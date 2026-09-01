@@ -2,7 +2,7 @@
   "heroEyebrow": "Careers",
   "heroHeadline": "Join a team that does meaningful work",
   "heroSubheadline": "GovCon, SAP, and design — three disciplines, one culture of excellence.",
-  "heroImage": null,
+  "heroImage": "/api/media/images/careers/heroImage.jpg",
 
   "whyWorkHeading": "Why Work With Us",
   "whyWork": [
@@ -15,12 +15,12 @@
 
   "cultureHeadline": "Life at Blujoy",
   "cultureText": "A remote-first team that still makes time to show up for each other — in-person offsites, shared wins, and a culture that treats work-life balance as a feature, not a perk.",
-  "cultureImage": null,
+  "cultureImage": "/api/media/images/careers/cultureImage.jpg",
 
   "positionsHeading": "Open Positions",
 
   "ctaHeading": "Don't see your role listed?",
   "ctaDescription": "We're always looking for great people across GovCon, SAP, and design. Reach out and tell us where you'd fit.",
   "ctaLabel": "Get in Touch",
-  "ctaImage": null
+  "ctaImage": "/api/media/images/careers/ctaImage.jpg"
 }

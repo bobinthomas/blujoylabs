@@ -6,7 +6,7 @@
   "heroPrimaryHref": "/contact",
   "heroSecondaryLabel": "Explore Feasibility",
   "heroSecondaryHref": "/contact",
-  "heroImage": null,
+  "heroImage": "/api/media/images/ai-consulting/heroImage.jpg",
 
   "gapHeading": "The Gap We Solve",
   "gapParagraphs": [
@@ -14,7 +14,7 @@
     "The difficult part is turning that starting point into a solution that is clear enough to build, sensible enough to invest in, and robust enough to use in the real world.",
     "That is where we work. We combine consulting, solution architecture and AI-enabled engineering to move from ambiguity to a working outcome - without forcing every challenge into an AI-shaped answer."
   ],
-  "gapImage": null,
+  "gapImage": "/api/media/images/ai-consulting/gapImage.jpg",
   "gapCalloutQuote": "AI is a means, not the starting point.",
   "gapCalloutText": "We begin with the business outcome. The right answer may be an AI-enabled application, an intelligent workflow, an agentic process, a conventional software solution, an integration layer, or a combination of them. The technology follows the requirement - not the other way around.",
   "gapEntryHeading": "You can come to us with...",
@@ -68,7 +68,7 @@
   "techEyebrow": "Technology & Engineering",
   "techHeading": "Modern Technology, Applied with Purpose",
   "techText": "We combine advanced AI capabilities with modern software engineering to build solutions that are faster to create, easier to integrate and ready for real operating environments. The technology stack is selected around the requirement, security posture, data landscape, performance needs and economics of each engagement.",
-  "techImage": null,
+  "techImage": "/api/media/images/ai-consulting/techImage.jpg",
   "techStack": [
     { "title": "Foundation & Generative AI", "description": "Large language models, multimodal models, embeddings, structured generation, model routing and prompt orchestration for practical enterprise use cases." },
     { "title": "Agentic Systems", "description": "Tool-using agents, multi-step orchestration, controlled autonomy, human approval points and standards-based integrations such as MCP where they add value." },
@@ -108,5 +108,5 @@
   "ctaText": "Share the problem, requirement, workflow, opportunity or RFP. We’ll help determine what is feasible, where AI can create real leverage, what the solution should look like, and the most credible path from idea to working outcome.",
   "ctaLabel": "Discuss a Requirement",
   "ctaHref": "/contact",
-  "ctaImage": null
+  "ctaImage": "/api/media/images/ai-consulting/ctaImage.jpg"
 }

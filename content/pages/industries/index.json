@@ -2,43 +2,43 @@
   "heroEyebrow": "Industries",
   "heroHeadline": "Trusted across sectors",
   "heroSubheadline": "Government, enterprise, and growth-stage companies — we speak your language and understand your constraints.",
-  "heroImage": null,
+  "heroImage": "/api/media/images/industries/heroImage.jpg",
 
   "industries": [
     {
       "title": "Federal Civilian Agencies",
       "description": "We support contractors and agencies across civilian portfolios — from health and human services to transportation and energy. Our GovCon expertise ensures your proposals align with agency priorities, and our design and SAP capabilities help you deliver once you win.",
       "bullets": ["Proposal development for civilian RFPs", "SAP implementation for federal shared services", "Compliance with civilian agency regulations", "Digital transformation and UX modernization"],
-      "image": null
+      "image": "/api/media/images/industries/industries/0/image.jpg"
     },
     {
       "title": "Department of Defense & Intelligence",
       "description": "DoD and IC contracts demand precision, security, and compliance. We bring CMMC-aligned processes, cleared recruitment support, and technical depth to every engagement.",
       "bullets": ["Defense-focused proposal strategy", "CMMC and NIST compliance support", "SAP for defense logistics and finance", "Secure design and development practices"],
-      "image": null
+      "image": "/api/media/images/industries/industries/1/image.jpg"
     },
     {
       "title": "State & Local Government",
       "description": "State and local opportunities move differently than federal — and we know the rhythm. From RFP response to system implementation, we help you serve communities effectively.",
       "bullets": ["State and local RFP support", "SAP for public sector ERP", "Citizen-facing digital services design", "Grant and funding application support"],
-      "image": null
+      "image": "/api/media/images/industries/industries/2/image.jpg"
     },
     {
       "title": "Commercial Enterprises",
       "description": "Not every client wears a uniform. We bring the same rigor to commercial engagements — helping businesses modernize technology, redesign digital experiences, and compete in crowded markets.",
       "bullets": ["SAP S/4HANA for commercial operations", "Product design and digital transformation", "eCommerce and growth engineering", "Brand strategy and market positioning"],
-      "image": null
+      "image": "/api/media/images/industries/industries/3/image.jpg"
     },
     {
       "title": "Startups & Growth-Stage Companies",
       "description": "You're moving fast. We move with you. From MVP prototyping to your first GovCon win, we provide the expertise you need without the overhead you can't afford.",
       "bullets": ["Rapid prototyping and MVP development", "GovCon readiness and first-contract support", "Brand and web design for market entry", "Fractional design and technical leadership"],
-      "image": null
+      "image": "/api/media/images/industries/industries/4/image.jpg"
     }
   ],
 
   "ctaHeading": "Not sure where you fit?",
   "ctaDescription": "Tell us about your organization and what you're trying to achieve — we'll help you figure out where to start.",
   "ctaLabel": "Schedule a Free Consultation",
-  "ctaImage": null
+  "ctaImage": "/api/media/images/industries/ctaImage.jpg"
 }

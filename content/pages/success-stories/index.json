@@ -2,7 +2,7 @@
   "heroEyebrow": "Success Stories",
   "heroHeadline": "Results that speak",
   "heroSubheadline": "Real wins, real transformations, real partnerships.",
-  "heroImage": null,
+  "heroImage": "/api/media/images/success-stories/heroImage.jpg",
 
   "metricsHeading": "By the Numbers",
   "metrics": [
@@ -19,5 +19,5 @@
   "ctaHeading": "Ready to write your own success story?",
   "ctaDescription": "Let's talk about where you are — and how we can help you get the kind of result worth featuring here.",
   "ctaLabel": "Schedule a Free Consultation",
-  "ctaImage": null
+  "ctaImage": "/api/media/images/success-stories/ctaImage.jpg"
 }

@@ -2,10 +2,10 @@
   "heroEyebrow": "Resources",
   "heroHeadline": "Knowledge worth sharing",
   "heroSubheadline": "Guides, best practices, and insights from the front lines of GovCon, SAP, and digital design.",
-  "heroImage": null,
+  "heroImage": "/api/media/images/resources/heroImage.jpg",
 
   "featuredCategory": "blog-articles",
-  "featuredImage": null,
+  "featuredImage": "/api/media/images/resources/featuredImage.jpg",
 
   "newsletterHeading": "Never miss an update",
   "newsletterDescription": "GovCon strategy, SAP best practices, and design insight — straight to your inbox, no spam."
