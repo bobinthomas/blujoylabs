@@ -56,7 +56,7 @@ export default function Footer({
   const [subscribed, setSubscribed] = useState(false);
 
   return (
-    <footer className="bg-[#121212] text-white">
+    <footer className="bg-ink text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
           {/* Column 1: Brand */}
@@ -69,7 +69,7 @@ export default function Footer({
                   key={s.platform}
                   href={s.href}
                   aria-label={socialIcons[s.platform].label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-[#A3E635] hover:text-[#A3E635]"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-blue-300 hover:text-blue-300"
                 >
                   {socialIcons[s.platform].icon}
                 </a>
@@ -83,7 +83,7 @@ export default function Footer({
             <ul className="space-y-3">
               {productLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-white/60 transition-colors hover:text-[#A3E635]">
+                  <Link href={link.href} className="text-sm text-white/60 transition-colors hover:text-blue-300">
                     {link.label}
                   </Link>
                 </li>
@@ -97,7 +97,7 @@ export default function Footer({
             <ul className="space-y-3">
               {resourceLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-white/60 transition-colors hover:text-[#A3E635]">
+                  <Link href={link.href} className="text-sm text-white/60 transition-colors hover:text-blue-300">
                     {link.label}
                   </Link>
                 </li>
@@ -111,7 +111,7 @@ export default function Footer({
             <ul className="space-y-3">
               {companyLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-white/60 transition-colors hover:text-[#A3E635]">
+                  <Link href={link.href} className="text-sm text-white/60 transition-colors hover:text-blue-300">
                     {link.label}
                   </Link>
                 </li>
@@ -123,7 +123,7 @@ export default function Footer({
           <div className="sm:col-span-2 lg:col-span-1">
             <h3 className="mb-5 text-sm font-medium text-white">{newsletterHeading}</h3>
             {subscribed ? (
-              <p className="text-sm text-[#A3E635]">You&apos;re subscribed — thanks!</p>
+              <p className="text-sm text-blue-300">You&apos;re subscribed — thanks!</p>
             ) : (
               <form
                 onSubmit={(e) => {
@@ -136,11 +136,11 @@ export default function Footer({
                   type="email"
                   required
                   placeholder="Email address"
-                  className="w-full rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-white/40 focus:border-[#A3E635] focus:outline-none"
+                  className="w-full rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-white/40 focus:border-blue-400 focus:outline-none"
                 />
                 <button
                   type="submit"
-                  className="flex w-full items-center justify-center gap-1.5 rounded-full bg-[#A3E635] px-4 py-2.5 text-sm font-medium text-[#121212] transition-colors hover:bg-[#b5ee54]"
+                  className="flex w-full items-center justify-center gap-1.5 rounded-full bg-blue-600 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-blue-700"
                 >
                   Subscribe
                   <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -167,10 +167,10 @@ export default function Footer({
         <div className="max-w-7xl mx-auto flex flex-col items-center justify-between gap-4 px-4 py-6 sm:flex-row sm:px-6 lg:px-8">
           <p className="text-xs text-white/40">{copyrightText}</p>
           <div className="flex items-center gap-6 text-xs text-white/40">
-            <Link href="#" className="transition-colors hover:text-[#A3E635]">
+            <Link href="#" className="transition-colors hover:text-blue-300">
               Privacy Policy
             </Link>
-            <Link href="#" className="transition-colors hover:text-[#A3E635]">
+            <Link href="#" className="transition-colors hover:text-blue-300">
               Terms of Service
             </Link>
           </div>
