@@ -23,7 +23,6 @@ export default async function MarketingLayout({ children }: { children: React.Re
         companyLinks={settings.footerCompanyLinks}
         socialLinks={settings.footerSocialLinks}
         tagline={settings.footerTagline}
-        newsletterHeading={settings.footerNewsletterHeading}
         copyrightText={settings.footerCopyrightText}
       />
     </>

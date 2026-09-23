@@ -8,7 +8,7 @@ import { getKeystaticReader } from "@/lib/keystatic-reader";
 
 export const metadata: Metadata = {
   title: "Careers",
-  description: "Join a team that does meaningful work — GovCon, SAP, and design, three disciplines, one culture of excellence.",
+  description: "Join a team that does meaningful work — GovCon, AI, and design, three disciplines, one culture of excellence.",
 };
 
 export default async function CareersPage() {
@@ -19,7 +19,14 @@ export default async function CareersPage() {
   ]);
   if (!page) throw new Error("careersPage singleton is missing");
 
-  const positions = [...jobPostings].sort((a, b) => (a.entry.order ?? 0) - (b.entry.order ?? 0));
+  // SAP postings stay in the content source but are held out of the public
+  // listing, consistent with SAP being pulled from every other launch surface.
+  const positions = [...jobPostings]
+    .filter((pos) => !pos.slug.startsWith("sap-"))
+    // Postings still holding their seeded "[Placeholder — ...]" description aren't
+    // real openings yet; the "Don't see your role listed?" CTA still catches interest.
+    .filter((pos) => !pos.entry.description.trim().startsWith("["))
+    .sort((a, b) => (a.entry.order ?? 0) - (b.entry.order ?? 0));
 
   return (
     <>
@@ -75,12 +82,12 @@ export default async function CareersPage() {
                 d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14M4 8h16M4 4h16a1 1 0 011 1v14a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1z"
               />
             </svg>
-            <span className="text-xs font-medium uppercase tracking-wider">Photo — life at Blujoy</span>
+            <span className="text-xs font-medium uppercase tracking-wider">Photo — life at BluJoy</span>
           </div>
         )}
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(100deg, rgba(18,23,34,0.85) 0%, rgba(18,23,34,0.5) 50%, rgba(18,23,34,0.1) 100%)" }}
+          style={{ background: "linear-gradient(100deg, rgba(16,35,63,0.85) 0%, rgba(16,35,63,0.5) 50%, rgba(16,35,63,0.1) 100%)" }}
         />
         <Reveal className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-lg">
@@ -90,7 +97,8 @@ export default async function CareersPage() {
         </Reveal>
       </section>
 
-      {/* Open Positions */}
+      {/* Open Positions — hidden until real postings are published */}
+      {positions.length > 0 && (
       <section className="py-20 sm:py-28 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading title={page.positionsHeading} />
@@ -116,6 +124,7 @@ export default async function CareersPage() {
           </div>
         </div>
       </section>
+      )}
 
       <SplitCTA
         heading={page.ctaHeading}

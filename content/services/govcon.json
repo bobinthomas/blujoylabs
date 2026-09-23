@@ -1,117 +1,230 @@
 {
   "slug": "govcon",
-  "metaTitle": "GovCon Solutions",
-  "metaDescription": "Win more government contracts with expert proposal development, capture management, and compliance support.",
-  "heroEyebrow": "GovCon Solutions",
-  "heroHeadline": "Win more government contracts",
-  "heroSubheadline": "From your first SAM registration to your hundredth proposal — we guide, write, and strategize so you compete to win.",
+  "metaTitle": "Federal and SLED Capture and Proposal Support",
+  "metaDescription": "Capture, proposal writing and management support for Federal and SLED contractors. Explore monthly team support or help with an individual pursuit.",
+  "heroEyebrow": "Federal & SLED GovCon Support",
+  "heroHeadline": "Your Capture and Proposal Team—Without the Cost of Building One In-House",
+  "heroSubheadline": "Access coordinated opportunity research, capture, technical solutioning, proposal writing and management support for Federal and SLED pursuits. Choose ongoing monthly support or help with an individual opportunity, with capacity aligned to your priorities and deadlines.",
   "heroImage": "/api/media/images/govcon/heroImage.jpg",
-  "introHeading": "Unlock pipeline, positioning, and confidence",
+  "heroPrimaryLabel": "Discuss Your Pursuit Needs",
+  "heroPrimaryHref": "/contact?service=govcon",
+  "heroSecondaryLabel": "Explore Our Support",
+  "heroSecondaryHref": "#govcon-services",
+  "heroSupportingLine": "A named client lead. Agreed US working-hour overlap. Specialist support when your pursuit needs it.",
+  "introHeading": "Build Pursuit Capacity Without Expanding Your Payroll",
   "introParagraphs": [
-    "Getting a federal award off the ground takes more than a compliant proposal — it takes capture strategy, teaming relationships, and a compliance posture that holds up under review.",
-    "That's why we back contractors with proposal writers, capture strategists, and compliance specialists who've sat on both sides of the evaluation table. Skip the guesswork — you'll access the insight, process, and infrastructure to submit with confidence."
+    "Government contractors need consistent support before a solicitation is released and additional help when proposal deadlines overlap. Building a separate in-house team for capture, solutioning, writing and proposal management can be costly and difficult to scale.",
+    "BluJoy works alongside your team across Federal and State, Local and Education pursuits. Your named lead coordinates day-to-day priorities and brings in the agreed specialist support, while your team retains control of bid decisions, technical commitments, pricing and final approvals.",
+    "Use ongoing monthly support to maintain continuity across your pipeline, or engage us for a defined pursuit or project."
   ],
   "introImage": "/api/media/images/govcon/introImage.jpg",
   "pathwaysEyebrow": "Core Services",
-  "pathwaysHeading": "Three pathways, one route to award",
-  "pathwaysSubtitle": "Wherever you are in your GovCon journey, our program portfolio meets you there.",
+  "pathwaysHeading": "Capture, Solutioning & Proposal Support",
+  "pathwaysSubtitle": "Support across your pursuit pipeline, from identifying a fit to preparing a response and managing the final submission process.",
   "pathways": [
     {
-      "title": "Capture Management & Strategy",
-      "description": "Winning starts before the RFP drops. We help you identify, qualify, and position for opportunities long before the solicitation is released.",
-      "href": "/contact",
-      "linkLabel": "Start your capture plan",
+      "title": "Opportunity Research and Capture Management",
+      "description": "Identify relevant opportunities and make informed pursuit decisions. We research opportunities using your approved tools and available public sources, maintain your pipeline, and help develop positioning before the response deadline. Your team owns bid/no-bid decisions and partner commitments.",
+      "href": "/contact?service=govcon",
+      "linkLabel": "Start Your Capture Plan",
       "image": "/api/media/images/govcon/pathways/0/image.jpg"
     },
     {
-      "title": "Proposal Development & Writing",
-      "description": "Federal proposals are compliance artifacts, technical narratives, and win strategies wrapped into one. We write proposals that score.",
-      "href": "/contact",
-      "linkLabel": "Get proposal support",
+      "title": "Technical Solutioning and Proposal Writing",
+      "description": "Turn your capabilities and subject matter expertise into a clear, solicitation-aligned response. We develop the narrative and coordinate targeted input from your technical and business leads. Proposal solutioning does not include implementing the solution or delivering the awarded contract.",
+      "href": "/contact?service=govcon",
+      "linkLabel": "Get Proposal Support",
       "image": "/api/media/images/govcon/pathways/1/image.jpg"
     },
     {
-      "title": "Contract Management & Administration",
-      "description": "Winning is only half the battle. We help you manage deliverables, compliance, and reporting so you perform — and get recompeted.",
-      "href": "/contact",
-      "linkLabel": "Manage your award",
+      "title": "Proposal Management and Submission Support",
+      "description": "Keep the response organised from kickoff through final review. We coordinate schedules, requirements, contributors and reviews so your team can make timely decisions and submit the approved response. You approve the final response and submission.",
+      "href": "/contact?service=govcon",
+      "linkLabel": "Manage Your Submission",
       "image": "/api/media/images/govcon/pathways/2/image.jpg"
     }
   ],
-  "benefitsEyebrow": "Benefits",
-  "benefitsHeading": "Support that starts when you do",
-  "benefitsSubtitle": "Bespoke proposal support, expert advice, and a pipeline you can build on from day one.",
+  "engagementEyebrow": "Engagement Options",
+  "engagementHeading": "Flexible Support for Your Pursuit Pipeline",
+  "engagementSubtitle": "Build continuity with ongoing monthly support, or bring us in for a defined opportunity. We agree priorities, responsibilities and capacity before work begins.",
+  "engagementOptions": [
+    {
+      "title": "Ongoing Monthly Support",
+      "description": "For companies that need consistent support across their pipeline and active pursuits. A named lead coordinates opportunity research, capture and proposal work, with specialist support matched to the agreed scope. Routine contract-information reviews and update coordination can also be included when agreed.",
+      "href": "/contact?service=govcon&engagement=monthly",
+      "linkLabel": "Discuss Monthly Support",
+      "badge": "Recommended for ongoing pipelines"
+    },
+    {
+      "title": "Individual Pursuit or Project",
+      "description": "For a specific response, submission deadline or defined support need. We scope the work around the solicitation, required deliverables, available inputs and time remaining.",
+      "href": "/contact?service=govcon&engagement=project",
+      "linkLabel": "Get Support for a Pursuit"
+    }
+  ],
+  "engagementNote": "Response effort varies significantly. A short RFI or MRAS response is not equivalent to a complex vehicle proposal. We agree what can be delivered against your priorities and deadlines, and flag scope or capacity changes early.",
+  "processEyebrow": "Client Lifecycle",
+  "processHeading": "How We Work With Your Team",
+  "processIntro": "Start with a shared plan, stay aligned through the response, and keep the next pursuit moving. The steps adapt to your engagement and the stage of each opportunity.",
+  "processStages": [
+    {
+      "number": "01",
+      "label": "ONBOARD AND ALIGN",
+      "title": "Onboard and Align",
+      "description": "Agree goals, scope, working hours, points of contact, tools and approved access. Review your capabilities and available proposal material.",
+      "iconKey": "partnership"
+    },
+    {
+      "number": "02",
+      "label": "PLAN AND PRIORITISE",
+      "title": "Plan and Prioritise",
+      "description": "Review your pipeline or immediate solicitation, agree priorities, and set milestones and responsibilities.",
+      "iconKey": "layers"
+    },
+    {
+      "number": "03",
+      "label": "RESEARCH AND CAPTURE",
+      "title": "Research and Capture",
+      "description": "Qualify opportunities, develop positioning and coordinate research and teaming activities relevant to the pursuit.",
+      "iconKey": "search"
+    },
+    {
+      "number": "04",
+      "label": "DEVELOP THE RESPONSE",
+      "title": "Develop the Response",
+      "description": "Build the response structure, coordinate SME inputs and prepare narratives, proposal documents and pricing inputs.",
+      "iconKey": "document"
+    },
+    {
+      "number": "05",
+      "label": "REVIEW AND SUBMIT",
+      "title": "Review and Submit",
+      "description": "Resolve review comments, complete final checks and support your team through the agreed submission process.",
+      "iconKey": "check"
+    },
+    {
+      "number": "06",
+      "label": "FOLLOW UP AND TRANSITION",
+      "title": "Follow Up and Transition",
+      "description": "Support clarifications, oral presentation preparation and revisions as scoped. If awarded, assist with agreed SOW documentation and handoff to your delivery team.",
+      "iconKey": "flexible"
+    }
+  ],
+  "processRows": [
+    3,
+    3
+  ],
+  "processShortcutFromIndex": 1,
+  "processShortcutToIndex": 3,
+  "processShortcutLabel": "Active solicitation",
+  "processLoopFromIndex": 5,
+  "processLoopToIndex": 1,
+  "processLoopLabel": "Next pursuit",
+  "processCaption": "For an active solicitation, we can move from planning directly into response development. For monthly engagements, we return to pipeline priorities after each pursuit. Awards and evaluation outcomes remain outside our control.",
+  "marketHeading": "Supporting Federal, State, Local & Education Pursuits",
+  "marketCoverage": [
+    {
+      "title": "Federal",
+      "description": "Capture and proposal support for contractors pursuing federal agency opportunities, contract vehicles and task orders. We tailor the response plan to the solicitation, evaluation criteria and your role in the pursuit."
+    },
+    {
+      "title": "State, Local and Education",
+      "description": "Capture and proposal support for contractors pursuing state agencies, local governments, school districts and higher education institutions. We help review buyer-specific requirements, organise the response and coordinate submission activities for the relevant procurement process."
+    }
+  ],
+  "marketSharedLine": "Federal and SLED support sit within one GovCon offering. Scope, eligibility and submission requirements are assessed for each opportunity.",
+  "benefitsEyebrow": "Why BluJoy",
+  "benefitsHeading": "An Extension of Your Pursuit Team",
+  "benefitsSubtitle": "Coordinated capture and proposal support, scoped around how your team already works.",
   "benefits": [
     {
-      "title": "Federal Expertise",
-      "description": "Deep understanding of federal acquisition regulations, FAR/DFARS, and proposal best practices.",
-      "iconKey": "shield"
+      "title": "A Named Lead",
+      "description": "One day-to-day point of contact coordinates priorities, contributors and progress across your agreed support scope.",
+      "iconKey": "partnership"
     },
     {
-      "title": "Speed to Submission",
-      "description": "Rapid turnaround on RFP responses without sacrificing compliance, quality, or your win probability.",
-      "iconKey": "speed"
-    },
-    {
-      "title": "Proven Results",
-      "description": "A track record of contract wins across GSA, DoD, and civilian agencies — 150+ proposals and counting.",
+      "title": "An Alternative to Building In House",
+      "description": "Access coordinated capture and proposal support without hiring separately for every role. We scope the engagement around the support your business needs.",
       "iconKey": "results"
     },
     {
-      "title": "True Partnership",
-      "description": "We embed with your team through every milestone, not just deliver a document and disappear.",
-      "iconKey": "partnership"
+      "title": "Capacity Aligned to Your Workload",
+      "description": "Plan ahead for active pursuits and overlapping deadlines. Additional support is agreed against availability, complexity and timing.",
+      "iconKey": "speed"
+    },
+    {
+      "title": "Working Hours Agreed With You",
+      "description": "Coordinate reviews and handoffs through agreed US working-hour overlap, with coverage for key milestones planned in advance.",
+      "iconKey": "globe"
     }
   ],
-  "supportingHeading": "Full-spectrum GovCon support",
-  "supportingSubtitle": "Beyond capture and proposals, we cover the full lifecycle of federal contracting.",
+  "teamStatsVisible": false,
+  "teamStatsHeading": "Experience Our Team Brings",
+  "teamStats": [
+    {
+      "value": "25+",
+      "label": "Years of combined team experience"
+    },
+    {
+      "value": "200+",
+      "label": "Proposals supported across team members' prior roles"
+    }
+  ],
+  "teamStatsAttribution": "These figures reflect team members' experience before joining BluJoy, not BluJoy company results. The combined experience spans commercial and public sector work.",
+  "supportingHeading": "Supporting Your Pursuit Readiness and Award Transition",
+  "supportingSubtitle": "Add focused support for registration, contract vehicle responses and the documentation needed to hand an awarded opportunity to your delivery team.",
   "supportingServices": [
     {
-      "title": "Opportunity Identification & Pipeline Building",
-      "description": "Daily opportunity monitoring and capability-to-opportunity matching, so you chase fewer, better-fit RFPs."
+      "title": "SAM Registration and Renewal Support",
+      "description": "We help gather the information needed for SAM registration and renewal, coordinate profile updates and track the agreed actions. Your authorised representative reviews the information and completes any actions requiring company authority or identity verification."
     },
     {
       "title": "Contract Vehicle Support",
-      "description": "Navigate GSA Schedules, SEWP, IDIQs, and BPA vehicles from application to award."
+      "description": "We help prepare contract vehicle and task order responses and coordinate selected updates to your existing vehicle records — including MAS SIN addition documentation and OASIS+ pursuits within your eligibility and agreed scope. Other MAS modifications are assessed before we accept the work; new MAS applications and general OASIS+ maintenance are outside this offering."
     },
     {
-      "title": "Compliance & Regulatory Support",
-      "description": "FAR/DFARS review, CMMC readiness, and small business program compliance (8(a), HUBZone, WOSB, SDVOSB)."
+      "title": "Award Transition and SOW Support",
+      "description": "When an awarded Federal or SLED opportunity requires a contractor-prepared statement of work, we help draft the document using the award requirements and your delivery team's input. This is documentation support — your team remains responsible for the approved scope, customer commitments and contract delivery."
     }
   ],
-  "testimonialHeading": "Hear from contractors we've helped win",
-  "testimonialQuote": "They guided us from zero GovCon experience to a $12M IDIQ win in under 8 months. Their team felt like an extension of our own.",
-  "testimonialName": "Sarah Mitchell",
-  "testimonialTitle": "CEO, TechBridge Federal",
-  "ctaHeading": "Ready to win your next contract?",
-  "ctaDescription": "We'll help you navigate the federal marketplace and connect you with the strategy, writers, and compliance support you need — free and founder-first.",
-  "ctaLabel": "Let's Build Your Proposal Strategy",
-  "ctaHref": "/contact",
+  "ctaHeading": "Let's Discuss Your Next Pursuit",
+  "ctaDescription": "Tell us where you need support: maintaining a pipeline, adding capacity to your team or responding to an active opportunity. We'll discuss the scope, timing and engagement model that fit your needs.",
+  "ctaLabel": "Discuss Your Pursuit Needs",
+  "ctaHref": "/contact?service=govcon",
+  "ctaImage": "/api/media/images/govcon/ctaImage.webp",
   "faqHeading": "Frequently Asked Questions",
   "faqs": [
     {
-      "question": "How long does a typical proposal take?",
-      "answer": "A standard federal proposal takes 4-6 weeks from kickoff to submission. Expedited timelines are available for tight deadlines."
+      "question": "Can we engage you monthly or for one pursuit?",
+      "answer": "Both. Monthly support provides continuity across your pipeline and active opportunities. A project engagement is scoped for a defined pursuit or specific support need. We will recommend a scope based on your priorities, timeline and existing resources."
     },
     {
-      "question": "Do I need past performance to win a government contract?",
-      "answer": "Not necessarily. We help first-time contractors build winning proposals using capability demonstrations, key personnel experience, and subcontracting history."
+      "question": "What is included in monthly support?",
+      "answer": "The agreed scope can include opportunity research, capture, technical solutioning, proposal writing and management, pricing coordination and submission support. Routine vehicle information reviews and update coordination can also be included. Your SOW defines the included activities, capacity and responsibilities."
     },
     {
-      "question": "What certifications or set-asides can you help us pursue?",
-      "answer": "We support 8(a), HUBZone, WOSB, SDVOSB, and other socio-economic certifications, from eligibility assessment through application."
+      "question": "How many responses can you support each month?",
+      "answer": "It depends on the mix of work. A short RFI or MRAS response can require much less effort than a complex RFP or vehicle proposal. We review priorities and deadlines with you and agree a realistic delivery plan rather than promising a fixed number regardless of complexity."
     },
     {
-      "question": "Do you work with subcontractors or teaming partners?",
-      "answer": "Yes — we help you evaluate and structure teaming arrangements, joint ventures, and subcontracting plans that strengthen your bid."
+      "question": "Can you work alongside our existing team?",
+      "answer": "Yes. We can supplement your capture leads, writers, subject matter experts and pricing team, or coordinate a broader support scope. Your named lead agrees ownership and review points so responsibilities are clear."
     },
     {
-      "question": "What's the difference between capture management and proposal writing?",
-      "answer": "Capture management happens before the RFP is released — positioning, relationship-building, and competitive intelligence. Proposal writing is the compliant, compelling response once the solicitation drops."
+      "question": "What will you need from us?",
+      "answer": "Typically, your capability information, relevant past performance, solicitation documents, approved tool access, and timely technical and pricing inputs. Your team reviews the response, validates commitments and gives final approval."
     },
     {
-      "question": "How much does GovCon support cost?",
-      "answer": "Engagements are scoped around your pipeline and stage — from a single proposal to ongoing capture retainer support. Book a free consultation and we'll put together a fit-for-purpose quote."
+      "question": "Can you help with an urgent deadline?",
+      "answer": "We assess the scope, time remaining, available materials and team capacity before committing. Share the deadline and current response status so we can confirm what support is practical."
+    },
+    {
+      "question": "Do you support both Federal and SLED opportunities?",
+      "answer": "Yes. We support contractor pursuits across federal agencies and State, Local and Education buyers. The work is tailored to each solicitation and procurement process, including the relevant submission requirements."
+    },
+    {
+      "question": "Do you guarantee an award or deliver the awarded work?",
+      "answer": "No. We help prepare and coordinate your response, but the buyer controls the evaluation and award decision. Your company remains responsible for contract delivery. Where agreed, we can assist with post-submission responses and award-transition SOW documentation."
     }
   ]
 }

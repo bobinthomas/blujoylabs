@@ -1,64 +1,71 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Dock-inspired neutral scale, aliased onto the existing navy/blue/warm
-     token names so components don't need per-file edits. */
+  /* BluJoy Labs relaunch palette (master brief v1.0, 23 Sep 2026).
+     Values are remapped onto the existing token names so components
+     don't need per-file edits — roles stay the same, hexes change.
+     Deep navy #10233F, strong blue #175CD3, warm white #F8FAFC,
+     pale blue #EAF2FF, teal accent #0F766E, dark slate #243247. */
   --color-navy-50: #fbfaf7;
   --color-navy-100: #efefef;
   --color-navy-200: #e2e2e2;
   --color-navy-300: #cccccc;
-  --color-navy-400: #a5a5a5;
-  --color-navy-500: #8a8f97;
-  --color-navy-600: #777c86;
-  --color-navy-700: #2d2d2d;
-  --color-navy-800: #1d1d1d;
-  --color-navy-900: #121722;
-  --color-navy-950: #121722;
+  --color-navy-400: #8a97ab;
+  --color-navy-500: #5b6b82;
+  --color-navy-600: #3c4c66;
+  --color-navy-700: #243247;
+  --color-navy-800: #17263c;
+  --color-navy-900: #10233f;
+  --color-navy-950: #10233f;
 
-  /* Electric Cobalt is Dock's one interactive/CTA color — buttons, links, focus states */
-  --color-blue-50: #f4f9ff;
-  --color-blue-100: #eaf2fe;
-  --color-blue-200: #d6e4f1;
-  --color-blue-300: #a8c8ef;
-  --color-blue-400: #0074dd;
-  --color-blue-500: #0068f9;
-  --color-blue-600: #0068f9;
-  --color-blue-700: #024bb1;
-  --color-blue-800: #024bb1;
-  --color-blue-900: #024bb1;
+  /* Strong blue is the one interactive/CTA color — buttons, links, selected states */
+  --color-blue-50: #eaf2ff;
+  --color-blue-100: #eaf2ff;
+  --color-blue-200: #c7dcfb;
+  --color-blue-300: #8fb8f2;
+  --color-blue-400: #3d7de0;
+  --color-blue-500: #175cd3;
+  --color-blue-600: #175cd3;
+  --color-blue-700: #0f3f9e;
+  --color-blue-800: #0f3f9e;
+  --color-blue-900: #0f3f9e;
 
-  --color-accent-light: #f4f0ff;
-  --color-accent-hover: #e5ddff;
-  --color-warm: #faf9f7;
-  --color-warm-dark: #fbfaf7;
+  --color-accent-light: #eaf2ff;
+  --color-accent-hover: #d6e4f8;
+  --color-warm: #f8fafc;
+  --color-warm-dark: #edf1f5;
   --color-warm-card: #ffffff;
-  --color-warm-border: #efefef;
-  --color-silver: #fbfaf7;
-  --color-silver-dark: #efefef;
+  --color-warm-border: #e2e8f0;
+  --color-silver: #edf1f5;
+  --color-silver-dark: #e2e8f0;
+
+  /* Pale blue and teal accent — new roles from the master brief */
+  --color-pale-blue: #eaf2ff;
+  --color-teal-accent: #0f766e;
 
   /* Canonical Dock tokens, for new work */
-  --color-canvas-cream: #faf9f7;
-  --color-surface-ivory: #fbfaf7;
+  --color-canvas-cream: #f8fafc;
+  --color-surface-ivory: #edf1f5;
   --color-pure-white: #ffffff;
-  --color-lavender-mist: #f4f0ff;
-  --color-powder-blue: #d6e4f1;
-  --color-ink: #121722;
-  --color-graphite: #2d2d2d;
-  --color-slate-gray: #777c86;
-  --color-steel-gray: #a5a5a5;
-  --color-hairline: #efefef;
-  --color-electric-cobalt: #0068f9;
-  --color-deep-cobalt: #024bb1;
-  --color-cerulean: #0074dd;
+  --color-lavender-mist: #eaf2ff;
+  --color-powder-blue: #eaf2ff;
+  --color-ink: #10233f;
+  --color-graphite: #243247;
+  --color-slate-gray: #3c4c66;
+  --color-steel-gray: #8a97ab;
+  --color-hairline: #e2e8f0;
+  --color-electric-cobalt: #175cd3;
+  --color-deep-cobalt: #0f3f9e;
+  --color-cerulean: #3d7de0;
   --color-vivid-violet: #6736eb;
-  --color-forest: #046645;
+  --color-forest: #0f766e;
 
   /* Legacy ElevenLabs alias names some components still reference */
-  --color-eggshell: #faf9f7;
-  --color-warm-taupe: #fbfaf7;
-  --color-stone: #efefef;
-  --color-smoke: #777c86;
-  --color-ash: #a5a5a5;
+  --color-eggshell: #f8fafc;
+  --color-warm-taupe: #edf1f5;
+  --color-stone: #e2e8f0;
+  --color-smoke: #3c4c66;
+  --color-ash: #8a97ab;
 
   --font-sans: var(--font-epunda-sans), ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-display: var(--font-epunda-slab), Georgia, "Times New Roman", serif;
@@ -75,8 +82,8 @@
 }
 
 :root {
-  --background: #faf9f7;
-  --foreground: #121722;
+  --background: #f8fafc;
+  --foreground: #243247;
 }
 
 body {
@@ -97,22 +104,22 @@ html {
 }
 
 ::selection {
-  background-color: #d6e4f1;
-  color: #121722;
+  background-color: #eaf2ff;
+  color: #10233f;
 }
 
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #faf9f7;
+  background: #f8fafc;
 }
 ::-webkit-scrollbar-thumb {
   background: #cccccc;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #a5a5a5;
+  background: #8a97ab;
 }
 
 /* Scroll reveal animations */
@@ -196,6 +203,99 @@ html {
 
 @media (prefers-reduced-motion: reduce) {
   .marquee-track {
+    animation: none;
+  }
+}
+
+/* Animated dotted flow connectors for the service-page process diagrams.
+   Each connector is composed of straight horizontal/vertical segments so the
+   dash pattern never distorts at any viewport width. Dots march in the
+   direction of travel; the marching stops under reduced motion, but the lines
+   and arrowheads stay, so the flow is still explicit without the movement. */
+.flow-x {
+  background-image: repeating-linear-gradient(to right, var(--flow-color) 0 4px, transparent 4px 12px);
+  background-size: 12px 100%;
+}
+.flow-y {
+  background-image: repeating-linear-gradient(to bottom, var(--flow-color) 0 4px, transparent 4px 12px);
+  background-size: 100% 12px;
+}
+
+@keyframes flow-march-x { to { background-position-x: 12px; } }
+@keyframes flow-march-x-rev { to { background-position-x: -12px; } }
+@keyframes flow-march-y { to { background-position-y: 12px; } }
+@keyframes flow-march-y-rev { to { background-position-y: -12px; } }
+
+.flow-right { animation: flow-march-x 0.9s linear infinite; }
+.flow-left { animation: flow-march-x-rev 0.9s linear infinite; }
+.flow-down { animation: flow-march-y 0.9s linear infinite; }
+.flow-up { animation: flow-march-y-rev 0.9s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-right, .flow-left, .flow-down, .flow-up {
+    animation: none;
+  }
+}
+
+/* Sequential stage-card glow for the process diagrams. A bright arc travels once
+   around a card's border over GLOW_STEP seconds, then hands off to the next card
+   in order and the diagram loops. The ring is a conic gradient masked to the
+   card's border box; --glow-slot names the gating keyframes for this diagram's
+   stage count, so exactly one card is lit at a time. If --glow-slot is unset the
+   animation shorthand is invalid and the ring simply stays hidden. Frozen under
+   reduced motion. */
+@property --glow-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.stage-glow {
+  position: relative;
+}
+
+.stage-glow::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  padding: 2px;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: conic-gradient(
+    from var(--glow-angle),
+    transparent 0deg,
+    transparent 244deg,
+    rgba(23, 92, 211, 0.18) 292deg,
+    var(--color-blue-600) 344deg,
+    rgba(23, 92, 211, 0.18) 354deg,
+    transparent 360deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  filter: drop-shadow(0 0 5px rgba(23, 92, 211, 0.45));
+  animation: glow-sweep var(--glow-step, 3s) linear infinite,
+    var(--glow-slot) var(--glow-cycle, 15s) linear infinite;
+  animation-delay: var(--glow-delay, 0s), var(--glow-delay, 0s);
+}
+
+@keyframes glow-sweep {
+  to {
+    --glow-angle: 360deg;
+  }
+}
+
+@keyframes glow-slot-3 { 0% { opacity: 0; } 3.33% { opacity: 1; } 30.00% { opacity: 1; } 33.33% { opacity: 0; } 100% { opacity: 0; } }
+@keyframes glow-slot-4 { 0% { opacity: 0; } 2.50% { opacity: 1; } 22.50% { opacity: 1; } 25.00% { opacity: 0; } 100% { opacity: 0; } }
+@keyframes glow-slot-5 { 0% { opacity: 0; } 2.00% { opacity: 1; } 18.00% { opacity: 1; } 20.00% { opacity: 0; } 100% { opacity: 0; } }
+@keyframes glow-slot-6 { 0% { opacity: 0; } 1.67% { opacity: 1; } 15.00% { opacity: 1; } 16.67% { opacity: 0; } 100% { opacity: 0; } }
+@keyframes glow-slot-7 { 0% { opacity: 0; } 1.43% { opacity: 1; } 12.86% { opacity: 1; } 14.29% { opacity: 0; } 100% { opacity: 0; } }
+@keyframes glow-slot-8 { 0% { opacity: 0; } 1.25% { opacity: 1; } 11.25% { opacity: 1; } 12.50% { opacity: 0; } 100% { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .stage-glow::before {
     animation: none;
   }
 }

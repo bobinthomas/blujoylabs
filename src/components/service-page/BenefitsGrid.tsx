@@ -19,12 +19,16 @@ export default function BenefitsGrid({
   heading,
   subtitle,
   benefits,
+  columns = 4,
 }: {
   eyebrow: string;
   heading: string;
-  subtitle: string;
+  subtitle?: string;
   benefits: Benefit[];
+  /** Desktop column count — 4 (default) for a wide benefits strip, 2 or 3 for a denser grid. */
+  columns?: 2 | 3 | 4;
 }) {
+  const lgCols = columns === 2 ? "lg:grid-cols-2" : columns === 3 ? "lg:grid-cols-3" : "lg:grid-cols-4";
   return (
     <section className="py-20 sm:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,10 +38,10 @@ export default function BenefitsGrid({
             {eyebrow}
           </div>
           <h2 className="text-3xl sm:text-4xl font-light tracking-tight text-navy-900">{heading}</h2>
-          <p className="mt-4 text-navy-600 leading-relaxed">{subtitle}</p>
+          {subtitle && <p className="mt-4 text-navy-600 leading-relaxed">{subtitle}</p>}
         </Reveal>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className={`grid sm:grid-cols-2 ${lgCols} gap-5`}>
           {benefits.map((b, i) => (
             <Reveal key={b.title} delay={i * 80}>
               <div className="h-full rounded-2xl bg-warm border border-warm-border p-6">

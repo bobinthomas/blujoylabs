@@ -1,7 +1,7 @@
 {
   "servicesLinks": [
     {
-      "label": "GovCon Solutions",
+      "label": "GovCon Support",
       "href": "/services/govcon"
     },
     {
@@ -11,33 +11,12 @@
     {
       "label": "Design & Engineering",
       "href": "/services/design-engineering"
-    },
-    {
-      "label": "SAP Services",
-      "href": "/services/sap"
     }
   ],
-  "headerCtaLabel": "Schedule a Free Consultation",
+  "headerCtaLabel": "Let's Talk",
   "headerCtaHref": "/contact",
-  "footerTagline": "Blujoy helps government contractors win more bids, ships AI-powered products, and builds digital experiences that convert — plus SAP modernization for enterprises that need it.",
-  "footerResourceLinks": [
-    {
-      "label": "Blog",
-      "href": "/resources"
-    },
-    {
-      "label": "Guides",
-      "href": "/resources"
-    },
-    {
-      "label": "FAQs",
-      "href": "/resources"
-    },
-    {
-      "label": "News & Events",
-      "href": "/resources"
-    }
-  ],
+  "footerTagline": "BluJoy Labs supports government contractors with capture and proposal services, develops AI and custom solutions, and provides design and engineering services.",
+  "footerResourceLinks": [],
   "footerCompanyLinks": [
     {
       "label": "About",
@@ -48,28 +27,11 @@
       "href": "/careers"
     },
     {
-      "label": "Success Stories",
-      "href": "/success-stories"
-    },
-    {
       "label": "Contact",
       "href": "/contact"
     }
   ],
-  "footerSocialLinks": [
-    {
-      "platform": "linkedin",
-      "href": "#"
-    },
-    {
-      "platform": "x",
-      "href": "#"
-    },
-    {
-      "platform": "youtube",
-      "href": "#"
-    }
-  ],
-  "footerNewsletterHeading": "Get the latest updates from Blujoy",
-  "footerCopyrightText": "© 2026 Blujoy. All rights reserved."
+  "footerSocialLinks": [],
+  "footerNewsletterHeading": "Get the latest updates from BluJoy",
+  "footerCopyrightText": "© 2026 BluJoy Labs. All rights reserved."
 }

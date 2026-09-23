@@ -1,25 +1,10 @@
 {
   "heroEyebrow": "Contact",
-  "heroHeadline": "Let's start a conversation",
-  "heroSubheadline": "Whether you're ready to engage or just exploring, we'd love to hear from you.",
+  "heroHeadline": "Let's Discuss Your Support Needs",
+  "heroSubheadline": "Tell us what you are working on and where you need help. We'll review your enquiry and contact you to discuss the next step.",
   "heroImage": "/api/media/images/contact/heroImage.jpg",
 
-  "consultationHeading": "Schedule a Consultation",
-  "consultationDescription": "Book a free 30-minute strategy call with one of our senior consultants.",
+  "formHeading": "Send an Enquiry",
 
-  "inquiryHeading": "General Inquiry",
-  "inquiryDescription": "Have a question or want to learn more? Send us a message.",
-
-  "serviceOptions": ["GovCon Solutions", "AI Consulting", "Design & Engineering", "SAP Services", "Other"],
-
-  "offices": [
-    { "name": "Primary Office", "address": "[Your Primary Address]", "phone": "[Your Phone]", "email": "[Your Email]" },
-    { "name": "Secondary Office", "address": "[Your Secondary Address, if applicable]", "phone": "", "email": "" }
-  ],
-
-  "socialLinks": [
-    { "label": "LinkedIn", "href": "#" },
-    { "label": "Twitter/X", "href": "#" },
-    { "label": "Instagram", "href": "#" }
-  ]
+  "contactEmail": "connect@bluejoylabs.com"
 }

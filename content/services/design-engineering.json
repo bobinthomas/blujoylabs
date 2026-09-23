@@ -1,80 +1,153 @@
 {
   "slug": "design-engineering",
   "metaTitle": "Design & Engineering",
-  "metaDescription": "Brand identity, product design, and production-grade web development — from first pixel to shipped code, under one roof.",
-
+  "metaDescription": "Brand identity, product design, and website design and development — with scope and deliverables tailored to your project.",
   "heroEyebrow": "Design & Engineering",
-  "heroHeadline": "Designed with intention. Built to scale",
-  "heroSubheadline": "Brand, product, and web design paired with production-grade engineering — one team, from first pixel to shipped code.",
+  "heroHeadline": "Brand Identity, Product Design & Website Development",
+  "heroSubheadline": "Build a consistent brand, shape an intuitive product experience, or launch a website. BluJoy Labs brings design and development together, with scope and deliverables tailored to your project.",
   "heroImage": "/api/media/images/design-engineering/heroImage.jpg",
-
-  "introHeading": "Unlock clarity, speed, and confidence",
-  "introParagraphs": [
-    "Getting a product or brand to feel intentional takes more than a good-looking screen — it takes research, systems thinking, and design that holds up as you scale.",
-    "Turning that design into a real, working product takes more than writing code — it takes an engineering process that protects performance, accessibility, and quality as you move fast.",
-    "That's why we back every engagement with one connected team — designers who've shipped brand systems and product interfaces, and engineers who've shipped production web apps, bridged design-to-dev gaps, and prototyped AI products under real deadlines. Skip the guesswork and the handoff — you'll get the process and craft to launch with confidence."
-  ],
-  "introImage": "/api/media/images/design-engineering/introImage.jpg",
-
+  "heroPrimaryLabel": "Discuss Your Project",
+  "heroPrimaryHref": "/contact?service=design-engineering",
   "pathwaysEyebrow": "Core Services",
-  "pathwaysHeading": "Six pathways, one connected team",
-  "pathwaysSubtitle": "Wherever you are in your brand or product journey, our program portfolio meets you there — from first concept through shipped code.",
+  "pathwaysHeading": "What We Can Help You Create",
+  "pathwaysSubtitle": "Choose support for your brand, product experience or website. We agree the deliverables and review points around the work you need.",
   "pathways": [
-    { "title": "Brand Identity & Systems", "description": "Your brand is more than a logo. It's a system of visual rules that ensures consistency across every touchpoint — from your website to your investor deck.", "href": "/contact", "linkLabel": "Build your brand system", "image": "/api/media/images/design-engineering/pathways/0/image.jpg" },
-    { "title": "Product & UX Design", "description": "We don't design screens. We design workflows. Every interaction is mapped to a user goal, tested for clarity, and refined for conversion.", "href": "/contact", "linkLabel": "Start a product design", "image": "/api/media/images/design-engineering/pathways/1/image.jpg" },
-    { "title": "Web Design", "description": "Your website is your hardest-working salesperson. We design sites that communicate authority, load fast, and guide visitors to action — on any device.", "href": "/contact", "linkLabel": "Redesign your website", "image": "/api/media/images/design-engineering/pathways/2/image.jpg" },
-    { "title": "Web Development", "description": "We build websites and web applications that perform. Clean code, responsive layouts, and SEO-friendly architecture — from marketing sites to complex dashboards.", "href": "/contact", "linkLabel": "Start your build", "image": "/api/media/images/design-engineering/pathways/3/image.jpg" },
-    { "title": "UX Engineering", "description": "The gap between design and development is where great products die. Our UX engineers bridge it — designing in code, prototyping in the browser, and shipping faster.", "href": "/contact", "linkLabel": "Bridge design and dev", "image": "/api/media/images/design-engineering/pathways/4/image.jpg" },
-    { "title": "AI Product & MVP Prototyping", "description": "Have an AI-powered product idea? We prototype it fast — using modern AI-assisted development tools to go from concept to clickable demo in record time.", "href": "/contact", "linkLabel": "Prototype your idea", "image": "/api/media/images/design-engineering/pathways/5/image.jpg" }
+    {
+      "title": "Brand Identity & Visual Design",
+      "description": "Create a consistent visual identity for your business. We design logos, colour palettes, typography and brand guidelines, with supporting materials such as presentation templates and marketing assets included according to your project scope.",
+      "href": "/contact?service=design-engineering",
+      "linkLabel": "Discuss Your Brand",
+      "image": "/api/media/images/design-engineering/pathways/0/image.jpg"
+    },
+    {
+      "title": "Product & UX Design",
+      "description": "Design clear, consistent experiences for web and mobile products. We translate your requirements into user flows, wireframes, interface designs and clickable prototypes. Reusable components, design systems and developer handoff documentation are included according to the agreed scope. Research and usability testing can be included in the project scope.",
+      "href": "/contact?service=design-engineering",
+      "linkLabel": "Discuss Your Product Design",
+      "image": "/api/media/images/design-engineering/pathways/1/image.jpg"
+    },
+    {
+      "title": "Website Design & Development",
+      "description": "Design and build a website around your business goals. We create responsive websites with clear navigation and content management suited to your needs. Projects can include a new website, redesign, eCommerce storefront or implementation of an existing design. CMS development, Shopify/eCommerce and frontend implementation can be included in the agreed scope.",
+      "href": "/contact?service=design-engineering",
+      "linkLabel": "Discuss Your Website",
+      "image": "/api/media/images/design-engineering/pathways/2/image.jpg"
+    }
   ],
-
-  "benefitsEyebrow": "Benefits",
-  "benefitsHeading": "Support that starts when you do",
-  "benefitsSubtitle": "Research-backed design, clean production code, and a single partner fluent in both.",
+  "crossLinkText": "Need AI functionality or a custom solution?",
+  "crossLinkLabel": "Explore AI Consulting",
+  "crossLinkHref": "/services/ai-consulting",
+  "processEyebrow": "How We Work",
+  "processHeading": "How We Work",
+  "processIntro": "We define the work together, review progress at agreed checkpoints and deliver the outputs agreed for your project.",
+  "processStages": [
+    {
+      "number": "01",
+      "label": "DISCUSS YOUR PROJECT",
+      "title": "Discuss Your Project",
+      "description": "Share your goals, audience, existing materials and what you need designed or built.",
+      "iconKey": "chat"
+    },
+    {
+      "number": "02",
+      "label": "AGREE THE SCOPE",
+      "title": "Agree the Scope",
+      "description": "Define deliverables, responsibilities, review points, timeline and fees.",
+      "iconKey": "document"
+    },
+    {
+      "number": "03",
+      "label": "DESIGN & REVIEW",
+      "title": "Design & Review",
+      "description": "Review the proposed direction and provide feedback at agreed checkpoints.",
+      "iconKey": "design"
+    },
+    {
+      "number": "04",
+      "label": "BUILD & CHECK",
+      "title": "Build & Check",
+      "description": "For development projects, implement the approved designs and check the agreed functionality and display across devices.",
+      "iconKey": "code"
+    },
+    {
+      "number": "05",
+      "label": "DELIVER & HANDOVER",
+      "title": "Deliver & Handover",
+      "description": "Receive the agreed files or website, supporting documentation and guidance for next steps.",
+      "iconKey": "check"
+    }
+  ],
+  "processRows": [
+    3,
+    2
+  ],
+  "processBranchFromIndex": 2,
+  "processBranchToIndex": 4,
+  "processBranchLabel": "Design-only path",
+  "processCaption": "Design-only projects move from approved design to delivery. Website launch follows client approval and the agreed checks. Ongoing maintenance is scoped separately.",
+  "benefitsEyebrow": "Why BluJoy",
+  "benefitsHeading": "Why Work With BluJoy",
+  "benefitsSubtitle": "Design and development considered together, with clear checkpoints throughout.",
   "benefits": [
-    { "title": "User-Centered Process", "description": "Every interface starts with real user research and personas, not assumptions about what users want.", "iconKey": "partnership" },
-    { "title": "Systems Thinking", "description": "Reusable components and design tokens that scale across your whole product, not one-off screens.", "iconKey": "layers" },
-    { "title": "Production-Grade Code", "description": "Clean, tested, accessible front-end built to scale — not throwaway prototypes.", "iconKey": "code" },
-    { "title": "Modern Stack", "description": "React, Next.js, and AI-assisted tooling that ships faster without cutting corners.", "iconKey": "layers" },
-    { "title": "Proven Results", "description": "100+ design systems shipped — and past clients have seen inbound leads triple within a quarter.", "iconKey": "results" },
-    { "title": "Built to Scale", "description": "Performance, accessibility, and Core Web Vitals baked in from the first commit.", "iconKey": "results" },
-    { "title": "Design + Dev, One Team", "description": "We speak both design and code, so nothing gets lost between the mockup and the merged pull request.", "iconKey": "speed" }
+    {
+      "title": "Design Connected to Development",
+      "description": "We consider how approved designs will be implemented, with deliverables suited to the agreed project.",
+      "iconKey": "code"
+    },
+    {
+      "title": "Clear Review Points",
+      "description": "Review the direction and progress at agreed checkpoints, so your feedback informs the work.",
+      "iconKey": "check"
+    },
+    {
+      "title": "A Defined Handover",
+      "description": "Know which files, documentation and guidance you'll receive, with follow-on support discussed separately.",
+      "iconKey": "document"
+    }
   ],
-
-  "supportingHeading": "Full-spectrum design & build support",
-  "supportingSubtitle": "Beyond brand, product, and code, we cover the full range of your digital design and platform needs.",
-  "supportingServices": [
-    { "title": "App Design", "description": "Native or cross-platform, consumer or enterprise — mobile experiences that users actually want to open." },
-    { "title": "Design Systems in Figma", "description": "Component libraries, token architecture, and documentation that unify your product and speed up development." },
-    { "title": "CMS Development", "description": "WordPress or headless (Strapi, Contentful, Sanity) — content your marketing team controls without calling a developer." },
-    { "title": "Shopify & eCommerce", "description": "Custom Shopify storefronts tuned for performance, UX, and conversion — mobile-first from checkout to product page." }
-  ],
-
-  "testimonialHeading": "Hear from teams we've helped design and build for",
-  "testimonialQuote": "The brand redesign transformed our credibility. Inbound leads tripled within the first quarter.",
-  "testimonialName": "David Chen",
-  "testimonialTitle": "VP Marketing, Atlas Defense",
-  "testimonialImage": null,
-
-  "ctaHeading": "Have a brand or product to build?",
-  "ctaDescription": "We'll help you scope the right starting point — brand, product, web design, or a full build — with a plan built around your users, your product, and your timeline.",
-  "ctaLabel": "Start a Project",
-  "ctaHref": "/contact",
+  "selectedWorkVisible": false,
+  "selectedWorkHeading": "Selected Work",
+  "selectedWorkIntro": "Explore selected examples of brand identity, product design and website development.",
+  "selectedWorkItems": [],
+  "supportingServices": [],
+  "ctaHeading": "Have a Design or Website Project in Mind?",
+  "ctaDescription": "Tell us what you want to create or improve. We'll help define the scope and the right starting point.",
+  "ctaLabel": "Discuss Your Project",
+  "ctaHref": "/contact?service=design-engineering",
   "ctaImage": "/api/media/images/design-engineering/ctaImage.jpg",
-
   "faqHeading": "Frequently Asked Questions",
   "faqs": [
-    { "question": "How much does a design system cost?", "answer": "Design systems typically range from $25K-$100K depending on scope, components needed, and platform complexity. We offer phased approaches to spread investment over time." },
-    { "question": "How long does a typical brand identity project take?", "answer": "A full brand identity — logo, type, color, and guidelines — typically takes 4-8 weeks depending on the number of stakeholders and revision rounds." },
-    { "question": "Do you design for both web and mobile?", "answer": "Yes — we design responsive web experiences and native iOS/Android or cross-platform mobile apps, and can build one design system that covers both." },
-    { "question": "Can you work within our existing brand guidelines?", "answer": "Absolutely. We can design within an established brand system, or help evolve it if it's holding your product back." },
-    { "question": "What tools do you use for design systems?", "answer": "Figma is our primary tool — component libraries, auto-layout, and variant systems — paired with documentation your engineering team can build from directly." },
-    { "question": "Do you provide developer handoff documentation?", "answer": "Yes — every project includes handoff specs, redlines, and component documentation so your development team can implement without guesswork." },
-    { "question": "What tech stack do you build with?", "answer": "React and Next.js for the front-end, with flexible back-end and database choices depending on your needs — plus AI-assisted tools like Cursor and v0 for rapid prototyping." },
-    { "question": "Can you integrate AI features into our existing product?", "answer": "Yes — we handle LLM integration (OpenAI, Claude, Gemini), vector databases, and RAG implementation, scoped to fit into your current architecture." },
-    { "question": "Do you offer ongoing maintenance after launch?", "answer": "Yes — we offer post-launch support ranging from bug fixes and updates to full ongoing feature development." },
-    { "question": "Can you work within our existing codebase, or do you require a rewrite?", "answer": "In most cases we work within your existing codebase. A rewrite is only recommended when the current architecture genuinely blocks what you're trying to build." },
-    { "question": "Do you build custom Shopify themes or use existing templates?", "answer": "Both — we can customize a proven template for speed and budget, or build a fully custom theme when your brand and conversion goals call for it." },
-    { "question": "How much does a typical engagement cost?", "answer": "It depends on scope — a focused MVP prototype looks very different from a full production build. Book a free consultation and we'll put together a fit-for-purpose quote." }
+    {
+      "question": "What services can we hire BluJoy for?",
+      "answer": "We offer three core services: Brand Identity & Visual Design, Product & UX Design, and Website Design & Development. You can commission a single service or a combined engagement — we'll agree the right scope for your project."
+    },
+    {
+      "question": "Can you use our existing brand or designs?",
+      "answer": "Yes. We review your existing materials during scoping and can build on what you already have, or help evolve it if it's holding your product back."
+    },
+    {
+      "question": "Do you design for web and mobile?",
+      "answer": "Yes — we design responsive websites and interfaces for web and mobile products. Mobile app development itself isn't part of a design engagement; we can connect you with AI Consulting for that."
+    },
+    {
+      "question": "Can you build a CMS website or online store?",
+      "answer": "Yes. CMS builds and Shopify/eCommerce storefronts are part of Website Design & Development. We confirm features, integrations and platform costs during scoping."
+    },
+    {
+      "question": "What will we receive at handover?",
+      "answer": "Design files, website deliverables, documentation and guidance are defined in your project scope, so you know exactly what to expect before work begins."
+    },
+    {
+      "question": "How are pricing and timelines determined?",
+      "answer": "Both depend on scope, complexity, the materials you provide and how many review rounds are needed. We put together a fit-for-purpose quote after an initial conversation."
+    },
+    {
+      "question": "Do you provide support after launch?",
+      "answer": "Yes — maintenance and follow-on support can be scoped separately after launch. It isn't an included or unlimited service by default."
+    },
+    {
+      "question": "Can you help with AI features?",
+      "answer": "For AI functionality, custom solutions or agent prototypes, we'll connect your project with AI Consulting to scope that work alongside your design and build."
+    }
   ]
 }

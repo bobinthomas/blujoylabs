@@ -21,7 +21,11 @@ export default async function AboutPage() {
   ]);
   if (!page) throw new Error("aboutPage singleton is missing");
 
-  const leadership = [...teamMembers].sort((a, b) => (a.entry.order ?? 0) - (b.entry.order ?? 0));
+  // Records still carrying their seeded "[Placeholder — ...]" values are not real
+  // people yet, so they stay out of the page rather than publishing placeholder text.
+  const leadership = [...teamMembers]
+    .filter((m) => !m.entry.name.trim().startsWith("["))
+    .sort((a, b) => (a.entry.order ?? 0) - (b.entry.order ?? 0));
 
   return (
     <>
@@ -74,7 +78,8 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      {/* Leadership Team */}
+      {/* Leadership Team — hidden until real, permissioned team members exist */}
+      {leadership.length > 0 && (
       <section className="py-20 sm:py-28 bg-warm">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading title={page.leadershipHeading} />
@@ -93,6 +98,7 @@ export default async function AboutPage() {
           </div>
         </div>
       </section>
+      )}
 
       {/* Trust & Compliance */}
       <section className="py-20 sm:py-28 bg-ink">
@@ -123,20 +129,22 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      {/* Locations */}
-      <section className="py-20 sm:py-28 bg-warm">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading title={page.locationsHeading} />
-          <div className="grid sm:grid-cols-2 gap-6">
-            {page.locations.map((loc, i) => (
-              <Reveal key={loc.name} delay={i * 80} className="rounded-2xl bg-white border border-warm-border p-8">
-                <h3 className="font-medium text-navy-900 mb-2">{loc.name}</h3>
-                <p className="text-navy-600">{loc.address}</p>
-              </Reveal>
-            ))}
+      {/* Locations — hidden until a real address is supplied; no bracketed placeholders */}
+      {page.locations.length > 0 && (
+        <section className="py-20 sm:py-28 bg-warm">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <SectionHeading title={page.locationsHeading} />
+            <div className="grid sm:grid-cols-2 gap-6">
+              {page.locations.map((loc, i) => (
+                <Reveal key={loc.name} delay={i * 80} className="rounded-2xl bg-white border border-warm-border p-8">
+                  <h3 className="font-medium text-navy-900 mb-2">{loc.name}</h3>
+                  <p className="text-navy-600">{loc.address}</p>
+                </Reveal>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <SplitCTA
         heading={page.ctaHeading}

@@ -8,9 +8,12 @@ import Reveal from "@/components/Reveal";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import { getKeystaticReader } from "@/lib/keystatic-reader";
 
+// Unlinked from navigation until a truthful, permissioned success story exists —
+// kept out of search indexing in the meantime rather than deleting the route.
 export const metadata: Metadata = {
   title: "Success Stories",
   description: "Real wins, real transformations, real partnerships.",
+  robots: { index: false, follow: false },
 };
 
 export default async function SuccessStoriesPage() {
@@ -39,6 +42,7 @@ export default async function SuccessStoriesPage() {
       />
 
       {/* Case Studies */}
+      {sortedCaseStudies.length > 0 && (
       <section className="py-20 sm:py-28 bg-warm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           {sortedCaseStudies.map(({ slug, entry: cs }, i) => (
@@ -81,8 +85,10 @@ export default async function SuccessStoriesPage() {
           ))}
         </div>
       </section>
+      )}
 
       {/* Testimonials */}
+      {testimonials.length > 0 && (
       <section className="py-20 sm:py-28 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading title={page.testimonialsHeading} />
@@ -91,8 +97,9 @@ export default async function SuccessStoriesPage() {
           </Reveal>
         </div>
       </section>
+      )}
 
-      <StatBand heading={page.metricsHeading} stats={[...page.metrics]} />
+      {page.metrics.length > 0 && <StatBand heading={page.metricsHeading} stats={[...page.metrics]} />}
 
       <SplitCTA
         heading={page.ctaHeading}

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Reveal from "@/components/Reveal";
 
 export default function ServiceHero({
@@ -6,12 +7,22 @@ export default function ServiceHero({
   subheadline,
   image,
   imagePlaceholderLabel,
+  primaryLabel,
+  primaryHref,
+  secondaryLabel,
+  secondaryHref,
+  supportingLine,
 }: {
   eyebrow: string;
   headline: string;
   subheadline: string;
   image?: string | null;
   imagePlaceholderLabel: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+  supportingLine?: string;
 }) {
   return (
     <section className="relative -mt-20 sm:-mt-[88px] lg:-mt-24 min-h-[560px] sm:min-h-[640px] lg:min-h-[720px] flex items-end overflow-hidden bg-navy-200">
@@ -36,12 +47,12 @@ export default function ServiceHero({
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(100deg, rgba(18,23,34,0.88) 0%, rgba(18,23,34,0.6) 40%, rgba(18,23,34,0.2) 70%, rgba(18,23,34,0.05) 100%)",
+            "linear-gradient(100deg, rgba(16,35,63,0.88) 0%, rgba(16,35,63,0.6) 40%, rgba(16,35,63,0.2) 70%, rgba(16,35,63,0.05) 100%)",
         }}
       />
       <div
         className="absolute inset-0"
-        style={{ background: "linear-gradient(to top, rgba(18,23,34,0.65), transparent 40%)" }}
+        style={{ background: "linear-gradient(to top, rgba(16,35,63,0.65), transparent 40%)" }}
       />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 sm:pt-48 pb-20 sm:pb-28 w-full">
@@ -73,6 +84,33 @@ export default function ServiceHero({
           <Reveal delay={160}>
             <p className="mt-6 text-lg text-white/80 leading-relaxed max-w-lg">{subheadline}</p>
           </Reveal>
+          {(primaryLabel || secondaryLabel) && (
+            <Reveal delay={240}>
+              <div className="mt-8 flex flex-col sm:flex-row items-start gap-4">
+                {primaryLabel && primaryHref && (
+                  <Link
+                    href={primaryHref}
+                    className="inline-flex items-center gap-2.5 px-7 py-3 bg-white text-navy-900 font-medium rounded-full hover:bg-warm-dark transition-all"
+                  >
+                    {primaryLabel}
+                  </Link>
+                )}
+                {secondaryLabel && secondaryHref && (
+                  <Link
+                    href={secondaryHref}
+                    className="inline-flex items-center px-7 py-3 bg-white/10 backdrop-blur-sm text-white font-medium rounded-full border border-white/30 hover:bg-white/20 transition-colors"
+                  >
+                    {secondaryLabel}
+                  </Link>
+                )}
+              </div>
+            </Reveal>
+          )}
+          {supportingLine && (
+            <Reveal delay={300}>
+              <p className="mt-5 text-sm text-white/60 max-w-lg">{supportingLine}</p>
+            </Reveal>
+          )}
         </div>
       </div>
     </section>

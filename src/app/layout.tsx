@@ -23,11 +23,11 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Blujoy | GovCon, SAP & Design/Engineering Services for Government and Enterprise",
-    template: "%s | Blujoy",
+    default: "BluJoy Labs | GovCon Support, AI Consulting and Design & Engineering",
+    template: "%s | BluJoy Labs",
   },
   description:
-    "We help businesses win government contracts, modernize SAP systems, and design digital experiences that convert. Schedule a free consultation today.",
+    "BluJoy Labs supports government contractors with capture and proposal services, develops AI and custom solutions, and provides design and engineering services.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

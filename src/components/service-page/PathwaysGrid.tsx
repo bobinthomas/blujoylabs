@@ -8,7 +8,9 @@ type Pathway = {
   href: string;
   linkLabel: string;
   image?: string | null;
-  imagePlaceholderLabel: string;
+  imagePlaceholderLabel?: string;
+  /** Small pill above the title, e.g. "Recommended for ongoing pipelines". */
+  badge?: string;
 };
 
 export default function PathwaysGrid({
@@ -16,11 +18,17 @@ export default function PathwaysGrid({
   heading,
   subtitle,
   pathways,
+  columns = 3,
+  showImages = true,
 }: {
   eyebrow: string;
   heading: string;
   subtitle: string;
   pathways: Pathway[];
+  /** Card grid width — 2 for text-forward option cards (e.g. engagement models), 3 for illustrated pathways. */
+  columns?: 2 | 3;
+  /** Set false for option-style cards that don't need a photo/placeholder slot. */
+  showImages?: boolean;
 }) {
   return (
     <section className="py-20 sm:py-28 bg-warm">
@@ -34,13 +42,23 @@ export default function PathwaysGrid({
           <p className="mt-4 text-navy-600 leading-relaxed">{subtitle}</p>
         </Reveal>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className={`grid gap-6 ${columns === 2 ? "md:grid-cols-2" : "md:grid-cols-3"}`}>
           {pathways.map((p, i) => (
-            <Reveal key={p.title} delay={i * 90}>
-              {p.image ? (
-                <img src={p.image} alt="" className="w-full aspect-[4/3] mb-5 object-cover rounded-2xl" />
-              ) : (
-                <ImagePlaceholder label={p.imagePlaceholderLabel} className="w-full aspect-[4/3] mb-5" />
+            <Reveal
+              key={p.title}
+              delay={i * 90}
+              className={showImages ? undefined : "rounded-2xl border border-warm-border bg-white p-6 sm:p-8"}
+            >
+              {showImages &&
+                (p.image ? (
+                  <img src={p.image} alt="" className="w-full aspect-[4/3] mb-5 object-cover rounded-2xl" />
+                ) : (
+                  <ImagePlaceholder label={p.imagePlaceholderLabel ?? "Photo"} className="w-full aspect-[4/3] mb-5" />
+                ))}
+              {p.badge && (
+                <span className="inline-flex items-center rounded-full bg-pale-blue px-3 py-1 text-xs font-medium text-blue-700 mb-3">
+                  {p.badge}
+                </span>
               )}
               <h3 className="text-lg font-medium text-navy-900">{p.title}</h3>
               <p className="mt-2 text-sm text-navy-600 leading-relaxed">{p.description}</p>

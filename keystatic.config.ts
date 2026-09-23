@@ -138,8 +138,13 @@ export default config({
         heroHeadline: fields.text({ label: "Hero Headline" }),
         heroSubheadline: fields.text({ label: "Hero Subheadline", multiline: true }),
         heroImage: imageField("Hero Image"),
+        heroPrimaryLabel: fields.text({ label: "Hero Primary Button Label", validation: { isRequired: false } }),
+        heroPrimaryHref: fields.text({ label: "Hero Primary Button URL", defaultValue: "/contact", validation: { isRequired: false } }),
+        heroSecondaryLabel: fields.text({ label: "Hero Secondary Link Label", validation: { isRequired: false } }),
+        heroSecondaryHref: fields.text({ label: "Hero Secondary Link URL", validation: { isRequired: false } }),
+        heroSupportingLine: fields.text({ label: "Hero Supporting Line", validation: { isRequired: false } }),
 
-        introHeading: fields.text({ label: "Intro Heading" }),
+        introHeading: fields.text({ label: "Intro Heading", validation: { isRequired: false } }),
         introParagraphs: fields.array(fields.text({ label: "Paragraph", multiline: true }), {
           label: "Intro Paragraphs",
           itemLabel: (props) => props.value.slice(0, 60) || "Paragraph",
@@ -160,6 +165,11 @@ export default config({
           { label: "Pathways (3)", itemLabel: (props) => props.fields.title.value }
         ),
 
+        // Design & Engineering only: one line pointing AI-shaped requests to AI Consulting.
+        crossLinkText: fields.text({ label: "Cross-link text", validation: { isRequired: false } }),
+        crossLinkLabel: fields.text({ label: "Cross-link label", validation: { isRequired: false } }),
+        crossLinkHref: fields.text({ label: "Cross-link URL", defaultValue: "/services/ai-consulting", validation: { isRequired: false } }),
+
         benefitsEyebrow: fields.text({ label: "Benefits Eyebrow", defaultValue: "Benefits" }),
         benefitsHeading: fields.text({ label: "Benefits Heading" }),
         benefitsSubtitle: fields.text({ label: "Benefits Subtitle", multiline: true }),
@@ -172,8 +182,8 @@ export default config({
           { label: "Benefits (4)", itemLabel: (props) => props.fields.title.value }
         ),
 
-        supportingHeading: fields.text({ label: "Supporting Services Heading" }),
-        supportingSubtitle: fields.text({ label: "Supporting Services Subtitle", multiline: true }),
+        supportingHeading: fields.text({ label: "Supporting Services Heading", validation: { isRequired: false } }),
+        supportingSubtitle: fields.text({ label: "Supporting Services Subtitle", multiline: true, validation: { isRequired: false } }),
         supportingServices: fields.array(
           fields.object({
             title: fields.text({ label: "Title" }),
@@ -182,10 +192,103 @@ export default config({
           { label: "Supporting Services", itemLabel: (props) => props.fields.title.value }
         ),
 
-        testimonialHeading: fields.text({ label: "Testimonial Section Heading" }),
-        testimonialQuote: fields.text({ label: "Quote", multiline: true }),
-        testimonialName: fields.text({ label: "Name" }),
-        testimonialTitle: fields.text({ label: "Title / Company" }),
+        // GovCon only: monthly-support vs individual-pursuit cards.
+        engagementEyebrow: fields.text({ label: "Engagement Eyebrow", validation: { isRequired: false } }),
+        engagementHeading: fields.text({ label: "Engagement Heading", validation: { isRequired: false } }),
+        engagementSubtitle: fields.text({ label: "Engagement Subtitle", multiline: true, validation: { isRequired: false } }),
+        engagementOptions: fields.array(
+          fields.object({
+            title: fields.text({ label: "Title" }),
+            description: fields.text({ label: "Description", multiline: true }),
+            href: fields.text({ label: "Link URL", defaultValue: "/contact" }),
+            linkLabel: fields.text({ label: "Button Label" }),
+            badge: fields.text({ label: "Badge", validation: { isRequired: false } }),
+          }),
+          { label: "Engagement Options (GovCon only)", itemLabel: (props) => props.fields.title.value }
+        ),
+        engagementNote: fields.text({ label: "Engagement capacity note", multiline: true, validation: { isRequired: false } }),
+
+        // Shared process-diagram section — GovCon (6 stages, shortcut + loop)
+        // and Design & Engineering (5 stages, conditional design-only branch).
+        processEyebrow: fields.text({ label: "Process Eyebrow", validation: { isRequired: false } }),
+        processHeading: fields.text({ label: "Process Heading", validation: { isRequired: false } }),
+        processIntro: fields.text({ label: "Process Intro", multiline: true, validation: { isRequired: false } }),
+        processStages: fields.array(
+          fields.object({
+            number: fields.text({ label: "Number", description: "e.g. 01" }),
+            label: fields.text({ label: "Label", description: "e.g. ONBOARD AND ALIGN" }),
+            title: fields.text({ label: "Title" }),
+            description: fields.text({ label: "Description", multiline: true }),
+            note: fields.text({ label: "Inline note", validation: { isRequired: false } }),
+            iconKey: iconKeyField(),
+          }),
+          { label: "Process Stages", itemLabel: (props) => props.fields.title.value }
+        ),
+        processRows: fields.array(fields.integer({ label: "Stages in this row" }), {
+          label: "Row split (e.g. 3, 3 or 3, 2)",
+        }),
+        processShortcutFromIndex: fields.integer({ label: "Shortcut: from stage index (0-based)", validation: { isRequired: false } }),
+        processShortcutToIndex: fields.integer({ label: "Shortcut: to stage index (0-based)", validation: { isRequired: false } }),
+        processShortcutLabel: fields.text({ label: "Shortcut label", validation: { isRequired: false } }),
+        processLoopFromIndex: fields.integer({ label: "Loop: from stage index (0-based)", validation: { isRequired: false } }),
+        processLoopToIndex: fields.integer({ label: "Loop: to stage index (0-based)", validation: { isRequired: false } }),
+        processLoopLabel: fields.text({ label: "Loop label", validation: { isRequired: false } }),
+        processBranchFromIndex: fields.integer({ label: "Branch: from stage index (0-based)", validation: { isRequired: false } }),
+        processBranchToIndex: fields.integer({ label: "Branch: to stage index (0-based)", validation: { isRequired: false } }),
+        processBranchLabel: fields.text({ label: "Branch label", validation: { isRequired: false } }),
+        processCaption: fields.text({ label: "Process caption", multiline: true, validation: { isRequired: false } }),
+
+        // GovCon only: Federal / SLED market coverage.
+        marketHeading: fields.text({ label: "Market Coverage Heading", validation: { isRequired: false } }),
+        marketCoverage: fields.array(
+          fields.object({
+            title: fields.text({ label: "Title" }),
+            description: fields.text({ label: "Description", multiline: true }),
+          }),
+          { label: "Market Coverage (GovCon only)", itemLabel: (props) => props.fields.title.value }
+        ),
+        marketSharedLine: fields.text({ label: "Market shared line", multiline: true, validation: { isRequired: false } }),
+
+        // GovCon only, evidence-gated: keep hidden (default) until the team-experience
+        // figures and their attribution are approved for publication.
+        teamStatsVisible: fields.checkbox({ label: "Show team-experience stats (requires evidence approval)", defaultValue: false }),
+        teamStatsHeading: fields.text({ label: "Team Stats Heading", validation: { isRequired: false } }),
+        teamStats: fields.array(
+          fields.object({ value: fields.text({ label: "Value" }), label: fields.text({ label: "Label" }) }),
+          { label: "Team Stats", itemLabel: (props) => props.fields.label.value }
+        ),
+        teamStatsAttribution: fields.text({ label: "Attribution note", multiline: true, validation: { isRequired: false } }),
+
+        // Design & Engineering only, ships hidden until Bobin supplies real samples.
+        selectedWorkVisible: fields.checkbox({ label: "Show Selected Work (requires real samples)", defaultValue: false }),
+        selectedWorkHeading: fields.text({ label: "Selected Work Heading", validation: { isRequired: false } }),
+        selectedWorkIntro: fields.text({ label: "Selected Work Intro", multiline: true, validation: { isRequired: false } }),
+        selectedWorkItems: fields.array(
+          fields.object({
+            title: fields.text({ label: "Project title" }),
+            brief: fields.text({ label: "Project brief", multiline: true }),
+            workDelivered: fields.text({ label: "Work delivered", multiline: true }),
+            image: imageField("Visual"),
+            link: fields.text({ label: "Link (optional)", validation: { isRequired: false } }),
+            contextLabel: fields.select({
+              label: "Context label",
+              options: [
+                { label: "BluJoy project", value: "bluejoy" },
+                { label: "Team experience", value: "team" },
+                { label: "Concept project", value: "concept" },
+              ],
+              defaultValue: "bluejoy",
+            }),
+          }),
+          { label: "Selected Work items", itemLabel: (props) => props.fields.title.value }
+        ),
+
+        // Optional — GovCon and Design & Engineering no longer carry a testimonial
+        // (the prior ones were fabricated); left available for a future, real one.
+        testimonialHeading: fields.text({ label: "Testimonial Section Heading", validation: { isRequired: false } }),
+        testimonialQuote: fields.text({ label: "Quote", multiline: true, validation: { isRequired: false } }),
+        testimonialName: fields.text({ label: "Name", validation: { isRequired: false } }),
+        testimonialTitle: fields.text({ label: "Title / Company", validation: { isRequired: false } }),
         testimonialImage: imageField("Photo"),
 
         ctaHeading: fields.text({ label: "CTA Heading" }),
@@ -295,7 +398,7 @@ export default config({
             title: fields.text({ label: "Title" }),
             description: fields.text({ label: "Description", multiline: true }),
             href: fields.text({ label: "Link URL" }),
-            stats: fields.text({ label: "Stat Label", description: "e.g. 150+ Proposals" }),
+            stats: fields.text({ label: "Tag Label", description: "A short descriptive tag — avoid unverified numeric claims, e.g. 'Federal & SLED Support'" }),
             image: imageField("Illustration"),
             labelPosition: fields.select({
               label: "Label Position",
@@ -305,17 +408,16 @@ export default config({
             color: fields.select({
               label: "Accent Color",
               options: [
-                { label: "Blue", value: "#0068f9" },
-                { label: "Violet", value: "#6736eb" },
-                { label: "Forest Green", value: "#046645" },
+                { label: "Strong Blue", value: "#175CD3" },
+                { label: "Teal Accent", value: "#0F766E" },
               ],
-              defaultValue: "#0068f9",
+              defaultValue: "#175CD3",
             }),
           }),
           { label: "Pillars (3)", itemLabel: (props) => props.fields.title.value }
         ),
 
-        whyUsEyebrow: fields.text({ label: "Why Us Eyebrow", defaultValue: "Why Blujoy" }),
+        whyUsEyebrow: fields.text({ label: "Why Us Eyebrow", defaultValue: "Why BluJoy" }),
         whyUsHeading: fields.text({ label: "Why Us Heading" }),
         whyUs: fields.array(
           fields.object({
@@ -334,13 +436,7 @@ export default config({
           itemLabel: (props) => props.fields.name.value,
         }),
 
-        caseStudyBadge: fields.text({ label: "Badge", defaultValue: "Featured Case Study" }),
-        caseStudyHeadline: fields.text({ label: "Headline" }),
-        caseStudyDescription: fields.text({ label: "Description", multiline: true }),
-        caseStudyLinkLabel: fields.text({ label: "Link Label", defaultValue: "Read the Full Story" }),
-        caseStudyHref: fields.text({ label: "Link URL", defaultValue: "/success-stories" }),
-
-        stepsHeading: fields.text({ label: "Steps Heading", defaultValue: "How We Work" }),
+        stepsHeading: fields.text({ label: "Steps Heading", defaultValue: "How to Get Started" }),
         stepsSubtitle: fields.text({ label: "Steps Subtitle" }),
         steps: fields.array(
           fields.object({
@@ -350,9 +446,8 @@ export default config({
           { label: "Steps", itemLabel: (props) => props.fields.title.value }
         ),
 
-        testimonials: fields.array(fields.relationship({ label: "Testimonial", collection: "testimonials" }), {
-          label: "Homepage Testimonials",
-        }),
+        closingEnquiryHeading: fields.text({ label: "Closing Enquiry Heading", defaultValue: "What Would You Like Help With?" }),
+        closingEnquiryBody: fields.text({ label: "Closing Enquiry Body", multiline: true }),
 
         faqHeading: fields.text({ label: "FAQ Heading", defaultValue: "Frequently Asked Questions" }),
         faqSubtitle: fields.text({ label: "FAQ Subtitle" }),
@@ -363,13 +458,6 @@ export default config({
           }),
           { label: "FAQs", itemLabel: (props) => props.fields.question.value }
         ),
-
-        finalCtaHeadline: fields.text({ label: "Final CTA Headline" }),
-        finalCtaDescription: fields.text({ label: "Final CTA Description" }),
-        finalCtaPrimaryLabel: fields.text({ label: "Primary Button Label" }),
-        finalCtaPrimaryHref: fields.text({ label: "Primary Button URL", defaultValue: "/contact" }),
-        finalCtaSecondaryLabel: fields.text({ label: "Secondary Button Label" }),
-        finalCtaSecondaryHref: fields.text({ label: "Secondary Button URL", defaultValue: "/success-stories" }),
       },
     }),
 
@@ -565,31 +653,11 @@ export default config({
         heroSubheadline: fields.text({ label: "Hero Subheadline", multiline: true }),
         heroImage: imageField("Hero Photo"),
 
-        consultationHeading: fields.text({ label: "Consultation Form Heading", defaultValue: "Schedule a Consultation" }),
-        consultationDescription: fields.text({ label: "Consultation Form Description", multiline: true }),
+        formHeading: fields.text({ label: "Form Heading", defaultValue: "Send an Enquiry" }),
 
-        inquiryHeading: fields.text({ label: "Inquiry Form Heading", defaultValue: "General Inquiry" }),
-        inquiryDescription: fields.text({ label: "Inquiry Form Description", multiline: true }),
-
-        serviceOptions: fields.array(fields.text({ label: "Option" }), {
-          label: "Service Interest Dropdown Options",
-          itemLabel: (props) => props.value,
-        }),
-
-        offices: fields.array(
-          fields.object({
-            name: fields.text({ label: "Name" }),
-            address: fields.text({ label: "Address", validation: { isRequired: false } }),
-            phone: fields.text({ label: "Phone", validation: { isRequired: false } }),
-            email: fields.text({ label: "Email", validation: { isRequired: false } }),
-          }),
-          { label: "Offices", itemLabel: (props) => props.fields.name.value }
-        ),
-
-        socialLinks: fields.array(linkObject("Social Link"), {
-          label: "Connect With Us Links",
-          itemLabel: (props) => props.fields.label.value,
-        }),
+        // Real business email only — no bracketed placeholders. Phone/address
+        // are omitted entirely until the owner supplies real values.
+        contactEmail: fields.text({ label: "Contact Email", validation: { isRequired: false } }),
       },
     }),
 
@@ -599,35 +667,13 @@ export default config({
       format: { data: "json" },
       schema: {
         heroEyebrow: fields.text({ label: "Hero Eyebrow", defaultValue: "AI Consulting & Solution Engineering" }),
-        heroHeadline: fields.text({
-          label: "Hero Headline",
-          multiline: true,
-          description: "Line break where the headline should wrap, e.g. after \"From Requirement to\"",
-        }),
-        heroLead: fields.text({ label: "Hero Lead Paragraph", multiline: true }),
-        heroPrimaryLabel: fields.text({ label: "Primary Button Label", defaultValue: "Discuss a Requirement" }),
-        heroPrimaryHref: fields.text({ label: "Primary Button URL", defaultValue: "/contact" }),
-        heroSecondaryLabel: fields.text({ label: "Secondary Button Label", defaultValue: "Explore Feasibility" }),
-        heroSecondaryHref: fields.text({ label: "Secondary Button URL", defaultValue: "/contact" }),
+        heroHeadline: fields.text({ label: "Hero Headline" }),
+        heroSubheadline: fields.text({ label: "Hero Subheadline", multiline: true }),
+        heroPrimaryLabel: fields.text({ label: "Primary Button Label", defaultValue: "Discuss Your Use Case" }),
+        heroPrimaryHref: fields.text({ label: "Primary Button URL", defaultValue: "/contact?service=ai-consulting" }),
+        heroSecondaryLabel: fields.text({ label: "Secondary Link Label", defaultValue: "See Example Use Cases" }),
+        heroSecondaryHref: fields.text({ label: "Secondary Link URL", defaultValue: "#examples" }),
         heroImage: imageField("Hero Photo"),
-
-        gapHeading: fields.text({ label: "Heading", defaultValue: "The Gap We Solve" }),
-        gapParagraphs: fields.array(fields.text({ label: "Paragraph", multiline: true }), {
-          label: "Paragraphs",
-          itemLabel: (props) => props.value.slice(0, 60) || "Paragraph",
-        }),
-        gapImage: imageField("Supporting Photo"),
-        gapCalloutQuote: fields.text({ label: "Callout Quote" }),
-        gapCalloutText: fields.text({ label: "Callout Text", multiline: true }),
-        gapEntryHeading: fields.text({ label: "Entry Points Heading", defaultValue: "You can come to us with..." }),
-        gapEntryPoints: fields.array(
-          fields.object({
-            title: fields.text({ label: "Title" }),
-            description: fields.text({ label: "Description", multiline: true }),
-            iconKey: iconKeyField(),
-          }),
-          { label: "Entry Points (4)", itemLabel: (props) => props.fields.title.value }
-        ),
 
         capabilitiesEyebrow: fields.text({ label: "Eyebrow", defaultValue: "Capabilities" }),
         capabilitiesHeading: fields.text({ label: "Heading", defaultValue: "What We Do" }),
@@ -638,70 +684,57 @@ export default config({
             description: fields.text({ label: "Description", multiline: true }),
             iconKey: iconKeyField(),
           }),
-          { label: "Capabilities (8)", itemLabel: (props) => props.fields.title.value }
+          { label: "Capabilities (4)", itemLabel: (props) => props.fields.title.value }
         ),
-        capabilitiesNoteHeading: fields.text({ label: "Note Heading", defaultValue: "AI-Enabled Delivery. Engineering-Owned." }),
-        capabilitiesNoteText: fields.text({ label: "Note Text", multiline: true }),
-        capabilitiesCalloutQuote: fields.text({ label: "Callout Quote" }),
-        capabilitiesCalloutText: fields.text({ label: "Callout Text", multiline: true }),
 
-        methodEyebrow: fields.text({ label: "Eyebrow", defaultValue: "Delivery Approach" }),
-        methodHeading: fields.text({ label: "Heading", defaultValue: "How We Build: The Requirement-to-Solution Method" }),
-        methodLead: fields.text({ label: "Lead Paragraph", multiline: true }),
-        stages: fields.array(
+        examplesHeading: fields.text({ label: "Examples Heading", defaultValue: "What We Can Help You Build" }),
+        examplesIntro: fields.text({ label: "Examples Intro", multiline: true }),
+        examples: fields.array(
+          fields.object({
+            title: fields.text({ label: "Title" }),
+            description: fields.text({ label: "Description", multiline: true }),
+          }),
+          { label: "Illustrative Examples (4)", itemLabel: (props) => props.fields.title.value }
+        ),
+        examplesTechNote: fields.text({ label: "Technology note", multiline: true }),
+
+        processEyebrow: fields.text({ label: "Process Eyebrow", defaultValue: "How We Work" }),
+        processHeading: fields.text({ label: "Process Heading" }),
+        processIntro: fields.text({ label: "Process Intro", multiline: true }),
+        processStages: fields.array(
           fields.object({
             number: fields.text({ label: "Number", description: "e.g. 01" }),
-            label: fields.text({ label: "Stage Label", description: "e.g. UNDERSTAND" }),
-            title: fields.text({ label: "Title", description: "e.g. Clarify the real need" }),
-            description: fields.text({ label: "Description", multiline: true }),
-            iconKey: iconKeyField(),
-          }),
-          { label: "Delivery Stages (6)", itemLabel: (props) => `${props.fields.number.value} ${props.fields.label.value}` }
-        ),
-
-        leverageHeading: fields.text({ label: "Leverage Heading", defaultValue: "Where AI Can Create Leverage" }),
-        leverageAreas: fields.array(
-          fields.object({
+            label: fields.text({ label: "Label", description: "e.g. UNDERSTAND" }),
             title: fields.text({ label: "Title" }),
             description: fields.text({ label: "Description", multiline: true }),
+            note: fields.text({ label: "Inline note", validation: { isRequired: false } }),
             iconKey: iconKeyField(),
           }),
-          { label: "Leverage Areas (4)", itemLabel: (props) => props.fields.title.value }
+          { label: "Process Stages (5)", itemLabel: (props) => props.fields.title.value }
         ),
-        principleHeading: fields.text({ label: "Principle Heading", defaultValue: "A Simple Principle" }),
-        principleText: fields.text({ label: "Principle Text", multiline: true }),
-
-        techEyebrow: fields.text({ label: "Eyebrow", defaultValue: "Technology & Engineering" }),
-        techHeading: fields.text({ label: "Heading", defaultValue: "Modern Technology, Applied with Purpose" }),
-        techText: fields.text({ label: "Text", multiline: true }),
-        techImage: imageField("Supporting Photo"),
-        techStack: fields.array(
-          fields.object({
-            title: fields.text({ label: "Title" }),
-            description: fields.text({ label: "Description", multiline: true }),
-          }),
-          { label: "Technology Stack (8)", itemLabel: (props) => props.fields.title.value }
-        ),
-        techPlatforms: fields.array(fields.text({ label: "Platform" }), {
-          label: "Platforms Chip List",
-          itemLabel: (props) => props.value,
+        processRows: fields.array(fields.integer({ label: "Stages in this row" }), {
+          label: "Row split (e.g. 3, 2)",
         }),
-        techAgnosticHeading: fields.text({ label: "Agnostic Heading", defaultValue: "Model & Platform Agnostic" }),
-        techAgnosticText: fields.text({ label: "Agnostic Text", multiline: true }),
+        processLoopFromIndex: fields.integer({ label: "Loop: from stage index (0-based)", validation: { isRequired: false } }),
+        processLoopToIndex: fields.integer({ label: "Loop: to stage index (0-based)", validation: { isRequired: false } }),
+        processLoopLabel: fields.text({ label: "Loop label", validation: { isRequired: false } }),
+        processExitAtIndex: fields.integer({ label: "Exit: at stage index (0-based)", validation: { isRequired: false } }),
+        processExitLabel: fields.text({ label: "Exit label", validation: { isRequired: false } }),
+        processCaption: fields.text({ label: "Process caption", multiline: true, validation: { isRequired: false } }),
 
-        engagementEyebrow: fields.text({ label: "Eyebrow", defaultValue: "Engagement & Fit" }),
-        engagementHeading: fields.text({ label: "Heading", defaultValue: "Start at the Level of Certainty You Have" }),
+        engagementEyebrow: fields.text({ label: "Eyebrow", defaultValue: "Ways to Work With Us" }),
+        engagementHeading: fields.text({ label: "Heading", defaultValue: "Ways to Work With Us" }),
         engagementLead: fields.text({ label: "Lead Paragraph", multiline: true }),
-        engagementModels: fields.array(
+        engagementOptions: fields.array(
           fields.object({
-            number: fields.text({ label: "Number", description: "e.g. 01" }),
             title: fields.text({ label: "Title" }),
             description: fields.text({ label: "Description", multiline: true }),
+            href: fields.text({ label: "Link URL", defaultValue: "/contact?service=ai-consulting" }),
+            linkLabel: fields.text({ label: "Button Label" }),
           }),
-          { label: "Engagement Models (4)", itemLabel: (props) => props.fields.title.value }
+          { label: "Engagement Options (3)", itemLabel: (props) => props.fields.title.value }
         ),
-        crossIndustryHeading: fields.text({ label: "Cross-Industry Heading", defaultValue: "Cross-Industry by Design" }),
-        crossIndustryText: fields.text({ label: "Cross-Industry Text", multiline: true }),
+
         whyUsHeading: fields.text({ label: "Why Us Heading", defaultValue: "Why Work With Us" }),
         whyUs: fields.array(
           fields.object({
@@ -709,13 +742,13 @@ export default config({
             description: fields.text({ label: "Description", multiline: true }),
             iconKey: iconKeyField(),
           }),
-          { label: "Why Us (6)", itemLabel: (props) => props.fields.title.value }
+          { label: "Why Us (3)", itemLabel: (props) => props.fields.title.value }
         ),
 
         ctaHeading: fields.text({ label: "CTA Heading" }),
         ctaText: fields.text({ label: "CTA Text", multiline: true }),
-        ctaLabel: fields.text({ label: "CTA Button Label", defaultValue: "Discuss a Requirement" }),
-        ctaHref: fields.text({ label: "CTA URL", defaultValue: "/contact" }),
+        ctaLabel: fields.text({ label: "CTA Button Label", defaultValue: "Discuss Your Use Case" }),
+        ctaHref: fields.text({ label: "CTA URL", defaultValue: "/contact?service=ai-consulting" }),
         ctaImage: imageField("CTA Photo"),
       },
     }),

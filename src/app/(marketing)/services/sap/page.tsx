@@ -12,10 +12,13 @@ import { ICONS, type IconKey } from "@/lib/icons";
 
 const SLUG = "sap";
 
+// Deferred from launch: kept in the codebase and reachable by direct URL, but
+// removed from nav, footer, homepage and search indexing per the relaunch brief.
 export const metadata: Metadata = {
   title: "SAP Services",
   description:
     "SAP implementation, S/4HANA migration, integration, and managed services delivered by certified consultants.",
+  robots: { index: false, follow: false },
 };
 
 export default async function SAPPage() {

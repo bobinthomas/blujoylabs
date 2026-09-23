@@ -1,16 +1,27 @@
 import type { Metadata } from "next";
 import ServiceHero from "@/components/service-page/ServiceHero";
-import ContactForms from "./contact-forms";
+import ContactForm from "@/components/ContactForm";
 import { getKeystaticReader } from "@/lib/keystatic-reader";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Whether you're ready to engage or just exploring, we'd love to hear from you.",
+  description: "Tell us what you are working on and where you need help — we'll review your enquiry and contact you to discuss the next step.",
 };
 
-export default async function ContactPage() {
+const KNOWN_SERVICES = ["govcon", "ai-consulting", "design-engineering", "other"];
+const KNOWN_ENGAGEMENTS = ["monthly", "project", "unsure"];
+
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ service?: string; engagement?: string }>;
+}) {
   const page = await getKeystaticReader().singletons.contactPage.read();
   if (!page) throw new Error("contactPage singleton is missing");
+
+  const params = await searchParams;
+  const defaultService = KNOWN_SERVICES.includes(params.service ?? "") ? params.service : undefined;
+  const defaultEngagement = KNOWN_ENGAGEMENTS.includes(params.engagement ?? "") ? params.engagement : undefined;
 
   return (
     <>
@@ -22,15 +33,21 @@ export default async function ContactPage() {
         imagePlaceholderLabel="Hero photo"
       />
 
-      <ContactForms
-        consultationHeading={page.consultationHeading}
-        consultationDescription={page.consultationDescription}
-        inquiryHeading={page.inquiryHeading}
-        inquiryDescription={page.inquiryDescription}
-        serviceOptions={[...page.serviceOptions]}
-        offices={[...page.offices]}
-        socialLinks={[...page.socialLinks]}
-      />
+      <section className="py-20 sm:py-28 bg-warm">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ContactForm heading={page.formHeading} defaultService={defaultService} defaultEngagement={defaultEngagement} />
+
+          {page.contactEmail && (
+            <p className="mt-8 text-center text-sm text-navy-600">
+              Prefer email? Reach us at{" "}
+              <a href={`mailto:${page.contactEmail}`} className="font-medium text-blue-600 hover:text-blue-700">
+                {page.contactEmail}
+              </a>
+              .
+            </p>
+          )}
+        </div>
+      </section>
     </>
   );
 }
