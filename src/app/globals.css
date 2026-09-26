@@ -412,3 +412,20 @@ html {
     color: #3c4c66;
   }
 }
+
+/* Cookie notice card grows out of its corner button when it opens. */
+@keyframes cookie-pop {
+  from { opacity: 0; transform: translateY(8px) scale(0.96); }
+  to { opacity: 1; transform: none; }
+}
+
+.cookie-pop {
+  transform-origin: bottom left;
+  animation: cookie-pop 0.22s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cookie-pop {
+    animation: none;
+  }
+}
