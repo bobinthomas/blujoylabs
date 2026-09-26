@@ -5,7 +5,7 @@ import { getKeystaticReader } from "@/lib/keystatic-reader";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Tell us what you are working on and where you need help — we'll review your enquiry and contact you to discuss the next step.",
+  description: "Tell us what you are working on and where you need help. We'll review your enquiry and contact you to discuss the next step.",
 };
 
 // Mirrors the form's own option values — a service-specific CTA elsewhere can

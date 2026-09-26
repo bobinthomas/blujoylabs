@@ -29,7 +29,7 @@
     },
     {
       "title": "Design & Engineering",
-      "description": "Create a consistent brand, shape your product experience or build your website—with visual identity, UX design and website development tailored to your project.",
+      "description": "Create a consistent brand, shape your product experience or build your website, with visual identity, UX design and website development tailored to your project.",
       "href": "/services/design-engineering",
       "linkLabel": "Explore Design & Engineering",
       "iconKey": "design",
@@ -79,7 +79,7 @@
   "faqs": [
     {
       "question": "What services does BluJoy Labs provide?",
-      "answer": "Three. GovCon Support covers capture, proposal writing and proposal management for federal and SLED pursuits. AI Consulting & Solution Engineering turns a business need into a defined solution — feasibility work, custom applications, GenAI knowledge tools and focused AI agent prototypes. Design & Engineering covers visual identity, UX design and website development."
+      "answer": "Three. GovCon Support covers capture, proposal writing and proposal management for federal and SLED pursuits. AI Consulting & Solution Engineering turns a business need into a defined solution: feasibility work, custom applications, GenAI knowledge tools and focused AI agent prototypes. Design & Engineering covers visual identity, UX design and website development."
     },
     {
       "question": "Can I work with BluJoy on just one service?",
@@ -87,11 +87,11 @@
     },
     {
       "question": "What if I'm unsure about the scope or need more than one service?",
-      "answer": "That's a normal place to start — you don't need a finished brief. Tell us what you're trying to achieve and we'll bring the relevant specialists into the conversation. If your project spans more than one discipline, BluJoy coordinates the work with a clear point of contact and agreed review checkpoints."
+      "answer": "That's a normal place to start. You don't need a finished brief. Tell us what you're trying to achieve and we'll bring the relevant specialists into the conversation. If your project spans more than one discipline, BluJoy coordinates the work with a clear point of contact and agreed review checkpoints."
     },
     {
       "question": "How do I get started?",
-      "answer": "Send an enquiry using the form above. We begin with an introductory conversation to understand what you need — that's separate from any scoped discovery or delivery work. If there's a fit, we set out the proposed scope, deliverables, timing and fees before anything begins."
+      "answer": "Send an enquiry using the form above. We begin with an introductory conversation to understand what you need. That's separate from any scoped discovery or delivery work. If there's a fit, we set out the proposed scope, deliverables, timing and fees before anything begins."
     }
   ]
 }

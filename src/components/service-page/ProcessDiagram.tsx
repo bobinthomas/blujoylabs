@@ -257,17 +257,17 @@ export default function ProcessDiagram({
                     {/* Non-linear paths restated as text, since the drawn lines are desktop-only. */}
                     {loop && index === loop.from && (
                       <p className="mt-3 text-xs font-medium text-teal-accent sm:hidden">
-                        ↻ {loop.label} — back to {stages[loop.to]?.title}
+                        ↻ {loop.label}: back to {stages[loop.to]?.title}
                       </p>
                     )}
                     {shortcut && index === shortcut.from && (
                       <p className="mt-3 text-xs font-medium text-blue-700 sm:hidden">
-                        ↷ {shortcut.label} — skip to {stages[shortcut.to]?.title}
+                        ↷ {shortcut.label}: skip to {stages[shortcut.to]?.title}
                       </p>
                     )}
                     {branch && index === branch.fromStage && (
                       <p className="mt-3 text-xs font-medium text-teal-accent sm:hidden">
-                        ⤳ {branch.label} — straight to {stages[branch.toStage]?.title}
+                        ⤳ {branch.label}: straight to {stages[branch.toStage]?.title}
                       </p>
                     )}
                   </div>
