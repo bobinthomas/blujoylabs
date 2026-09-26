@@ -137,15 +137,16 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* The Right Expertise. A Clear Way Forward. — three compact commitments */}
-      <section className="py-10 sm:py-[50px] bg-white">
+      {/* The Right Expertise. A Clear Way Forward. — three compact commitments on a
+          teal band. White on #0F766E is about 5.4:1, so the eyebrow and heading pass AA. */}
+      <section className="py-10 sm:py-[50px] bg-teal-accent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Wider than the services block so the heading holds one line at 48px */}
           <Reveal className="max-w-4xl mb-12">
-            <div className="text-lg sm:text-xl font-mono tracking-wider text-blue-600 uppercase mb-4">
+            <div className="text-lg sm:text-xl font-mono tracking-wider text-white uppercase mb-4">
               {home.whyUsEyebrow}
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-navy-900">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-white">
               {home.whyUsHeading}
             </h2>
           </Reveal>
