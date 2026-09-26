@@ -31,23 +31,20 @@ export default function PathwaysGrid({
   showImages?: boolean;
 }) {
   return (
-    <section className="py-20 sm:py-28 bg-warm">
+    <section className="py-10 sm:py-[50px] bg-warm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal className="max-w-2xl mb-12">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-blue-600 uppercase mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
-            {eyebrow}
-          </div>
+          <div className="text-lg sm:text-xl font-mono tracking-wider text-blue-600 uppercase mb-4">{eyebrow}</div>
           <h2 className="text-3xl sm:text-4xl font-light tracking-tight text-navy-900">{heading}</h2>
           <p className="mt-4 text-navy-600 leading-relaxed">{subtitle}</p>
         </Reveal>
 
-        <div className={`grid gap-6 ${columns === 2 ? "md:grid-cols-2" : "md:grid-cols-3"}`}>
+        <div className={`grid gap-6 ${columns === 2 ? "md:grid-cols-2" : "sm:grid-cols-2 lg:grid-cols-3 sm:[&>*:last-child:nth-child(odd)]:col-span-2 lg:[&>*:last-child:nth-child(odd)]:col-span-1 sm:[&>*:last-child:nth-child(odd)_img]:aspect-[21/9] lg:[&>*:last-child:nth-child(odd)_img]:aspect-[4/3]"}`}>
           {pathways.map((p, i) => (
             <Reveal
               key={p.title}
               delay={i * 90}
-              className={showImages ? undefined : "rounded-2xl border border-warm-border bg-white p-6 sm:p-8"}
+              className={`flex h-full flex-col ${showImages ? "" : "rounded-2xl border border-warm-border bg-white p-6 sm:p-8"}`}
             >
               {showImages &&
                 (p.image ? (
@@ -56,7 +53,7 @@ export default function PathwaysGrid({
                   <ImagePlaceholder label={p.imagePlaceholderLabel ?? "Photo"} className="w-full aspect-[4/3] mb-5" />
                 ))}
               {p.badge && (
-                <span className="inline-flex items-center rounded-full bg-pale-blue px-3 py-1 text-xs font-medium text-blue-700 mb-3">
+                <span className="inline-flex self-start items-center rounded-full bg-pale-blue px-3 py-1 text-xs font-medium text-blue-700 mb-3">
                   {p.badge}
                 </span>
               )}
@@ -64,7 +61,7 @@ export default function PathwaysGrid({
               <p className="mt-2 text-sm text-navy-600 leading-relaxed">{p.description}</p>
               <Link
                 href={p.href}
-                className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors"
+                className="mt-auto pt-4 self-start inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors"
               >
                 {p.linkLabel}
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

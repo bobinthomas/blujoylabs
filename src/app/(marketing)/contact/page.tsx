@@ -8,20 +8,20 @@ export const metadata: Metadata = {
   description: "Tell us what you are working on and where you need help — we'll review your enquiry and contact you to discuss the next step.",
 };
 
-const KNOWN_SERVICES = ["govcon", "ai-consulting", "design-engineering", "other"];
-const KNOWN_ENGAGEMENTS = ["monthly", "project", "unsure"];
+// Mirrors the form's own option values — a service-specific CTA elsewhere can
+// preselect the right option via ?service=, and anything unrecognised is ignored.
+const KNOWN_SERVICES = ["govcon", "ai-consulting", "design-engineering", "multiple-unsure"];
 
 export default async function ContactPage({
   searchParams,
 }: {
-  searchParams: Promise<{ service?: string; engagement?: string }>;
+  searchParams: Promise<{ service?: string }>;
 }) {
   const page = await getKeystaticReader().singletons.contactPage.read();
   if (!page) throw new Error("contactPage singleton is missing");
 
   const params = await searchParams;
   const defaultService = KNOWN_SERVICES.includes(params.service ?? "") ? params.service : undefined;
-  const defaultEngagement = KNOWN_ENGAGEMENTS.includes(params.engagement ?? "") ? params.engagement : undefined;
 
   return (
     <>
@@ -33,9 +33,9 @@ export default async function ContactPage({
         imagePlaceholderLabel="Hero photo"
       />
 
-      <section className="py-20 sm:py-28 bg-warm">
+      <section className="py-10 sm:py-[50px] bg-warm">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ContactForm heading={page.formHeading} defaultService={defaultService} defaultEngagement={defaultEngagement} />
+          <ContactForm heading={page.formHeading} defaultService={defaultService} />
 
           {page.contactEmail && (
             <p className="mt-8 text-center text-sm text-navy-600">

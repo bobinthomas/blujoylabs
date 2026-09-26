@@ -14,13 +14,13 @@ export default function AlternatingRows({ rows }: { rows: readonly Row[] }) {
     <>
       {rows.map((row, i) => (
         <section key={row.title} className={i % 2 === 0 ? "bg-white" : "bg-warm"}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-[50px]">
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
               <Reveal className={i % 2 === 1 ? "lg:order-2" : ""}>
                 {row.image ? (
-                  <img src={row.image} alt="" className="w-full aspect-[4/3] object-cover rounded-2xl" />
+                  <img src={row.image} alt="" className="w-full aspect-[16/9] lg:aspect-[4/3] object-cover rounded-2xl" />
                 ) : (
-                  <ImagePlaceholder label={row.imagePlaceholderLabel} className="w-full aspect-[4/3]" />
+                  <ImagePlaceholder label={row.imagePlaceholderLabel} className="w-full aspect-[16/9] lg:aspect-[4/3]" />
                 )}
               </Reveal>
               <Reveal delay={80} className={i % 2 === 1 ? "lg:order-1" : ""}>

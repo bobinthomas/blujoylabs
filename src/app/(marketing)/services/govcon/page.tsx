@@ -9,6 +9,7 @@ import StatBand from "@/components/service-page/StatBand";
 import SplitCTA from "@/components/service-page/SplitCTA";
 import FAQDark from "@/components/service-page/FAQDark";
 import Reveal from "@/components/Reveal";
+import Callout from "@/components/Callout";
 import { getKeystaticReader } from "@/lib/keystatic-reader";
 import { ICONS, type IconKey } from "@/lib/icons";
 
@@ -71,20 +72,17 @@ export default async function GovConPage() {
         showImages={false}
       />
       {page.engagementNote && (
-        <div className="bg-warm pb-20 sm:pb-28 -mt-20 sm:-mt-28">
+        <div className="bg-warm -mt-10 sm:-mt-[50px] pt-6 pb-10 sm:pb-[50px]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="max-w-2xl text-sm text-navy-500 leading-relaxed">{page.engagementNote}</p>
+            <Callout label={page.engagementNoteLabel}>{page.engagementNote}</Callout>
           </div>
         </div>
       )}
 
-      <section className="py-20 sm:py-28 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-10 sm:py-[50px] bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="max-w-2xl mb-12">
-            <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-blue-600 uppercase mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
-              {page.processEyebrow}
-            </div>
+            <div className="text-lg sm:text-xl font-mono tracking-wider text-blue-600 uppercase mb-4">{page.processEyebrow}</div>
             <h2 className="text-3xl sm:text-4xl font-light tracking-tight text-navy-900">{page.processHeading}</h2>
             <p className="mt-4 text-navy-600 leading-relaxed">{page.processIntro}</p>
           </Reveal>
@@ -102,12 +100,13 @@ export default async function GovConPage() {
                 : undefined
             }
             caption={page.processCaption}
+            captionLabel={page.processCaptionLabel}
           />
         </div>
       </section>
 
-      <section className="py-20 sm:py-28 bg-warm">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-10 sm:py-[50px] bg-warm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="max-w-2xl mb-12">
             <h2 className="text-3xl sm:text-4xl font-light tracking-tight text-navy-900">{page.marketHeading}</h2>
           </Reveal>
@@ -122,7 +121,9 @@ export default async function GovConPage() {
             ))}
           </div>
           {page.marketSharedLine && (
-            <p className="mt-6 max-w-2xl text-sm text-navy-500 leading-relaxed">{page.marketSharedLine}</p>
+            <Callout label={page.marketSharedLineLabel} className="mt-8">
+              {page.marketSharedLine}
+            </Callout>
           )}
         </div>
       </section>
@@ -138,9 +139,11 @@ export default async function GovConPage() {
         <StatBand heading={page.teamStatsHeading} stats={[...page.teamStats]} />
       )}
       {page.teamStatsVisible && page.teamStatsAttribution && (
-        <p className="bg-ink px-4 pb-16 text-center text-xs text-white/50 max-w-2xl mx-auto -mt-10">
-          {page.teamStatsAttribution}
-        </p>
+        <div className="bg-ink pb-10 sm:pb-[50px]">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Callout label={page.teamStatsAttributionLabel}>{page.teamStatsAttribution}</Callout>
+          </div>
+        </div>
       )}
 
       <SplitCTA

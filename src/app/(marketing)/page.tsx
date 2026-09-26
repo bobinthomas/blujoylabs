@@ -1,5 +1,4 @@
 import Link from "next/link";
-import SectionHeading from "@/components/SectionHeading";
 import Reveal from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
@@ -10,311 +9,127 @@ function IconMark({
   d,
   className,
   strokeWidth = 1.5,
-  style,
 }: {
   d: string;
   className?: string;
   strokeWidth?: number;
-  style?: React.CSSProperties;
 }) {
   return (
-    <svg className={className} style={style} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={strokeWidth} d={d} />
     </svg>
   );
 }
-
-function ServiceLabel({ text, className = "" }: { text: string; className?: string }) {
-  return (
-    <div
-      className={`inline-flex items-center rounded-full bg-white/90 backdrop-blur-sm px-4 py-2 card-shadow text-sm sm:text-base font-semibold text-navy-900 ${className}`}
-    >
-      {text}
-    </div>
-  );
-}
-
-const checkIcon = (
-  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-  </svg>
-);
-
-const FEATURE_GRADIENTS = [
-  "linear-gradient(135deg, #10233F 0%, #243247 100%)",
-  "linear-gradient(135deg, #0F766E 0%, #175CD3 100%)",
-];
-
-const WHY_US_LAYOUT = [
-  { span: "lg:col-span-2 lg:row-span-2", minH: "lg:min-h-[380px]" },
-  { span: "lg:col-span-4", minH: "lg:min-h-[180px]" },
-  { span: "lg:col-span-2", minH: "lg:min-h-[180px]" },
-  { span: "lg:col-span-2", minH: "lg:min-h-[180px]" },
-  { span: "lg:col-span-3", minH: "lg:min-h-[180px]" },
-  { span: "lg:col-span-3", minH: "lg:min-h-[180px]" },
-];
-const DEFAULT_WHY_US_LAYOUT = { span: "lg:col-span-2", minH: "lg:min-h-[180px]" };
 
 export default async function HomePage() {
   const reader = getKeystaticReader();
   const home = await reader.singletons.homePage.read();
   if (!home) throw new Error("homePage singleton is missing");
 
-  const featureGradientByIndex = new Map<number, string>();
-  {
-    let featureCount = 0;
-    home.floatingCards.forEach((card, i) => {
-      if (card.type === "feature") {
-        featureGradientByIndex.set(i, FEATURE_GRADIENTS[featureCount % FEATURE_GRADIENTS.length]);
-        featureCount++;
-      }
-    });
-  }
-
   return (
     <>
-      {/* Hero + floating card row share this positioning context so the row
-          below can be pinned to the hero's bottom edge with position: absolute. */}
-      <div className="relative">
-        <section className="relative -mt-20 sm:-mt-[88px] lg:-mt-24 min-h-[700px] sm:min-h-[800px] lg:min-h-[920px] flex items-end overflow-hidden">
-          {home.heroImage ? (
-            <img
-              src={home.heroImage}
-              alt="BluJoy Labs team collaborating"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-          ) : (
-            <ImagePlaceholder label="Hero photo" className="absolute inset-0 w-full h-full rounded-none" />
-          )}
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(100deg, rgba(16,35,63,0.88) 0%, rgba(16,35,63,0.6) 40%, rgba(16,35,63,0.2) 70%, rgba(16,35,63,0.05) 100%)",
-            }}
+      {/* Hero — navy wash over the photo, near-white text, white primary button.
+          Both CTAs point at on-page anchors (#enquiry / #services), so neither
+          can become a dead destination. */}
+      <section className="relative -mt-20 sm:-mt-[88px] lg:-mt-24 min-h-[620px] sm:min-h-[700px] lg:min-h-[780px] flex items-end overflow-hidden bg-navy-900">
+        {home.heroImage ? (
+          <img
+            src={home.heroImage}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
           />
-          <div
-            className="absolute inset-0"
-            style={{ background: "linear-gradient(to top, rgba(16,35,63,0.65), transparent 40%)" }}
-          />
-          {/* Subtle edge softening only — the photo should still read clearly behind the cards */}
-          <div
-            className="absolute inset-x-0 bottom-0 h-10 sm:h-14 pointer-events-none"
-            style={{ background: "linear-gradient(to bottom, transparent, #f8fafc)" }}
-          />
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 sm:pt-48 pb-28 sm:pb-36 lg:pb-44 w-full">
-            <div className="max-w-2xl">
-              <Reveal>
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-sm font-medium text-white mb-6">
-                  <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
-                  {home.heroBadge}
-                </div>
-              </Reveal>
-              <Reveal delay={80}>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-[1.08] text-white">
-                  {home.heroHeadline}
-                </h1>
-              </Reveal>
-              <Reveal delay={160}>
-                <p className="mt-6 text-lg sm:text-xl text-white/80 max-w-xl leading-relaxed">
-                  {home.heroSubheadline}
-                </p>
-              </Reveal>
-              <Reveal delay={240}>
-                <div className="mt-10 flex flex-col sm:flex-row items-start gap-4">
-                  <Link
-                    href={home.heroCtaPrimaryHref}
-                    className="inline-flex items-center gap-2.5 px-8 py-3.5 bg-white text-navy-900 font-medium rounded-full hover:bg-warm-dark transition-all text-lg"
-                  >
-                    {home.heroCtaPrimaryLabel}
-                    <span className="w-2 h-2 rounded-full bg-blue-600" aria-hidden="true" />
-                  </Link>
-                  <Link
-                    href={home.heroCtaSecondaryHref}
-                    className="inline-flex items-center px-8 py-3.5 bg-white/10 backdrop-blur-sm text-white font-medium rounded-full border border-white/30 hover:bg-white/20 transition-colors text-lg"
-                  >
-                    {home.heroCtaSecondaryLabel}
-                  </Link>
-                </div>
-              </Reveal>
-            </div>
+        ) : (
+          <ImagePlaceholder label="Hero photo" className="absolute inset-0 w-full h-full rounded-none" />
+        )}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(100deg, rgba(16,35,63,0.92) 0%, rgba(16,35,63,0.78) 45%, rgba(16,35,63,0.45) 100%)",
+          }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(to top, rgba(16,35,63,0.7), transparent 45%)" }}
+        />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 sm:pt-44 pb-20 sm:pb-24 w-full">
+          <div className="max-w-2xl">
+            <Reveal>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-sm rounded-full border border-white/25 text-sm font-medium text-white mb-6">
+                {home.heroBadge}
+              </div>
+            </Reveal>
+            <Reveal delay={80}>
+              <h1 className="max-w-lg text-4xl sm:text-5xl font-normal tracking-tight leading-[1.08] text-white">
+                {home.heroHeadline}
+              </h1>
+            </Reveal>
+            <Reveal delay={160}>
+              <p className="mt-6 text-lg sm:text-xl text-white/85 max-w-xl leading-relaxed">
+                {home.heroSubheadline}
+              </p>
+            </Reveal>
+            <Reveal delay={240}>
+              <div className="mt-10 flex flex-col sm:flex-row items-start gap-4">
+                <Link
+                  href={home.heroCtaPrimaryHref}
+                  className="inline-flex items-center gap-2.5 px-8 py-3.5 bg-white text-navy-900 font-medium rounded-full hover:bg-warm-dark transition-colors text-lg"
+                >
+                  {home.heroCtaPrimaryLabel}
+                  <span className="w-2 h-2 rounded-full bg-blue-600" aria-hidden="true" />
+                </Link>
+                <Link
+                  href={home.heroCtaSecondaryHref}
+                  className="inline-flex items-center px-8 py-3.5 bg-white/10 backdrop-blur-sm text-white font-medium rounded-full border border-white/40 hover:bg-white/20 transition-colors text-lg"
+                >
+                  {home.heroCtaSecondaryLabel}
+                </Link>
+              </div>
+            </Reveal>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Overlapping card marquee — pinned to the hero's bottom edge with
-            position: absolute so it floats free of document flow; the section
-            below adds top clearance so its own content starts beneath it. */}
-        <section className="absolute inset-x-0 top-full -translate-y-16 sm:-translate-y-20 lg:-translate-y-24 z-10">
-          <Reveal className="overflow-hidden">
-            <div className="flex w-max gap-5 marquee-track hover:[animation-play-state:paused]">
-              {[...home.floatingCards, ...home.floatingCards].map((card, i) => {
-                const iconPath = card.iconKey ? ICONS[card.iconKey as IconKey] : undefined;
-                const icon = card.type === "logo" ? checkIcon : iconPath ? <IconMark d={iconPath} /> : null;
-                const gradient = featureGradientByIndex.get(i % home.floatingCards.length);
-                return (
-                  <div
-                    key={`${card.title}-${i}`}
-                    className={`relative flex flex-col justify-end shrink-0 p-6 rounded-[32px] card-shadow overflow-hidden ${
-                      card.type === "stat" || card.type === "logo"
-                        ? "w-[220px] sm:w-[240px] h-[340px] sm:h-[380px] bg-white"
-                        : "w-[280px] sm:w-[320px] h-[340px] sm:h-[380px] text-white"
-                    }`}
-                    style={card.type === "feature" ? { background: gradient } : undefined}
-                  >
-                    {card.type === "photo" && card.image && (
-                      <img
-                        src={card.image}
-                        alt=""
-                        className="absolute inset-0 w-full h-full object-cover"
-                        style={{ objectPosition: "75% 30%" }}
-                      />
-                    )}
-                    {(card.type === "feature" || card.type === "photo") && (
-                      <div
-                        className="absolute inset-x-0 bottom-0 h-2/3 pointer-events-none"
-                        style={{ background: "linear-gradient(to top, rgba(16,35,63,0.85), transparent)" }}
-                      />
-                    )}
-                    {card.type === "logo" && (
-                      <div className="absolute top-5 left-5 w-9 h-9 rounded-full bg-navy-900 text-white flex items-center justify-center">
-                        {icon}
-                      </div>
-                    )}
-                    {(card.type === "stat" || card.type === "feature") && icon && (
-                      <div
-                        className={`absolute top-5 right-5 w-9 h-9 rounded-full border flex items-center justify-center ${
-                          card.type === "stat"
-                            ? "border-navy-900/25 text-navy-900"
-                            : "border-white/50 bg-white/10 backdrop-blur-sm text-white"
-                        }`}
-                      >
-                        {icon}
-                      </div>
-                    )}
-                    <div className="relative">
-                      {card.type === "stat" && (
-                        <>
-                          <div className="text-5xl sm:text-6xl font-light text-navy-900">{card.value}</div>
-                          {card.eyebrow && (
-                            <div className="mt-4 text-xs font-semibold tracking-wider text-blue-600 uppercase">
-                              {card.eyebrow}
-                            </div>
-                          )}
-                          <p className="mt-1 text-sm text-navy-600 leading-relaxed">{card.title}</p>
-                        </>
-                      )}
-                      {card.type === "logo" && (
-                        <>
-                          <div className="flex items-center justify-center mb-6">
-                            <span className="text-4xl font-semibold tracking-tight text-navy-900 border-2 border-blue-600 rounded-xl px-4 py-2">
-                              {card.value}
-                            </span>
-                          </div>
-                          <div className="text-xs font-semibold tracking-wider text-blue-600 uppercase">
-                            {card.eyebrow}
-                          </div>
-                          <p className="mt-1 text-sm text-navy-600 leading-relaxed">{card.title}</p>
-                        </>
-                      )}
-                      {(card.type === "feature" || card.type === "photo") && (
-                        <>
-                          <div className="text-xs font-semibold tracking-wider text-blue-100 uppercase">
-                            {card.eyebrow}
-                          </div>
-                          <p className="mt-2 text-lg font-medium leading-snug">{card.title}</p>
-                        </>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </Reveal>
-        </section>
-      </div>
-
-      {/* Three Pillars - Illustrated cards — sits below the floating card row;
-          pt-80 clears the row's max height (380px) minus its hero overlap. */}
-      <section id="services" className="pt-80 pb-20 sm:pb-28 bg-warm">
+      {/* How We Can Help — three equal cards, descriptions always visible (no
+          hover-to-reveal), each linking to its real service page. */}
+      <section id="services" className="scroll-mt-24 py-10 sm:py-[50px] bg-warm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal className="text-center max-w-2xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 text-sm font-mono font-medium tracking-wider text-blue-600 uppercase mb-4">
-              <span className="w-3.5 h-3.5 border border-current rounded-[3px]" />
+          <Reveal className="max-w-2xl mb-12">
+            <div className="text-lg sm:text-xl font-mono tracking-wider text-blue-600 uppercase mb-4">
               {home.pillarsEyebrow}
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-navy-900">
               {home.pillarsHeading}
             </h2>
-            <p className="mt-4 text-lg text-navy-600">{home.pillarsSubtitle}</p>
           </Reveal>
 
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 sm:[&>*:last-child:nth-child(odd)]:col-span-2 lg:[&>*:last-child:nth-child(odd)]:col-span-1">
             {home.pillars.map((pillar, i) => (
-              <Reveal key={pillar.title} delay={i * 90}>
+              <Reveal key={pillar.title} delay={i * 90} className="h-full">
                 <Link
                   href={pillar.href}
                   style={{ ["--accent" as string]: pillar.color }}
-                  className="group relative flex h-[420px] sm:h-[460px] flex-col rounded-3xl border border-navy-200/70 bg-gradient-to-br from-white to-navy-100 p-6 sm:p-7 overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:border-[var(--accent)] hover:card-shadow-hover"
+                  className="group flex h-full flex-col rounded-3xl border border-warm-border bg-white p-7 sm:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--accent)] hover:card-shadow-hover"
                 >
-                  {/* Soft color glow behind the icon — intensifies on hover */}
-                  <div
-                    className="absolute left-1/2 top-1/2 w-56 h-56 sm:w-64 sm:h-64 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl opacity-[0.12] transition-opacity duration-500 group-hover:opacity-25 pointer-events-none"
-                    style={{ background: pillar.color }}
-                  />
-
-                  {pillar.labelPosition === "top" && (
-                    <ServiceLabel text={pillar.title} className="absolute top-6 left-6 sm:top-7 sm:left-7 z-10" />
-                  )}
-
-                  {/* Index + arrow badge */}
-                  <div className="absolute top-6 right-6 sm:top-7 sm:right-7 z-10 flex items-center gap-2">
-                    <span className="font-mono text-xs text-navy-400">0{i + 1}</span>
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full border border-navy-300/70 text-navy-500 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:border-[var(--accent)] group-hover:bg-[var(--accent)] group-hover:text-white">
-                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H8M17 7v9" />
-                      </svg>
-                    </span>
-                  </div>
-
-                  <div className="relative flex-1 flex items-center justify-center">
-                    {pillar.image ? (
-                      <img
-                        src={pillar.image}
-                        alt=""
-                        loading="lazy"
-                        className="w-[190px] h-[190px] sm:w-[229px] sm:h-[229px] object-contain transition-all duration-300 ease-out group-hover:opacity-0 group-hover:scale-90"
-                      />
-                    ) : (
-                      <ImagePlaceholder
-                        label="Illustration"
-                        className="w-[190px] h-[190px] sm:w-[229px] sm:h-[229px] transition-all duration-300 ease-out group-hover:opacity-0 group-hover:scale-90"
-                      />
-                    )}
-                    {/* Description + Learn More — revealed on hover, in place of the icon.
-                        Top-anchored below the index badge / top label row (not centered),
-                        with a line-clamp so its height stays predictable and clear of the
-                        corner label at the bottom. */}
-                    <div className="absolute inset-x-0 top-16 sm:top-20 px-1 opacity-0 translate-y-2 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0">
-                      <p className="text-[15px] text-navy-700 leading-relaxed line-clamp-4">{pillar.description}</p>
-                      <div className="mt-5 flex items-center gap-2 font-medium text-sm" style={{ color: pillar.color }}>
-                        Learn More
-                        <svg
-                          className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </div>
-                      <span className="mt-3 block text-xs font-medium text-navy-500 uppercase tracking-wider">
-                        {pillar.stats}
-                      </span>
-                    </div>
-                  </div>
-                  {pillar.labelPosition === "bottom" && (
-                    <ServiceLabel text={pillar.title} className="absolute bottom-6 left-6 sm:bottom-7 sm:left-7 z-10" />
-                  )}
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent-light text-[var(--accent)]">
+                    <IconMark d={ICONS[pillar.iconKey as IconKey]} className="w-5 h-5" strokeWidth={1.75} />
+                  </span>
+                  <h3 className="mt-6 text-xl font-medium text-navy-900">{pillar.title}</h3>
+                  <p className="mt-3 text-[16px] leading-relaxed text-navy-600">{pillar.description}</p>
+                  <span
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-medium"
+                    style={{ color: pillar.color }}
+                  >
+                    {pillar.linkLabel}
+                    <svg
+                      className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
                 </Link>
               </Reveal>
             ))}
@@ -322,113 +137,83 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Why Work With Us - Bento Grid */}
-      <section className="py-20 sm:py-28 bg-white">
+      {/* The Right Expertise. A Clear Way Forward. — three compact commitments */}
+      <section className="py-10 sm:py-[50px] bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-3 mb-12">
-            <p className="text-xs font-semibold tracking-[0.15em] text-blue-600 uppercase">{home.whyUsEyebrow}</p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-navy-900 lg:text-right">
+          {/* Wider than the services block so the heading holds one line at 48px */}
+          <Reveal className="max-w-4xl mb-12">
+            <div className="text-lg sm:text-xl font-mono tracking-wider text-blue-600 uppercase mb-4">
+              {home.whyUsEyebrow}
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-navy-900">
               {home.whyUsHeading}
             </h2>
           </Reveal>
-          <div className="grid grid-cols-1 lg:grid-cols-6 gap-5">
-            {home.whyUs.map((item, i) => {
-              const layout = WHY_US_LAYOUT[i] ?? DEFAULT_WHY_US_LAYOUT;
-              const iconPath = ICONS[item.iconKey as IconKey];
-              return (
-                <Reveal key={item.title} delay={i * 70} className={`${layout.span} ${layout.minH}`}>
-                  <div className="group relative h-full overflow-hidden rounded-3xl border border-warm-border bg-gradient-to-br from-white to-accent-light/70 p-7 sm:p-8 flex flex-col justify-between card-shadow transition-all duration-300 hover:card-shadow-hover hover:-translate-y-1">
-                    <IconMark
-                      d={iconPath}
-                      className="absolute -right-6 -bottom-6 w-40 h-40 text-blue-600 opacity-[0.07] rotate-6 transition-transform duration-500 ease-out group-hover:rotate-12 group-hover:scale-110 pointer-events-none"
-                    />
-                    <div className="relative w-11 h-11 rounded-xl bg-white border border-warm-border flex items-center justify-center shadow-sm transition-transform duration-300 group-hover:scale-105">
-                      <IconMark d={iconPath} className="w-5 h-5 text-blue-600" />
-                    </div>
-                    <div className="relative mt-auto pt-8">
-                      <h3 className="text-lg font-medium text-navy-900">{item.title}</h3>
-                      <p className="mt-2 text-sm text-navy-600 leading-relaxed max-w-xs">{item.description}</p>
-                    </div>
-                  </div>
-                </Reveal>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Trust Logo Grid */}
-      <section className="py-16 bg-warm border-y border-warm-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-sm font-medium text-navy-700 mb-8">
-            Trusted across government and enterprise ecosystems
-          </p>
-          <Reveal>
-            <div className="grid grid-cols-3 md:grid-cols-6 gap-y-8">
-              {home.logos.map((logo) => (
-                <span
-                  key={logo.name}
-                  className="flex items-center justify-center text-lg font-medium text-navy-600 hover:text-navy-900 transition-colors tracking-tight"
-                >
-                  {logo.name}
-                </span>
-              ))}
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* How to Get Started */}
-      <section className="py-20 sm:py-28 bg-warm">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading title={home.stepsHeading} subtitle={home.stepsSubtitle} />
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-8 text-center">
-            {home.steps.map((step, i) => (
-              <Reveal key={step.title} delay={i * 120}>
-                <div className="text-5xl sm:text-6xl font-light text-navy-300">0{i + 1}</div>
-                <h3 className="mt-4 text-lg font-medium text-navy-900">{step.title}</h3>
-                <p className="mt-2 text-navy-600 text-[15px] leading-relaxed max-w-xs mx-auto">{step.description}</p>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 sm:[&>*:last-child:nth-child(odd)]:col-span-2 lg:[&>*:last-child:nth-child(odd)]:col-span-1">
+            {home.whyUs.map((item, i) => (
+              <Reveal key={item.title} delay={i * 80} className="h-full">
+                <div className="flex h-full flex-col rounded-3xl border border-warm-border bg-warm p-7 sm:p-8">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white border border-warm-border text-blue-600">
+                    <IconMark d={ICONS[item.iconKey as IconKey]} className="w-5 h-5" strokeWidth={1.75} />
+                  </span>
+                  <h3 className="mt-6 text-lg font-medium text-navy-900">{item.title}</h3>
+                  <p className="mt-3 text-[16px] leading-relaxed text-navy-600">{item.description}</p>
+                </div>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Closing enquiry */}
-      <section className="py-20 sm:py-28 bg-white">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal className="text-center mb-10">
-            <h2 className="text-3xl sm:text-4xl font-light tracking-tight text-navy-900">
-              {home.closingEnquiryHeading}
-            </h2>
-            <p className="mt-4 text-lg text-navy-600">{home.closingEnquiryBody}</p>
+      {/* Let's Talk About What You Need — the three steps sit directly above the
+          enquiry form in one section, so the form needs no second heading. */}
+      <section id="enquiry" className="scroll-mt-24 py-10 sm:py-[50px] bg-warm">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal className="text-center max-w-2xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl font-light tracking-tight text-navy-900">{home.stepsHeading}</h2>
+            <p className="mt-4 text-lg text-navy-600 leading-relaxed">{home.stepsSubtitle}</p>
           </Reveal>
-          <Reveal delay={100}>
+
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+            {home.steps.map((step, i) => (
+              <Reveal key={step.title} delay={i * 90} className="h-full">
+                <div className="flex h-full flex-col rounded-2xl border border-warm-border bg-white p-6">
+                  <span className="text-sm font-mono font-medium text-blue-600">{i + 1}</span>
+                  <h3 className="mt-2 font-medium text-navy-900">{step.title}</h3>
+                  <p className="mt-2 text-sm text-navy-600 leading-relaxed">{step.description}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={120} className="mt-12 max-w-2xl mx-auto">
             <ContactForm />
           </Reveal>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="py-20 sm:py-28 bg-warm">
+      <section className="py-10 sm:py-[50px] bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading title={home.faqHeading} subtitle={home.faqSubtitle} />
+          <Reveal className="text-center max-w-3xl mx-auto mb-12">
+            <h2 className="text-3xl sm:text-4xl font-light tracking-tight text-navy-900">{home.faqHeading}</h2>
+            {home.faqSubtitle && <p className="mt-4 text-lg text-navy-600">{home.faqSubtitle}</p>}
+          </Reveal>
           <Reveal className="border-t border-warm-border">
             {home.faqs.map((faq) => (
               <details key={faq.question} className="group border-b border-warm-border">
-                <summary className="flex items-center justify-between py-5 cursor-pointer font-medium text-navy-900 hover:text-graphite transition-colors list-none">
+                <summary className="flex items-center justify-between py-5 cursor-pointer font-medium text-navy-900 hover:text-graphite transition-colors list-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
                   {faq.question}
                   <svg className="w-5 h-5 text-navy-400 group-open:rotate-180 transition-transform shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </summary>
-                <div className="pb-5 text-navy-600 text-[15px] leading-relaxed">{faq.answer}</div>
+                <div className="pb-5 text-navy-600 text-[16px] leading-relaxed">{faq.answer}</div>
               </details>
             ))}
           </Reveal>
         </div>
       </section>
-
     </>
   );
 }

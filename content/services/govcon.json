@@ -51,17 +51,18 @@
     {
       "title": "Ongoing Monthly Support",
       "description": "For companies that need consistent support across their pipeline and active pursuits. A named lead coordinates opportunity research, capture and proposal work, with specialist support matched to the agreed scope. Routine contract-information reviews and update coordination can also be included when agreed.",
-      "href": "/contact?service=govcon&engagement=monthly",
+      "href": "/contact?service=govcon",
       "linkLabel": "Discuss Monthly Support",
       "badge": "Recommended for ongoing pipelines"
     },
     {
       "title": "Individual Pursuit or Project",
       "description": "For a specific response, submission deadline or defined support need. We scope the work around the solicitation, required deliverables, available inputs and time remaining.",
-      "href": "/contact?service=govcon&engagement=project",
+      "href": "/contact?service=govcon",
       "linkLabel": "Get Support for a Pursuit"
     }
   ],
+  "engagementNoteLabel": "A note on scope",
   "engagementNote": "Response effort varies significantly. A short RFI or MRAS response is not equivalent to a complex vehicle proposal. We agree what can be delivered against your priorities and deadlines, and flag scope or capacity changes early.",
   "processEyebrow": "Client Lifecycle",
   "processHeading": "How We Work With Your Team",
@@ -120,6 +121,7 @@
   "processLoopFromIndex": 5,
   "processLoopToIndex": 1,
   "processLoopLabel": "Next pursuit",
+  "processCaptionLabel": "A note on the process",
   "processCaption": "For an active solicitation, we can move from planning directly into response development. For monthly engagements, we return to pipeline priorities after each pursuit. Awards and evaluation outcomes remain outside our control.",
   "marketHeading": "Supporting Federal, State, Local & Education Pursuits",
   "marketCoverage": [
@@ -132,6 +134,7 @@
       "description": "Capture and proposal support for contractors pursuing state agencies, local governments, school districts and higher education institutions. We help review buyer-specific requirements, organise the response and coordinate submission activities for the relevant procurement process."
     }
   ],
+  "marketSharedLineLabel": "A note on eligibility",
   "marketSharedLine": "Federal and SLED support sit within one GovCon offering. Scope, eligibility and submission requirements are assessed for each opportunity.",
   "benefitsEyebrow": "Why BluJoy",
   "benefitsHeading": "An Extension of Your Pursuit Team",
@@ -170,6 +173,7 @@
       "label": "Proposals supported across team members' prior roles"
     }
   ],
+  "teamStatsAttributionLabel": "A note on these figures",
   "teamStatsAttribution": "These figures reflect team members' experience before joining BluJoy, not BluJoy company results. The combined experience spans commercial and public sector work.",
   "supportingHeading": "Supporting Your Pursuit Readiness and Award Transition",
   "supportingSubtitle": "Add focused support for registration, contract vehicle responses and the documentation needed to hand an awarded opportunity to your delivery team.",

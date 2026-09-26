@@ -18,7 +18,7 @@ export default function SplitCTA({
   imagePlaceholderLabel: string;
 }) {
   return (
-    <section className="py-20 sm:py-28 bg-warm">
+    <section className="py-10 sm:py-[50px] bg-warm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="grid sm:grid-cols-2 rounded-2xl overflow-hidden">

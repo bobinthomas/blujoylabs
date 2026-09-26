@@ -52,6 +52,7 @@
       "description": "Explore how an agent could perform a specific task, with human review at agreed points."
     }
   ],
+  "examplesTechNoteLabel": "A note on technology",
   "examplesTechNote": "We select the approach and technology after reviewing your use case, available data, constraints and budget.",
   "processEyebrow": "Delivery Approach",
   "processHeading": "How We Work",
@@ -103,6 +104,7 @@
   "processLoopLabel": "Refine and rebuild",
   "processExitAtIndex": 1,
   "processExitLabel": "Discovery may conclude here",
+  "processCaptionLabel": "A note on the process",
   "processCaption": "Engagements may conclude with a feasibility assessment, prototype, MVP or scoped application, depending on your needs.",
   "engagementEyebrow": "Engagement & Fit",
   "engagementHeading": "Ways to Work With Us",

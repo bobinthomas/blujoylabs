@@ -17,7 +17,7 @@ export default function TestimonialSplit({
   imagePlaceholderLabel: string;
 }) {
   return (
-    <section className="py-20 sm:py-28 bg-white">
+    <section className="py-10 sm:py-[50px] bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
           <h2 className="text-2xl sm:text-3xl font-light tracking-tight text-navy-900 mb-10">{heading}</h2>

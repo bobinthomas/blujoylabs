@@ -5,6 +5,7 @@ import ProcessDiagram from "@/components/service-page/ProcessDiagram";
 import PathwaysGrid from "@/components/service-page/PathwaysGrid";
 import SplitCTA from "@/components/service-page/SplitCTA";
 import Reveal from "@/components/Reveal";
+import Callout from "@/components/Callout";
 import { getKeystaticReader } from "@/lib/keystatic-reader";
 import { ICONS, type IconKey } from "@/lib/icons";
 
@@ -42,8 +43,8 @@ export default async function AIConsultingPage() {
       />
 
       {/* What We Can Help You Build — compact rows, deliberately distinct from the capability cards */}
-      <section id="examples" className="py-20 sm:py-28 bg-warm">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="examples" className="py-10 sm:py-[50px] bg-warm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="max-w-2xl mb-10">
             <h2 className="text-3xl sm:text-4xl font-light tracking-tight text-navy-900">{page.examplesHeading}</h2>
             <p className="mt-4 text-navy-600 leading-relaxed">{page.examplesIntro}</p>
@@ -56,17 +57,18 @@ export default async function AIConsultingPage() {
               </Reveal>
             ))}
           </div>
-          {page.examplesTechNote && <p className="mt-6 text-sm text-navy-500 leading-relaxed">{page.examplesTechNote}</p>}
+          {page.examplesTechNote && (
+            <Callout label={page.examplesTechNoteLabel} className="mt-8">
+              {page.examplesTechNote}
+            </Callout>
+          )}
         </div>
       </section>
 
-      <section className="py-20 sm:py-28 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-10 sm:py-[50px] bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="max-w-2xl mb-12">
-            <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-blue-600 uppercase mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
-              {page.processEyebrow}
-            </div>
+            <div className="text-lg sm:text-xl font-mono tracking-wider text-blue-600 uppercase mb-4">{page.processEyebrow}</div>
             <h2 className="text-3xl sm:text-4xl font-light tracking-tight text-navy-900">{page.processHeading}</h2>
             <p className="mt-4 text-navy-600 leading-relaxed">{page.processIntro}</p>
           </Reveal>
@@ -84,6 +86,7 @@ export default async function AIConsultingPage() {
                 : undefined
             }
             caption={page.processCaption}
+            captionLabel={page.processCaptionLabel}
           />
         </div>
       </section>

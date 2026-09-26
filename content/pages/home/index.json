@@ -1,88 +1,97 @@
 {
   "heroBadge": "GovCon Support • AI Consulting • Design & Engineering",
   "heroHeadline": "Support Your Pursuits. Bring Your Ideas to Life.",
-  "heroSubheadline": "BluJoy Labs helps government contractors strengthen capture and proposals, turns business use cases into scoped solutions, and delivers brand, product and website design. Choose the support that fits your next priority.",
+  "heroSubheadline": "BluJoy Labs provides capture and proposal support for government contractors, custom application and AI solution development, and brand, product and website design.",
   "heroImage": "/api/media/images/hero-image.webp",
   "heroCtaPrimaryLabel": "Discuss Your Needs",
-  "heroCtaPrimaryHref": "/contact",
+  "heroCtaPrimaryHref": "#enquiry",
   "heroCtaSecondaryLabel": "Explore Our Services",
   "heroCtaSecondaryHref": "#services",
 
-  "floatingCards": [
-    { "type": "feature", "eyebrow": "Nationwide Reach", "value": "", "title": "Supporting federal contractors and enterprises across the U.S.", "image": null, "iconKey": "globe" },
-    { "type": "photo", "eyebrow": "Advisory", "value": "", "title": "Consultants who embed with your team through every milestone.", "image": "/api/media/images/hero-image.webp", "iconKey": "users" }
-  ],
-
   "pillarsEyebrow": "Core Services",
-  "pillarsHeading": "What We Do Best",
-  "pillarsSubtitle": "Three pillars of expertise. One unified partner.",
+  "pillarsHeading": "How We Can Help",
   "pillars": [
     {
       "title": "GovCon Support",
-      "description": "Capture, proposal writing and management support for Federal and SLED contractors, through ongoing monthly support or a defined pursuit.",
+      "description": "Support your federal and SLED pursuits with capture, proposal writing and proposal management. Engage us for an individual pursuit or ongoing support.",
       "href": "/services/govcon",
-      "stats": "Federal & SLED Support",
-      "image": "/api/media/images/gov-con-illustration.svg",
-      "labelPosition": "bottom",
+      "linkLabel": "Explore GovCon Support",
+      "iconKey": "govcon",
       "color": "#175CD3"
     },
     {
-      "title": "AI Consulting",
-      "description": "Assess your use case and develop a scoped prototype, MVP or application, with GenAI and agent prototypes where appropriate.",
+      "title": "AI Consulting & Solution Engineering",
+      "description": "Turn a business need into a defined solution. Explore feasibility, custom applications, GenAI knowledge tools and focused AI agent prototypes.",
       "href": "/services/ai-consulting",
-      "stats": "New Service",
-      "image": "/api/media/images/sap-illustration.svg",
-      "labelPosition": "top",
+      "linkLabel": "Explore AI Consulting",
+      "iconKey": "code",
       "color": "#0F766E"
     },
     {
       "title": "Design & Engineering",
-      "description": "Brand identity, product and UX design, and website development with agreed deliverables and review points.",
+      "description": "Create a consistent brand, shape your product experience or build your website—with visual identity, UX design and website development tailored to your project.",
       "href": "/services/design-engineering",
-      "stats": "Brand • Product • Web",
-      "image": "/api/media/images/ui-ux-illustration.svg",
-      "labelPosition": "bottom",
-      "color": "#0F766E"
+      "linkLabel": "Explore Design & Engineering",
+      "iconKey": "design",
+      "color": "#175CD3"
     }
   ],
 
   "whyUsEyebrow": "Why BluJoy",
-  "whyUsHeading": "Built for Complexity. Delivered with Clarity.",
+  "whyUsHeading": "The Right Expertise. A Clear Way Forward.",
   "whyUs": [
-    { "title": "GovCon Expertise", "description": "Deep understanding of federal acquisition, capture, and proposal best practices.", "iconKey": "govcon" },
-    { "title": "Design-Led Thinking", "description": "Every interface, brand, and system we build starts with the user in mind.", "iconKey": "design" },
-    { "title": "Use-Case-Led AI", "description": "We start with the business outcome, not the technology — AI supports the solution where it genuinely adds value.", "iconKey": "chat" },
-    { "title": "Security- and Compliance-Aware", "description": "Delivery practices built with federal and enterprise compliance expectations in mind.", "iconKey": "compliance" },
-    { "title": "Flexible Engagement Models", "description": "Project-based, retainer, or fractional support — tailored to your pace and budget.", "iconKey": "flexible" },
-    { "title": "A Named Point of Contact", "description": "A day-to-day lead coordinates your engagement, with specialist support brought in as agreed.", "iconKey": "results" }
+    {
+      "title": "Work directly with specialists",
+      "description": "Work with people who understand your pursuit, application or design needs and take an active role in delivering the work.",
+      "iconKey": "users"
+    },
+    {
+      "title": "Support that fits your priorities",
+      "description": "Engage us for a defined project or ongoing GovCon support, with responsibilities and deliverables shaped around what you need.",
+      "iconKey": "flexible"
+    },
+    {
+      "title": "One coordinated engagement",
+      "description": "When your project needs more than one discipline, BluJoy coordinates the work across specialists, with a clear point of contact and agreed review checkpoints.",
+      "iconKey": "partnership"
+    }
   ],
 
-  "logos": [
-    { "name": "SAM.gov" },
-    { "name": "Figma" },
-    { "name": "AWS" },
-    { "name": "Microsoft" },
-    { "name": "Salesforce" },
-    { "name": "ServiceNow" }
-  ],
-
-  "stepsHeading": "How to Get Started",
-  "stepsSubtitle": "A clear process from first conversation to measurable results.",
+  "stepsHeading": "Let's Talk About What You Need.",
+  "stepsSubtitle": "Have an upcoming pursuit, an idea to explore or a website to improve? Tell us where you are and what you want to achieve. You don't need a finished brief to start the conversation.",
   "steps": [
-    { "title": "Tell Us What You Need", "description": "Share your pursuit, use case or project. We'll discuss the right starting point in a free intro conversation." },
-    { "title": "Agree the Scope", "description": "We agree deliverables, timelines and responsibilities before work begins." },
-    { "title": "Work With a Coordinated Team", "description": "Your dedicated team delivers with regular check-ins and transparent progress." }
+    {
+      "title": "Share your priority",
+      "description": "Tell us what you need help with, any deadlines and what you already have in place."
+    },
+    {
+      "title": "Speak with the right specialist",
+      "description": "We bring the relevant expertise into the conversation to understand your needs and discuss possible approaches."
+    },
+    {
+      "title": "Agree how to move forward",
+      "description": "If there's a fit, we outline the proposed scope, deliverables, timing and fees before work begins."
+    }
   ],
-
-  "closingEnquiryHeading": "What Would You Like Help With?",
-  "closingEnquiryBody": "Tell us about your pursuit, use case or design project. We'll discuss the right starting point.",
 
   "faqHeading": "Frequently Asked Questions",
   "faqSubtitle": "Quick answers to common questions.",
   "faqs": [
-    { "question": "What services does BluJoy Labs provide?", "answer": "We support government contractors with capture and proposal services, help you turn a use case into a working AI solution, and provide brand, product and website design and development." },
-    { "question": "How do we get started?", "answer": "Share your pursuit, use case or project through our contact form. We'll discuss your priorities and recommend the right starting point." },
-    { "question": "Can you help with more than one service?", "answer": "Yes. Many clients work with us across GovCon support, AI consulting and design and engineering — each engagement is scoped individually." },
-    { "question": "Do you offer a free consultation?", "answer": "Yes — we start with a free introductory conversation to understand your needs before recommending a scope." }
+    {
+      "question": "What services does BluJoy Labs provide?",
+      "answer": "Three. GovCon Support covers capture, proposal writing and proposal management for federal and SLED pursuits. AI Consulting & Solution Engineering turns a business need into a defined solution — feasibility work, custom applications, GenAI knowledge tools and focused AI agent prototypes. Design & Engineering covers visual identity, UX design and website development."
+    },
+    {
+      "question": "Can I work with BluJoy on just one service?",
+      "answer": "Yes. Each service can be engaged on its own, for a single pursuit, a defined project or ongoing support. There is no requirement to take on more than the one thing you need help with."
+    },
+    {
+      "question": "What if I'm unsure about the scope or need more than one service?",
+      "answer": "That's a normal place to start — you don't need a finished brief. Tell us what you're trying to achieve and we'll bring the relevant specialists into the conversation. If your project spans more than one discipline, BluJoy coordinates the work with a clear point of contact and agreed review checkpoints."
+    },
+    {
+      "question": "How do I get started?",
+      "answer": "Send an enquiry using the form above. We begin with an introductory conversation to understand what you need — that's separate from any scoped discovery or delivery work. If there's a fit, we set out the proposed scope, deliverables, timing and fees before anything begins."
+    }
   ]
 }

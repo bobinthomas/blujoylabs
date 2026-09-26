@@ -13,14 +13,14 @@ export default function ServiceIntro({
   imagePlaceholderLabel: string;
 }) {
   return (
-    <section className="py-20 sm:py-28 bg-white">
+    <section className="py-10 sm:py-[50px] bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <Reveal>
             {image ? (
-              <img src={image} alt="" className="w-full aspect-square object-cover rounded-2xl" />
+              <img src={image} alt="" className="w-full aspect-[4/3] lg:aspect-square object-cover rounded-2xl" />
             ) : (
-              <ImagePlaceholder label={imagePlaceholderLabel} className="w-full aspect-square" />
+              <ImagePlaceholder label={imagePlaceholderLabel} className="w-full aspect-[4/3] lg:aspect-square" />
             )}
           </Reveal>
           <Reveal delay={100}>

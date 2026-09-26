@@ -67,8 +67,12 @@
   --color-smoke: #3c4c66;
   --color-ash: #8a97ab;
 
-  --font-sans: var(--font-epunda-sans), ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-display: var(--font-epunda-slab), Georgia, "Times New Roman", serif;
+  /* Questrial (body) ships weight 400 only, so `font-medium`/`font-semibold` on
+     body text is synthesised by the browser. Kulim Park (headings) has
+     200/300/400/600/700 but no 500 — a `font-medium` heading resolves to 400.
+     Both are sans-serif, so the display fallback stack is sans, not serif. */
+  --font-sans: var(--font-questrial), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-kulim-park), ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   /* Dock cards: 16px radius */
@@ -90,6 +94,10 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  /* Base body copy, 1px up from the browser default 16px. Tailwind's text-*
+     utilities are rem-based off the html root, so they are unaffected — this
+     governs the paragraphs that carry no explicit size utility. */
+  font-size: 17px;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -237,6 +245,31 @@ html {
   }
 }
 
+/* Connector start dots on the process diagrams pulse gently: a halo in the
+   line's own colour (currentColor) swells and fades behind the solid dot. The
+   dot itself never changes, so the diagram reads the same with motion off. */
+.start-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 9999px;
+  background: currentColor;
+  opacity: 0;
+  animation: start-dot-pulse 2.4s ease-out infinite;
+}
+
+@keyframes start-dot-pulse {
+  0% { transform: scale(1); opacity: 0.35; }
+  70%, 100% { transform: scale(2.6); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .start-dot::after {
+    animation: none;
+  }
+}
+
 /* Sequential stage-card glow for the process diagrams. A bright arc travels once
    around a card's border over GLOW_STEP seconds, then hands off to the next card
    in order and the diagram loops. The ring is a conic gradient masked to the
@@ -297,5 +330,85 @@ html {
 @media (prefers-reduced-motion: reduce) {
   .stage-glow::before {
     animation: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Content must never depend on motion to be readable.
+
+   Reveal-on-scroll starts its elements at opacity 0, so anything that stops the
+   IntersectionObserver from firing — reduced-motion preferences, printing an
+   un-scrolled page, or scripting being unavailable — would otherwise leave the
+   page blank or faded. These rules force the finished state in exactly those
+   cases. (Home and About handoffs, 25 Sep 2026.)
+--------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    translate: none !important;
+    --tw-translate-x: 0px !important;
+    --tw-translate-y: 0px !important;
+    transition: none !important;
+  }
+}
+
+@media (scripting: none) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    translate: none !important;
+    --tw-translate-x: 0px !important;
+    --tw-translate-y: 0px !important;
+    transition: none !important;
+  }
+}
+
+@media print {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    translate: none !important;
+    --tw-translate-x: 0px !important;
+    --tw-translate-y: 0px !important;
+    transition: none !important;
+  }
+
+  /* Nothing may animate on paper — a paused marquee or mid-sweep glow prints as
+     clipped or half-drawn content. */
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Dark bands carry white text; without exact color the text prints white on
+     white. Keep the background so the copy stays legible. */
+  .bg-ink,
+  .bg-navy-900,
+  .bg-navy-800 {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Screen section rhythm (up to 7rem top and bottom) leaves huge gaps and
+     near-empty pages on paper. Tighten it and keep cards off page breaks. */
+  section {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+    min-height: 0 !important;
+    break-inside: avoid;
+  }
+
+  details > div {
+    display: block !important;
+  }
+
+  a[href^="/"]::after,
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: #3c4c66;
   }
 }

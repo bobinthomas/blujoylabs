@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import Reveal from "@/components/Reveal";
+import Callout from "@/components/Callout";
 
 export type ProcessStage = {
   number: string;
@@ -96,6 +97,16 @@ function Arrowhead({
   );
 }
 
+/** Marks where a connector leaves its source card; the Arrowhead marks where it lands. */
+function StartDot({ colour, style }: { colour: string; style?: React.CSSProperties }) {
+  return (
+    <span
+      className="start-dot absolute z-10 h-2 w-2 shrink-0 rounded-full ring-2 ring-white"
+      style={{ background: colour, color: colour, ...style }}
+    />
+  );
+}
+
 /**
  * Shared process-diagram building block for the service pages.
  *
@@ -123,6 +134,7 @@ export default function ProcessDiagram({
   branch,
   exit,
   caption,
+  captionLabel,
 }: {
   stages: readonly ProcessStage[];
   /** Stages per row, e.g. [3, 3] or [3, 2]. Defaults to one row of 3 then the remainder. */
@@ -136,6 +148,8 @@ export default function ProcessDiagram({
   /** Terminal arrow leaving the flow, e.g. "Discovery may conclude here." */
   exit?: ProcessExit;
   caption?: string;
+  /** Heading for the highlighted caption panel, e.g. "A note on the process". */
+  captionLabel?: string | null;
 }) {
   const rowSplit = (rows?.length ? [...rows] : [3, Math.max(stages.length - 3, 0)]).filter((n) => n > 0);
 
@@ -208,7 +222,7 @@ export default function ProcessDiagram({
               <li className={`relative ${SPAN_CLASS[item.span] ?? "sm:col-span-1"}`}>
                 <Reveal delay={index * 70} className="h-full">
                   <div
-                    className="stage-glow h-full rounded-2xl border border-warm-border bg-white p-6"
+                    className="stage-glow h-full rounded-2xl border border-blue-200 bg-pale-blue p-6"
                     style={{
                       ["--glow-step" as string]: `${GLOW_STEP}s`,
                       ["--glow-cycle" as string]: `${items.length * GLOW_STEP}s`,
@@ -217,13 +231,15 @@ export default function ProcessDiagram({
                     }}
                   >
                     <div className="flex items-center justify-between">
-                      <span className="flex h-8 w-8 items-center justify-center rounded-full border border-blue-600 text-xs font-mono text-blue-600 shrink-0">
+                      <span className="flex h-9 w-9 items-center justify-center rounded-full bg-blue-600 font-sans text-sm text-white shrink-0">
                         {item.stage.number}
                       </span>
                       {item.stage.icon && (
-                        <svg className="h-5 w-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d={item.stage.icon} />
-                        </svg>
+                        <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white text-blue-600 shrink-0">
+                          <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d={item.stage.icon} />
+                          </svg>
+                        </span>
                       )}
                     </div>
                     <div className="mt-3.5 text-xs font-mono tracking-wider text-blue-600">{item.stage.label}</div>
@@ -264,6 +280,10 @@ export default function ProcessDiagram({
                     className="pointer-events-none absolute top-1/2 hidden items-center sm:flex"
                     style={{ left: "100%", width: COL_GAP, transform: "translateY(-50%)" }}
                   >
+                    <StartDot
+                      colour={KIND_COLOUR.forward}
+                      style={{ left: 0, top: "50%", transform: "translate(-50%, -50%)" }}
+                    />
                     <span
                       className="flow-x flow-right h-0.5 flex-1"
                       style={{ ["--flow-color" as string]: KIND_COLOUR.forward }}
@@ -283,6 +303,10 @@ export default function ProcessDiagram({
                     className="pointer-events-none absolute left-1/2 sm:hidden"
                     style={{ top: "100%", height: 16, transform: "translateX(-50%)" }}
                   >
+                    <StartDot
+                      colour={KIND_COLOUR.forward}
+                      style={{ left: "50%", top: 0, transform: "translate(-50%, -50%)" }}
+                    />
                     <span
                       className="flow-y flow-down block h-full w-0.5"
                       style={{ ["--flow-color" as string]: KIND_COLOUR.forward }}
@@ -305,6 +329,7 @@ export default function ProcessDiagram({
                         // Terminal exit: drops out of the flow and stops.
                         return (
                           <Fragment key={`exit-${c.from}`}>
+                            <StartDot colour={colour} style={{ left: fromX, top: 0, transform: "translate(-50%, -50%)" }} />
                             <span
                               className="flow-y flow-down absolute w-0.5"
                               style={{ left: fromX, top: 0, height: `${laneY}%`, ["--flow-color" as string]: colour }}
@@ -335,6 +360,13 @@ export default function ProcessDiagram({
                       return (
                         <Fragment key={`${c.kind}-${c.from}-${c.to}`}>
                           {/* leave the source card */}
+                          <StartDot
+                            colour={colour}
+                            style={{
+                              left: fromX,
+                              ...(goingDown ? { top: 0, transform: "translate(-50%, -50%)" } : { bottom: 0, transform: "translate(-50%, 50%)" }),
+                            }}
+                          />
                           <span
                             className={`flow-y absolute w-0.5 ${goingDown ? "flow-down" : "flow-up"}`}
                             style={{
@@ -395,7 +427,11 @@ export default function ProcessDiagram({
         })}
       </ol>
 
-      {caption && <p className="mt-6 text-sm leading-relaxed text-navy-600">{caption}</p>}
+      {caption && (
+        <Callout label={captionLabel} className="mt-8">
+          {caption}
+        </Callout>
+      )}
     </div>
   );
 }

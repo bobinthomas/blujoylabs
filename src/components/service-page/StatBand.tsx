@@ -7,7 +7,7 @@ type Stat = {
 
 export default function StatBand({ heading, stats }: { heading?: string; stats: Stat[] }) {
   return (
-    <section className="py-20 sm:py-28 bg-ink">
+    <section className="py-10 sm:py-[50px] bg-ink">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {heading && (
           <Reveal className="text-center mb-12">

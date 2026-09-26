@@ -43,7 +43,7 @@ export default async function SuccessStoriesPage() {
 
       {/* Case Studies */}
       {sortedCaseStudies.length > 0 && (
-      <section className="py-20 sm:py-28 bg-warm">
+      <section className="py-10 sm:py-[50px] bg-warm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           {sortedCaseStudies.map(({ slug, entry: cs }, i) => (
             <Reveal key={slug} delay={i * 90} className="grid lg:grid-cols-5 gap-8 items-start">
@@ -65,19 +65,19 @@ export default async function SuccessStoriesPage() {
                 <div className="space-y-3">
                   <div>
                     <span className="text-xs font-medium text-navy-400 uppercase tracking-wider">Client</span>
-                    <p className="text-navy-600 text-[15px]">{cs.client}</p>
+                    <p className="text-navy-600 text-[16px]">{cs.client}</p>
                   </div>
                   <div>
                     <span className="text-xs font-medium text-navy-400 uppercase tracking-wider">Challenge</span>
-                    <p className="text-navy-600 text-[15px]">{cs.challenge}</p>
+                    <p className="text-navy-600 text-[16px]">{cs.challenge}</p>
                   </div>
                   <div>
                     <span className="text-xs font-medium text-navy-400 uppercase tracking-wider">Solution</span>
-                    <p className="text-navy-600 text-[15px]">{cs.solution}</p>
+                    <p className="text-navy-600 text-[16px]">{cs.solution}</p>
                   </div>
                   <div>
                     <span className="text-xs font-medium text-navy-400 uppercase tracking-wider">Result</span>
-                    <p className="text-navy-600 text-[15px]">{cs.result}</p>
+                    <p className="text-navy-600 text-[16px]">{cs.result}</p>
                   </div>
                 </div>
               </div>
@@ -89,7 +89,7 @@ export default async function SuccessStoriesPage() {
 
       {/* Testimonials */}
       {testimonials.length > 0 && (
-      <section className="py-20 sm:py-28 bg-white">
+      <section className="py-10 sm:py-[50px] bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading title={page.testimonialsHeading} />
           <Reveal>

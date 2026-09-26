@@ -84,6 +84,7 @@
   "processBranchFromIndex": 2,
   "processBranchToIndex": 4,
   "processBranchLabel": "Design-only path",
+  "processCaptionLabel": "A note on the process",
   "processCaption": "Design-only projects move from approved design to delivery. Website launch follows client approval and the agreed checks. Ongoing maintenance is scoped separately.",
   "benefitsEyebrow": "Why BluJoy",
   "benefitsHeading": "Why Work With BluJoy",

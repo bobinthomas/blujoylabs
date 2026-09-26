@@ -15,7 +15,7 @@
   ],
   "headerCtaLabel": "Let's Talk",
   "headerCtaHref": "/contact",
-  "footerTagline": "BluJoy Labs supports government contractors with capture and proposal services, develops AI and custom solutions, and provides design and engineering services.",
+  "footerTagline": "BluJoy Labs provides GovCon support, AI consulting and solution development, and brand, product and website design.",
   "footerResourceLinks": [],
   "footerCompanyLinks": [
     {
@@ -33,5 +33,16 @@
   ],
   "footerSocialLinks": [],
   "footerNewsletterHeading": "Get the latest updates from BluJoy",
-  "footerCopyrightText": "© 2026 BluJoy Labs. All rights reserved."
+  "footerLegalLinks": [
+    {
+      "label": "Privacy Policy",
+      "href": "/privacy"
+    }
+  ],
+  "footerCopyrightText": "© 2026 BluJoy Labs. All rights reserved.",
+  "cookieNoticeEnabled": true,
+  "cookieNoticeText": "This website only uses cookies that are needed for it to work. We don’t use advertising or tracking cookies, and we don’t sell or share your personal information.",
+  "cookieNoticeLinkLabel": "Privacy Policy",
+  "cookieNoticeLinkHref": "/privacy#cookies-and-tracking",
+  "cookieNoticeButtonLabel": "Got it"
 }

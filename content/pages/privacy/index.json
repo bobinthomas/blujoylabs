@@ -1,0 +1,42 @@
+{
+  "heading": "Privacy Policy",
+  "lastUpdated": "25 September 2026",
+  "intro": "This policy explains what personal information BluJoy Labs collects through this website, why we collect it and what we do with it. It covers this website only. If we handle your information under a separate client agreement, the terms of that agreement apply to that work.",
+  "sections": [
+    {
+      "heading": "Information You Give Us",
+      "body": "The only information this website collects from you is what you enter into our enquiry form: your name, your email address, your service interest, your message, and — if you choose to provide them — your company or organisation name and a submission deadline for an active pursuit. Every field except your name, email, service interest and message is optional."
+    },
+    {
+      "heading": "Why We Use It",
+      "body": "We use the details you submit to read and respond to your enquiry and to discuss the support you are looking for. We do not use them to send marketing you have not asked for, and we do not sell, rent or trade your information."
+    },
+    {
+      "heading": "Please Don't Send Us Sensitive Material",
+      "body": "The enquiry form is not a secure channel. Please do not include confidential documents, controlled or classified information, passwords, financial details or sensitive personal records in your message. If your enquiry involves material of that kind, tell us in general terms and we will agree an appropriate channel with you before anything is shared."
+    },
+    {
+      "heading": "How Long We Keep It",
+      "body": "We keep enquiry details for as long as we need them to respond to you and to maintain a record of the conversation. If an enquiry does not lead to an engagement, we remove the details once they are no longer needed. You can ask us to delete your enquiry at any time."
+    },
+    {
+      "heading": "Who Can See It",
+      "body": "Enquiries are read by the BluJoy Labs team members involved in responding to you. We use third-party services to host this website and to deliver and store email; those providers process the information on our behalf and are not permitted to use it for their own purposes. We disclose information beyond this only where the law requires it."
+    },
+    {
+      "heading": "Cookies and Tracking",
+      "body": "This website does not set advertising or tracking cookies and does not run third-party analytics. Any cookies present are strictly necessary for the site to function."
+    },
+    {
+      "heading": "Your Choices",
+      "body": "You can ask us what enquiry information we hold about you, ask us to correct it, or ask us to delete it. Contact us using the details below and we will respond. Depending on where you live, you may have further rights under your local data protection law."
+    },
+    {
+      "heading": "Changes to This Policy",
+      "body": "If we change how this website handles personal information, we will update this page and revise the date shown above."
+    }
+  ],
+  "contactHeading": "Contact Us",
+  "contactBody": "If you have a question about this policy, or want to ask about the information we hold, get in touch and we'll respond.",
+  "contactEmail": ""
+}

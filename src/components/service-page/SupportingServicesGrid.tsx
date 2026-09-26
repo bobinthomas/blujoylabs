@@ -15,7 +15,7 @@ export default function SupportingServicesGrid({
   services: SupportingService[];
 }) {
   return (
-    <section className="py-20 sm:py-28 bg-warm">
+    <section className="py-10 sm:py-[50px] bg-warm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal className="max-w-2xl mb-12">
           <h2 className="text-2xl sm:text-3xl font-light tracking-tight text-navy-900">{heading}</h2>

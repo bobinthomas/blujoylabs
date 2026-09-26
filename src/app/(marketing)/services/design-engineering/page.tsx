@@ -8,6 +8,7 @@ import SelectedWork, { type SelectedWorkItem } from "@/components/service-page/S
 import SplitCTA from "@/components/service-page/SplitCTA";
 import FAQDark from "@/components/service-page/FAQDark";
 import Reveal from "@/components/Reveal";
+import Callout from "@/components/Callout";
 import { getKeystaticReader } from "@/lib/keystatic-reader";
 import { ICONS, type IconKey } from "@/lib/icons";
 
@@ -46,21 +47,21 @@ export default async function DesignEngineeringPage() {
       />
 
       {page.crossLinkText && page.crossLinkLabel && (
-        <div className="bg-warm pb-20 sm:pb-28 -mt-20 sm:-mt-28">
+        <div className="bg-warm -mt-10 sm:-mt-[50px] pt-6 pb-10 sm:pb-[50px]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="text-sm text-navy-600">
+            <Callout label={page.crossLinkNoteLabel}>
               {page.crossLinkText}{" "}
-              <Link href={page.crossLinkHref} className="font-medium text-blue-600 hover:text-blue-700">
+              <Link href={page.crossLinkHref} className="text-blue-600 underline underline-offset-2 hover:text-blue-700">
                 {page.crossLinkLabel}
               </Link>
               .
-            </p>
+            </Callout>
           </div>
         </div>
       )}
 
-      <section className="py-20 sm:py-28 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-10 sm:py-[50px] bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="max-w-2xl mb-12">
             <h2 className="text-3xl sm:text-4xl font-light tracking-tight text-navy-900">{page.processHeading}</h2>
             <p className="mt-4 text-navy-600 leading-relaxed">{page.processIntro}</p>
@@ -74,6 +75,7 @@ export default async function DesignEngineeringPage() {
                 : undefined
             }
             caption={page.processCaption}
+            captionLabel={page.processCaptionLabel}
           />
         </div>
       </section>

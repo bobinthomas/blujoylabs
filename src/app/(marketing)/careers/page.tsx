@@ -39,7 +39,7 @@ export default async function CareersPage() {
       />
 
       {/* Why Work With Us */}
-      <section className="py-20 sm:py-28 bg-warm">
+      <section className="py-10 sm:py-[50px] bg-warm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading title={page.whyWorkHeading} />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -99,7 +99,7 @@ export default async function CareersPage() {
 
       {/* Open Positions — hidden until real postings are published */}
       {positions.length > 0 && (
-      <section className="py-20 sm:py-28 bg-white">
+      <section className="py-10 sm:py-[50px] bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading title={page.positionsHeading} />
           <div className="space-y-4">

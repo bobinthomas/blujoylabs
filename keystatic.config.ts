@@ -85,16 +85,28 @@ export default config({
       },
     }),
 
+    /**
+     * Any record whose name still starts with "[" is an unfilled placeholder and is
+     * filtered out of the public page — incomplete profiles never publish, and if no
+     * profile is complete the whole section is hidden (About handoff, 25 Sep 2026).
+     */
     teamMembers: collection({
-      label: "Leadership Team",
+      label: "Meet the Team",
       slugField: "slug",
       path: "content/team-members/*",
       format: { data: "json" },
       schema: {
         slug: fields.slug({ name: { label: "Identifier" } }),
-        name: fields.text({ label: "Name" }),
-        title: fields.text({ label: "Title" }),
-        photo: imageField("Photo"),
+        name: fields.text({ label: "Name", description: "Full public name as supplied by the person. Leave the bracketed placeholder until it is confirmed." }),
+        title: fields.text({ label: "Role / Title", description: "Use the title supplied — do not assume 'Founder' or 'Lead'." }),
+        bio: fields.text({
+          label: "Bio",
+          multiline: true,
+          description: "One concise paragraph, roughly 40–60 words. No invented credentials, and no subcontracting or payment arrangements.",
+          validation: { isRequired: false },
+        }),
+        linkedin: fields.text({ label: "LinkedIn URL", description: "Optional, only if the person supplied it.", validation: { isRequired: false } }),
+        photo: imageField("Headshot", "Optional. A real headshot only — never a stock person. Without one the card renders text-only."),
         order: fields.integer({ label: "Display Order", defaultValue: 0 }),
       },
     }),
@@ -166,6 +178,7 @@ export default config({
         ),
 
         // Design & Engineering only: one line pointing AI-shaped requests to AI Consulting.
+        crossLinkNoteLabel: fields.text({ label: "Cross-link note label", description: "Heading shown above the note in the highlighted panel.", defaultValue: "", validation: { isRequired: false } }),
         crossLinkText: fields.text({ label: "Cross-link text", validation: { isRequired: false } }),
         crossLinkLabel: fields.text({ label: "Cross-link label", validation: { isRequired: false } }),
         crossLinkHref: fields.text({ label: "Cross-link URL", defaultValue: "/services/ai-consulting", validation: { isRequired: false } }),
@@ -206,6 +219,12 @@ export default config({
           }),
           { label: "Engagement Options (GovCon only)", itemLabel: (props) => props.fields.title.value }
         ),
+        engagementNoteLabel: fields.text({
+          label: "Engagement note label",
+          description: "Short heading shown above the note in the highlighted panel, e.g. 'A note on scope'.",
+          defaultValue: "A note on scope",
+          validation: { isRequired: false },
+        }),
         engagementNote: fields.text({ label: "Engagement capacity note", multiline: true, validation: { isRequired: false } }),
 
         // Shared process-diagram section — GovCon (6 stages, shortcut + loop)
@@ -236,6 +255,7 @@ export default config({
         processBranchFromIndex: fields.integer({ label: "Branch: from stage index (0-based)", validation: { isRequired: false } }),
         processBranchToIndex: fields.integer({ label: "Branch: to stage index (0-based)", validation: { isRequired: false } }),
         processBranchLabel: fields.text({ label: "Branch label", validation: { isRequired: false } }),
+        processCaptionLabel: fields.text({ label: "Process caption label", description: "Heading shown above the note in the highlighted panel.", defaultValue: "A note on the process", validation: { isRequired: false } }),
         processCaption: fields.text({ label: "Process caption", multiline: true, validation: { isRequired: false } }),
 
         // GovCon only: Federal / SLED market coverage.
@@ -247,6 +267,7 @@ export default config({
           }),
           { label: "Market Coverage (GovCon only)", itemLabel: (props) => props.fields.title.value }
         ),
+        marketSharedLineLabel: fields.text({ label: "Market note label", description: "Heading shown above the note in the highlighted panel.", defaultValue: "A note on eligibility", validation: { isRequired: false } }),
         marketSharedLine: fields.text({ label: "Market shared line", multiline: true, validation: { isRequired: false } }),
 
         // GovCon only, evidence-gated: keep hidden (default) until the team-experience
@@ -257,6 +278,7 @@ export default config({
           fields.object({ value: fields.text({ label: "Value" }), label: fields.text({ label: "Label" }) }),
           { label: "Team Stats", itemLabel: (props) => props.fields.label.value }
         ),
+        teamStatsAttributionLabel: fields.text({ label: "Attribution note label", description: "Heading shown above the note in the highlighted panel.", defaultValue: "A note on these figures", validation: { isRequired: false } }),
         teamStatsAttribution: fields.text({ label: "Attribution note", multiline: true, validation: { isRequired: false } }),
 
         // Design & Engineering only, ships hidden until Bobin supplies real samples.
@@ -347,7 +369,29 @@ export default config({
           { label: "Footer Social Links", itemLabel: (props) => props.fields.platform.value }
         ),
         footerNewsletterHeading: fields.text({ label: "Footer Newsletter Heading" }),
+        footerLegalLinks: fields.array(linkObject("Legal Link"), {
+          label: "Footer Legal Bar (Privacy Policy etc.)",
+          description: "Rendered next to the copyright line. Only add a link once its destination is a real, complete page.",
+          itemLabel: (props) => props.fields.label.value,
+        }),
         footerCopyrightText: fields.text({ label: "Copyright Text" }),
+
+        /**
+         * Cookie notice. The site sets no advertising, analytics or tracking cookies,
+         * so under US state privacy laws (CCPA/CPRA and similar) this is an
+         * informational notice, not an opt-in consent banner. If a tracking or
+         * analytics script is ever added, this must become an opt-out control that
+         * also honours Global Privacy Control — and the Privacy Policy must change.
+         */
+        cookieNoticeEnabled: fields.checkbox({ label: "Show cookie notice", defaultValue: true }),
+        cookieNoticeText: fields.text({
+          label: "Cookie notice text",
+          multiline: true,
+          description: "Keep it true to what the site actually does. Don't claim 'no tracking' if a tracking script is added.",
+        }),
+        cookieNoticeLinkLabel: fields.text({ label: "Cookie notice link label", defaultValue: "Privacy Policy" }),
+        cookieNoticeLinkHref: fields.text({ label: "Cookie notice link URL", defaultValue: "/privacy#cookies-and-tracking" }),
+        cookieNoticeButtonLabel: fields.text({ label: "Cookie notice button label", defaultValue: "Got it" }),
       },
     }),
 
@@ -363,48 +407,17 @@ export default config({
         heroCtaPrimaryLabel: fields.text({ label: "Primary CTA Label" }),
         heroCtaPrimaryHref: fields.text({ label: "Primary CTA URL", defaultValue: "/contact" }),
         heroCtaSecondaryLabel: fields.text({ label: "Secondary CTA Label" }),
-        heroCtaSecondaryHref: fields.text({ label: "Secondary CTA URL", defaultValue: "/services/govcon" }),
+        heroCtaSecondaryHref: fields.text({ label: "Secondary CTA URL", defaultValue: "#services" }),
 
-        floatingCards: fields.array(
-          fields.object({
-            type: fields.select({
-              label: "Card Type",
-              options: [
-                { label: "Stat", value: "stat" },
-                { label: "Feature", value: "feature" },
-                { label: "Logo", value: "logo" },
-                { label: "Photo", value: "photo" },
-              ],
-              defaultValue: "stat",
-            }),
-            eyebrow: fields.text({ label: "Eyebrow", validation: { isRequired: false } }),
-            value: fields.text({ label: "Value (stat number / logo text)", validation: { isRequired: false } }),
-            title: fields.text({ label: "Title", multiline: true }),
-            image: imageField("Photo", "Only used when Card Type is Photo"),
-            iconKey: fields.select({
-              label: "Icon",
-              options: [{ label: "None", value: "" }, ...(ICON_OPTIONS as unknown as { label: string; value: string }[])],
-              defaultValue: "",
-            }),
-          }),
-          { label: "Floating Cards", itemLabel: (props) => props.fields.title.value }
-        ),
-
-        pillarsEyebrow: fields.text({ label: "Pillars Eyebrow", defaultValue: "Core Services" }),
-        pillarsHeading: fields.text({ label: "Pillars Heading" }),
-        pillarsSubtitle: fields.text({ label: "Pillars Subtitle" }),
+        pillarsEyebrow: fields.text({ label: "Services Eyebrow", defaultValue: "Core Services" }),
+        pillarsHeading: fields.text({ label: "Services Heading", defaultValue: "How We Can Help" }),
         pillars: fields.array(
           fields.object({
             title: fields.text({ label: "Title" }),
             description: fields.text({ label: "Description", multiline: true }),
-            href: fields.text({ label: "Link URL" }),
-            stats: fields.text({ label: "Tag Label", description: "A short descriptive tag — avoid unverified numeric claims, e.g. 'Federal & SLED Support'" }),
-            image: imageField("Illustration"),
-            labelPosition: fields.select({
-              label: "Label Position",
-              options: [{ label: "Top", value: "top" }, { label: "Bottom", value: "bottom" }],
-              defaultValue: "bottom",
-            }),
+            href: fields.text({ label: "Link URL", description: "Must point at a real service page — never a guessed destination." }),
+            linkLabel: fields.text({ label: "Link Label", description: "e.g. 'Explore GovCon Support'" }),
+            iconKey: iconKeyField(),
             color: fields.select({
               label: "Accent Color",
               options: [
@@ -414,7 +427,7 @@ export default config({
               defaultValue: "#175CD3",
             }),
           }),
-          { label: "Pillars (3)", itemLabel: (props) => props.fields.title.value }
+          { label: "Service Cards (3)", itemLabel: (props) => props.fields.title.value }
         ),
 
         whyUsEyebrow: fields.text({ label: "Why Us Eyebrow", defaultValue: "Why BluJoy" }),
@@ -426,28 +439,20 @@ export default config({
             iconKey: iconKeyField(),
           }),
           {
-            label: "Why Us Cards (order matters — the first card renders larger)",
+            label: "Commitment Cards (3)",
             itemLabel: (props) => props.fields.title.value,
           }
         ),
 
-        logos: fields.array(fields.object({ name: fields.text({ label: "Name" }) }), {
-          label: "Trust Logos",
-          itemLabel: (props) => props.fields.name.value,
-        }),
-
-        stepsHeading: fields.text({ label: "Steps Heading", defaultValue: "How to Get Started" }),
-        stepsSubtitle: fields.text({ label: "Steps Subtitle" }),
+        stepsHeading: fields.text({ label: "Getting Started Heading", defaultValue: "Let's Talk About What You Need." }),
+        stepsSubtitle: fields.text({ label: "Getting Started Introduction", multiline: true }),
         steps: fields.array(
           fields.object({
             title: fields.text({ label: "Title" }),
             description: fields.text({ label: "Description", multiline: true }),
           }),
-          { label: "Steps", itemLabel: (props) => props.fields.title.value }
+          { label: "Steps (3) — shown directly above the enquiry form", itemLabel: (props) => props.fields.title.value }
         ),
-
-        closingEnquiryHeading: fields.text({ label: "Closing Enquiry Heading", defaultValue: "What Would You Like Help With?" }),
-        closingEnquiryBody: fields.text({ label: "Closing Enquiry Body", multiline: true }),
 
         faqHeading: fields.text({ label: "FAQ Heading", defaultValue: "Frequently Asked Questions" }),
         faqSubtitle: fields.text({ label: "FAQ Subtitle" }),
@@ -467,56 +472,87 @@ export default config({
       format: { data: "json" },
       schema: {
         heroEyebrow: fields.text({ label: "Hero Eyebrow", defaultValue: "About Us" }),
-        heroHeadline: fields.text({ label: "Hero Headline" }),
-        heroSubheadline: fields.text({ label: "Hero Subheadline", multiline: true }),
+        heroHeadline: fields.text({ label: "Hero Headline", defaultValue: "About BluJoy Labs" }),
         heroImage: imageField("Hero Photo"),
+        introParagraphs: fields.array(fields.text({ label: "Paragraph", multiline: true }), {
+          label: "Introduction Paragraphs",
+          itemLabel: (props) => props.value.slice(0, 60) || "Paragraph",
+        }),
 
+        /**
+         * Combined team experience — the figure covers the WIDER team, not BluJoy's
+         * operating history and not any one discipline. The wording of the label must
+         * keep "combined team experience" attached to the number (About handoff, 25 Sep 2026).
+         */
+        experienceValue: fields.text({ label: "Experience Figure", defaultValue: "55+" }),
+        experienceLabel: fields.text({
+          label: "Experience Label",
+          defaultValue: "years of combined team experience",
+          description: "Must stay worded as combined TEAM experience — never '55+ years in AI' or '55+ years of BluJoy delivery'.",
+        }),
+        experienceSupporting: fields.text({ label: "Experience Supporting Line", multiline: true }),
+
+        storyEyebrow: fields.text({ label: "Story Eyebrow", defaultValue: "Who We Are" }),
         storyHeading: fields.text({ label: "Story Heading", defaultValue: "Our Story" }),
         storyParagraphs: fields.array(fields.text({ label: "Paragraph", multiline: true }), {
           label: "Story Paragraphs",
           itemLabel: (props) => props.value.slice(0, 60) || "Paragraph",
         }),
-        storyImage: imageField("Story Photo"),
 
-        missionHeading: fields.text({ label: "Mission Heading", defaultValue: "Mission" }),
+        teamEyebrow: fields.text({ label: "Team Eyebrow", defaultValue: "Our People" }),
+        leadershipHeading: fields.text({ label: "Team Heading", defaultValue: "Meet the Team" }),
+        teamSectionVisible: fields.checkbox({
+          label: "Show Meet the Team section (all profiles, including placeholders)",
+          description:
+            "On: every profile shows, even ones still holding bracketed placeholder text. Off: only fully completed profiles show, and the section hides if none are. Turn this off, or complete every profile, before the site goes live.",
+          defaultValue: false,
+        }),
+
+        missionHeading: fields.text({ label: "Mission Heading", defaultValue: "Our Mission" }),
         missionText: fields.text({ label: "Mission Text", multiline: true }),
-        visionHeading: fields.text({ label: "Vision Heading", defaultValue: "Vision" }),
+        visionHeading: fields.text({ label: "Vision Heading", defaultValue: "Our Vision" }),
         visionText: fields.text({ label: "Vision Text", multiline: true }),
 
-        valuesHeading: fields.text({ label: "Values Heading", defaultValue: "Core Values" }),
+        valuesEyebrow: fields.text({ label: "Principles Eyebrow", defaultValue: "Our Principles" }),
+        valuesHeading: fields.text({ label: "Principles Heading", defaultValue: "What Guides Our Work" }),
         values: fields.array(
           fields.object({
             title: fields.text({ label: "Title" }),
             description: fields.text({ label: "Description", multiline: true }),
+            iconKey: iconKeyField(),
           }),
-          { label: "Core Values (numbered automatically)", itemLabel: (props) => props.fields.title.value }
-        ),
-
-        leadershipHeading: fields.text({ label: "Leadership Heading", defaultValue: "Leadership Team" }),
-
-        trustHeading: fields.text({ label: "Trust Band Heading", defaultValue: "Certified. Compliant. Connected." }),
-        certifications: fields.array(fields.object({ label: fields.text({ label: "Label" }) }), {
-          label: "Certifications",
-          itemLabel: (props) => props.fields.label.value,
-        }),
-        partnerships: fields.array(fields.object({ label: fields.text({ label: "Label" }) }), {
-          label: "Partnerships",
-          itemLabel: (props) => props.fields.label.value,
-        }),
-
-        locationsHeading: fields.text({ label: "Locations Heading", defaultValue: "Locations" }),
-        locations: fields.array(
-          fields.object({
-            name: fields.text({ label: "Name" }),
-            address: fields.text({ label: "Address" }),
-          }),
-          { label: "Locations", itemLabel: (props) => props.fields.name.value }
+          { label: "Guiding Principles (4)", itemLabel: (props) => props.fields.title.value }
         ),
 
         ctaHeading: fields.text({ label: "CTA Heading" }),
         ctaDescription: fields.text({ label: "CTA Description", multiline: true }),
         ctaLabel: fields.text({ label: "CTA Button Label" }),
-        ctaImage: imageField("CTA Photo"),
+      },
+    }),
+
+    /**
+     * DRAFT — requires the owner's legal review before launch. The copy describes only
+     * what the site actually does today (a single enquiry form, no analytics, no ad
+     * tracking). If that changes, this page must change with it.
+     */
+    privacyPage: singleton({
+      label: "Privacy Policy",
+      path: "content/pages/privacy/",
+      format: { data: "json" },
+      schema: {
+        heading: fields.text({ label: "Heading", defaultValue: "Privacy Policy" }),
+        lastUpdated: fields.text({ label: "Last Updated", description: "Shown on the page, e.g. '25 September 2026'." }),
+        intro: fields.text({ label: "Introduction", multiline: true }),
+        sections: fields.array(
+          fields.object({
+            heading: fields.text({ label: "Section Heading" }),
+            body: fields.text({ label: "Section Body", multiline: true }),
+          }),
+          { label: "Sections", itemLabel: (props) => props.fields.heading.value }
+        ),
+        contactHeading: fields.text({ label: "Contact Heading", defaultValue: "Contact Us" }),
+        contactBody: fields.text({ label: "Contact Body", multiline: true }),
+        contactEmail: fields.text({ label: "Contact Email", validation: { isRequired: false } }),
       },
     }),
 
@@ -696,6 +732,7 @@ export default config({
           }),
           { label: "Illustrative Examples (4)", itemLabel: (props) => props.fields.title.value }
         ),
+        examplesTechNoteLabel: fields.text({ label: "Technology note label", description: "Heading shown above the note in the highlighted panel.", defaultValue: "A note on technology", validation: { isRequired: false } }),
         examplesTechNote: fields.text({ label: "Technology note", multiline: true }),
 
         processEyebrow: fields.text({ label: "Process Eyebrow", defaultValue: "How We Work" }),
@@ -720,6 +757,7 @@ export default config({
         processLoopLabel: fields.text({ label: "Loop label", validation: { isRequired: false } }),
         processExitAtIndex: fields.integer({ label: "Exit: at stage index (0-based)", validation: { isRequired: false } }),
         processExitLabel: fields.text({ label: "Exit label", validation: { isRequired: false } }),
+        processCaptionLabel: fields.text({ label: "Process caption label", description: "Heading shown above the note in the highlighted panel.", defaultValue: "A note on the process", validation: { isRequired: false } }),
         processCaption: fields.text({ label: "Process caption", multiline: true, validation: { isRequired: false } }),
 
         engagementEyebrow: fields.text({ label: "Eyebrow", defaultValue: "Ways to Work With Us" }),

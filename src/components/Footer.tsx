@@ -38,6 +38,7 @@ export default function Footer({
   resourceLinks,
   companyLinks,
   socialLinks,
+  legalLinks,
   tagline,
   copyrightText,
 }: {
@@ -45,6 +46,7 @@ export default function Footer({
   resourceLinks: readonly LinkItem[];
   companyLinks: readonly LinkItem[];
   socialLinks: readonly SocialLink[];
+  legalLinks: readonly LinkItem[];
   tagline: string;
   copyrightText: string;
 }) {
@@ -80,10 +82,10 @@ export default function Footer({
           {/* Column 2: Services */}
           <div>
             <h3 className="mb-5 text-sm font-medium text-white">Services</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-0.5">
               {productLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-white/60 transition-colors hover:text-blue-300">
+                  <Link href={link.href} className="inline-block py-2 text-sm text-white/60 transition-colors hover:text-blue-300">
                     {link.label}
                   </Link>
                 </li>
@@ -95,10 +97,10 @@ export default function Footer({
           {resourceLinks.length > 0 && (
             <div>
               <h3 className="mb-5 text-sm font-medium text-white">Resources</h3>
-              <ul className="space-y-3">
+              <ul className="space-y-0.5">
                 {resourceLinks.map((link) => (
                   <li key={link.label}>
-                    <Link href={link.href} className="text-sm text-white/60 transition-colors hover:text-blue-300">
+                    <Link href={link.href} className="inline-block py-2 text-sm text-white/60 transition-colors hover:text-blue-300">
                       {link.label}
                     </Link>
                   </li>
@@ -110,10 +112,10 @@ export default function Footer({
           {/* Column 4: Company */}
           <div>
             <h3 className="mb-5 text-sm font-medium text-white">Company</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-0.5">
               {companyLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-white/60 transition-colors hover:text-blue-300">
+                  <Link href={link.href} className="inline-block py-2 text-sm text-white/60 transition-colors hover:text-blue-300">
                     {link.label}
                   </Link>
                 </li>
@@ -138,8 +140,19 @@ export default function Footer({
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto flex flex-col items-center justify-between gap-4 px-4 py-6 sm:flex-row sm:px-6 lg:px-8">
           <p className="text-xs text-white/60">{copyrightText}</p>
-          {/* Privacy Policy / Terms of Service links are hidden until real
-              policy pages exist — do not launch with # destinations. */}
+          {/* Only links with a real, complete destination belong here — never a
+              placeholder "#" href. */}
+          {legalLinks.length > 0 && (
+            <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+              {legalLinks.map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href} className="inline-block py-2 text-xs text-white/60 transition-colors hover:text-blue-300">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
     </footer>

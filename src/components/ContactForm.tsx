@@ -1,89 +1,85 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 const SERVICE_OPTIONS = [
   { value: "govcon", label: "GovCon Support" },
   { value: "ai-consulting", label: "AI Consulting" },
   { value: "design-engineering", label: "Design & Engineering" },
-  { value: "other", label: "Other" },
-];
-
-const ENGAGEMENT_OPTIONS = [
-  { value: "monthly", label: "Monthly support" },
-  { value: "project", label: "Individual pursuit or project" },
-  { value: "unsure", label: "Not sure yet" },
+  { value: "multiple-unsure", label: "Multiple services / Not sure yet" },
 ];
 
 const isKnownService = (value?: string) => SERVICE_OPTIONS.some((o) => o.value === value);
-const isKnownEngagement = (value?: string) => ENGAGEMENT_OPTIONS.some((o) => o.value === value);
 
-function detectTimeZone(): string {
-  if (typeof window === "undefined") return "";
-  try {
-    return Intl.DateTimeFormat().resolvedOptions().timeZone;
-  } catch {
-    return "";
-  }
-}
+const FIELD_CLASS =
+  "w-full rounded-xl border border-warm-border bg-warm px-4 py-2.5 text-navy-900 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500";
 
 export default function ContactForm({
   heading,
   description,
   defaultService,
-  defaultEngagement,
   submitLabel = "Send Enquiry",
   className = "",
 }: {
   heading?: string;
   description?: string;
   defaultService?: string;
-  defaultEngagement?: string;
   submitLabel?: string;
   className?: string;
 }) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+  // Drives the conditional deadline field — only GovCon pursuits have a submission date.
   const [service, setService] = useState(isKnownService(defaultService) ? defaultService! : "");
 
   if (status === "success") {
     return (
       <div
-        className={`flex min-h-[420px] flex-col items-center justify-center rounded-2xl border border-warm-border bg-white p-8 text-center sm:p-10 ${className}`}
+        role="status"
+        className={`flex min-h-[320px] flex-col items-center justify-center rounded-2xl border border-warm-border bg-white p-8 text-center sm:p-10 ${className}`}
       >
-        <svg className="mb-4 h-12 w-12 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="mb-4 h-12 w-12 text-teal-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
-        <h3 className="text-lg font-medium text-navy-900">Thank you.</h3>
-        <p className="mt-2 text-navy-600">Your enquiry has been received.</p>
+        <p className="max-w-sm text-navy-700 leading-relaxed">
+          Thank you for contacting BluJoy Labs. We&apos;ve received your enquiry and will be in touch to discuss your
+          needs.
+        </p>
       </div>
     );
   }
 
   return (
     <form
+      noValidate={false}
       onSubmit={async (e) => {
         e.preventDefault();
         setStatus("submitting");
-        const form = e.currentTarget;
-        const data = new FormData(form);
+        setErrorMessage("");
+        const data = new FormData(e.currentTarget);
         try {
           const res = await fetch("/api/contact", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               name: data.get("name"),
-              company: data.get("company"),
+              company: data.get("company") || undefined,
               email: data.get("email"),
-              phone: data.get("phone") || undefined,
               service: data.get("service"),
-              engagement: data.get("engagement") || undefined,
               message: data.get("message"),
               deadline: data.get("deadline") || undefined,
             }),
           });
-          if (!res.ok) throw new Error("request failed");
+          // Only a accepted submission may show the success state — the entered
+          // text is left in place on any failure so the visitor can retry.
+          if (!res.ok) {
+            const body = await res.json().catch(() => null);
+            throw new Error(body?.error || "");
+          }
           setStatus("success");
-        } catch {
+        } catch (err) {
+          setErrorMessage(err instanceof Error && err.message ? err.message : "");
           setStatus("error");
         }
       }}
@@ -95,61 +91,25 @@ export default function ContactForm({
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="cf-name" className="mb-1.5 block text-sm font-medium text-navy-800">
-            Full name
+            Name
           </label>
-          <input
-            id="cf-name"
-            name="name"
-            type="text"
-            required
-            autoComplete="name"
-            className="w-full rounded-xl border border-warm-border bg-warm px-4 py-2.5 text-navy-900 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+          <input id="cf-name" name="name" type="text" required autoComplete="name" className={FIELD_CLASS} />
         </div>
-        <div>
-          <label htmlFor="cf-company" className="mb-1.5 block text-sm font-medium text-navy-800">
-            Company
-          </label>
-          <input
-            id="cf-company"
-            name="company"
-            type="text"
-            required
-            autoComplete="organization"
-            className="w-full rounded-xl border border-warm-border bg-warm px-4 py-2.5 text-navy-900 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-      </div>
-
-      <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="cf-email" className="mb-1.5 block text-sm font-medium text-navy-800">
-            Work email
+            Email
           </label>
-          <input
-            id="cf-email"
-            name="email"
-            type="email"
-            required
-            autoComplete="email"
-            className="w-full rounded-xl border border-warm-border bg-warm px-4 py-2.5 text-navy-900 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-        <div>
-          <label htmlFor="cf-phone" className="mb-1.5 block text-sm font-medium text-navy-800">
-            Phone <span className="font-normal text-navy-500">(optional)</span>
-          </label>
-          <input
-            id="cf-phone"
-            name="phone"
-            type="tel"
-            autoComplete="tel"
-            className="w-full rounded-xl border border-warm-border bg-warm px-4 py-2.5 text-navy-900 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+          <input id="cf-email" name="email" type="email" required autoComplete="email" className={FIELD_CLASS} />
         </div>
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
+        <div>
+          <label htmlFor="cf-company" className="mb-1.5 block text-sm font-medium text-navy-800">
+            Company / Organisation <span className="font-normal text-navy-500">(optional)</span>
+          </label>
+          <input id="cf-company" name="company" type="text" autoComplete="organization" className={FIELD_CLASS} />
+        </div>
         <div>
           <label htmlFor="cf-service" className="mb-1.5 block text-sm font-medium text-navy-800">
             Service interest
@@ -160,7 +120,7 @@ export default function ContactForm({
             required
             value={service}
             onChange={(e) => setService(e.target.value)}
-            className="w-full rounded-xl border border-warm-border bg-warm px-4 py-2.5 text-navy-900 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className={FIELD_CLASS}
           >
             <option value="" disabled>
               Select a service
@@ -172,74 +132,46 @@ export default function ContactForm({
             ))}
           </select>
         </div>
-        {service === "govcon" && (
-          <div>
-            <label htmlFor="cf-engagement" className="mb-1.5 block text-sm font-medium text-navy-800">
-              Engagement
-            </label>
-            <select
-              id="cf-engagement"
-              name="engagement"
-              required
-              defaultValue={isKnownEngagement(defaultEngagement) ? defaultEngagement : ""}
-              className="w-full rounded-xl border border-warm-border bg-warm px-4 py-2.5 text-navy-900 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              <option value="" disabled>
-                Select an option
-              </option>
-              {ENGAGEMENT_OPTIONS.map((opt) => (
-                <option key={opt.value} value={opt.value}>
-                  {opt.label}
-                </option>
-              ))}
-            </select>
-          </div>
-        )}
       </div>
 
       <div>
         <label htmlFor="cf-message" className="mb-1.5 block text-sm font-medium text-navy-800">
-          How can we help you?
+          How can we help?
         </label>
         <textarea
           id="cf-message"
           name="message"
           required
           rows={4}
-          placeholder="A brief description is enough to get started."
-          className="w-full resize-none rounded-xl border border-warm-border bg-warm px-4 py-2.5 text-navy-900 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
+          placeholder="Briefly describe your project, pursuit or idea, and any important dates."
+          className={`${FIELD_CLASS} resize-none`}
         />
         <p className="mt-1.5 text-xs leading-relaxed text-navy-500">
-          Please avoid sharing confidential proposal content, controlled information, credentials or personal
-          records here. We can agree an appropriate channel for sharing project materials.
+          Please don&apos;t include confidential documents, passwords or sensitive personal information.
         </p>
       </div>
 
-      <div>
-        <label htmlFor="cf-deadline" className="mb-1.5 block text-sm font-medium text-navy-800">
-          Submission deadline <span className="font-normal text-navy-500">(optional, for active pursuits)</span>
-        </label>
-        <input
-          id="cf-deadline"
-          name="deadline"
-          type="datetime-local"
-          className="w-full rounded-xl border border-warm-border bg-warm px-4 py-2.5 text-navy-900 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        <p className="mt-1.5 text-xs text-navy-500" suppressHydrationWarning>
-          {detectTimeZone() && `Shown in your time zone: ${detectTimeZone()}`}
-        </p>
-      </div>
+      {/* Submission deadline is meaningful only for an active GovCon pursuit, so it
+          appears only for that service. Date-only — no time, no timezone note. */}
+      {service === "govcon" && (
+        <div>
+          <label htmlFor="cf-deadline" className="mb-1.5 block text-sm font-medium text-navy-800">
+            Submission deadline <span className="font-normal text-navy-500">(optional)</span>
+          </label>
+          <input id="cf-deadline" name="deadline" type="date" className={FIELD_CLASS} />
+        </div>
+      )}
 
       {status === "error" && (
-        <p role="alert" className="text-sm font-medium text-red-600">
-          We couldn&apos;t send your enquiry. Please try again.
+        <p role="alert" className="rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
+          {errorMessage || "We couldn't send your enquiry. Your details are still here — please try again."}
         </p>
       )}
 
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="flex w-full items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3.5 font-medium text-white transition-colors hover:bg-blue-700 disabled:opacity-60"
+        className="flex w-full items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3.5 font-medium text-white transition-colors hover:bg-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 disabled:opacity-60"
       >
         {status === "submitting" ? "Sending…" : submitLabel}
         {status !== "submitting" && (
@@ -248,6 +180,14 @@ export default function ContactForm({
           </svg>
         )}
       </button>
+
+      <p className="text-center text-xs text-navy-500">
+        Read our{" "}
+        <Link href="/privacy" className="font-medium text-blue-600 underline underline-offset-2 hover:text-blue-700">
+          Privacy Policy
+        </Link>
+        .
+      </p>
     </form>
   );
 }

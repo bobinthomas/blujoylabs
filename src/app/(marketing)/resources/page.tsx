@@ -85,7 +85,7 @@ export default async function ResourcesPage() {
         imagePlaceholderLabel="Hero photo"
       />
 
-      <section className="py-20 sm:py-28 bg-warm">
+      <section className="py-10 sm:py-[50px] bg-warm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Featured category */}
           <Reveal className="mb-6">
@@ -100,10 +100,10 @@ export default async function ResourcesPage() {
                   {CATEGORY_META[page.featuredCategory]?.icon}
                 </div>
                 <h3 className="text-2xl font-medium text-navy-900 mb-4">{CATEGORY_META[page.featuredCategory]?.title}</h3>
-                <ul className="space-y-2.5">
+                <ul className="space-y-0.5">
                   {featuredItems.map((item) => (
                     <li key={item.slug}>
-                      <a href={item.href} className="text-sm text-navy-600 hover:text-blue-600 transition-colors flex items-start gap-2">
+                      <a href={item.href} className="py-1.5 text-sm text-navy-600 hover:text-blue-600 transition-colors flex items-start gap-2">
                         <svg className="w-4 h-4 text-blue-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
@@ -128,10 +128,10 @@ export default async function ResourcesPage() {
                   {CATEGORY_META[cat].icon}
                 </div>
                 <h3 className="text-xl font-medium text-navy-900 mb-4">{CATEGORY_META[cat].title}</h3>
-                <ul className="space-y-2.5">
+                <ul className="space-y-0.5">
                   {(byCategory.get(cat) ?? []).map((item) => (
                     <li key={item.slug}>
-                      <a href={item.href} className="text-sm text-navy-600 hover:text-blue-600 transition-colors flex items-start gap-2">
+                      <a href={item.href} className="py-1.5 text-sm text-navy-600 hover:text-blue-600 transition-colors flex items-start gap-2">
                         <svg className="w-4 h-4 text-blue-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
@@ -147,7 +147,7 @@ export default async function ResourcesPage() {
       </section>
 
       {/* Newsletter CTA */}
-      <section className="py-20 sm:py-28 bg-ink">
+      <section className="py-10 sm:py-[50px] bg-ink">
         <Reveal className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-light tracking-tight text-white">{page.newsletterHeading}</h2>
           <p className="mt-4 text-white/70 leading-relaxed">{page.newsletterDescription}</p>

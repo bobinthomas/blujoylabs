@@ -30,9 +30,13 @@ export default function Reveal({
     return () => observer.disconnect();
   }, []);
 
+  // `data-reveal` is the hook globals.css uses to force the finished state under
+  // reduced motion, in print, and where scripting is unavailable. The animation is
+  // an enhancement — it must never be the reason content is unreadable.
   return (
     <div
       ref={ref}
+      data-reveal=""
       className={`transition-all duration-700 ease-out ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
       } ${className}`}

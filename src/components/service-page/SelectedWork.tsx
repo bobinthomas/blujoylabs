@@ -29,15 +29,15 @@ export default function SelectedWork({
   if (items.length === 0) return null;
 
   return (
-    <section className="py-20 sm:py-28 bg-warm">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-10 sm:py-[50px] bg-warm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal className="max-w-2xl mb-12">
           <h2 className="text-3xl sm:text-4xl font-light tracking-tight text-navy-900">{heading}</h2>
           <p className="mt-4 text-navy-600 leading-relaxed">{intro}</p>
         </Reveal>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 sm:[&>*:last-child:nth-child(odd)]:col-span-2 lg:[&>*:last-child:nth-child(odd)]:col-span-1 sm:[&>*:last-child:nth-child(odd)_img]:aspect-[21/9] lg:[&>*:last-child:nth-child(odd)_img]:aspect-[4/3]">
           {items.map((item, i) => (
-            <Reveal key={item.title} delay={i * 90}>
+            <Reveal key={item.title} delay={i * 90} className="h-full">
               <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-warm-border bg-white">
                 {item.image ? (
                   <img src={item.image} alt="" className="w-full aspect-[4/3] object-cover" />
@@ -57,7 +57,7 @@ export default function SelectedWork({
                   {item.link && (
                     <a
                       href={item.link}
-                      className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 transition-colors hover:text-blue-700"
+                      className="mt-auto pt-4 self-start inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 transition-colors hover:text-blue-700"
                     >
                       View project
                       <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

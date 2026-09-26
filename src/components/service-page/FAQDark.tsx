@@ -7,7 +7,7 @@ type FAQ = {
 
 export default function FAQDark({ heading, faqs }: { heading: string; faqs: FAQ[] }) {
   return (
-    <section className="py-20 sm:py-28 bg-ink">
+    <section className="py-10 sm:py-[50px] bg-ink">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-light tracking-tight text-white">{heading}</h2>
@@ -26,7 +26,7 @@ export default function FAQDark({ heading, faqs }: { heading: string; faqs: FAQ[
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </summary>
-              <div className="pb-5 text-white/60 text-[15px] leading-relaxed">{faq.answer}</div>
+              <div className="pb-5 text-white/60 text-[16px] leading-relaxed">{faq.answer}</div>
             </details>
           ))}
         </Reveal>

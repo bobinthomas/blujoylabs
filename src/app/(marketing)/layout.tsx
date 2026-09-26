@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CookieNotice from "@/components/CookieNotice";
 import { getKeystaticReader } from "@/lib/keystatic-reader";
 
 // Content comes from the GitHub reader's uncached fetches at request time, so these
@@ -22,9 +23,18 @@ export default async function MarketingLayout({ children }: { children: React.Re
         resourceLinks={settings.footerResourceLinks}
         companyLinks={settings.footerCompanyLinks}
         socialLinks={settings.footerSocialLinks}
+        legalLinks={settings.footerLegalLinks}
         tagline={settings.footerTagline}
         copyrightText={settings.footerCopyrightText}
       />
+      {settings.cookieNoticeEnabled && settings.cookieNoticeText && (
+        <CookieNotice
+          text={settings.cookieNoticeText}
+          linkLabel={settings.cookieNoticeLinkLabel}
+          linkHref={settings.cookieNoticeLinkHref}
+          buttonLabel={settings.cookieNoticeButtonLabel || "Got it"}
+        />
+      )}
     </>
   );
 }
