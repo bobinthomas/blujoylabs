@@ -17,7 +17,7 @@ const SLUG = "design-engineering";
 export const metadata: Metadata = {
   title: "Design & Engineering",
   description:
-    "Brand identity, product design, and website design and development — with scope and deliverables tailored to your project.",
+    "Brand identity, product design, and website design and development, with scope and deliverables tailored to your project.",
 };
 
 export default async function DesignEngineeringPage() {
