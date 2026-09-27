@@ -81,7 +81,7 @@ export default function Header({
         {/* Logo holds the left edge; the nav and the CTA travel together on the right. */}
         <div className="flex items-center justify-between h-16 lg:h-[72px]">
           <Link href="/" className="flex items-center shrink-0">
-            <img src="/blujoy-logo.svg" alt="BluJoy Labs" className="h-[37px] sm:h-[41px] w-auto" />
+            <img src="/blujoy-logo.svg" alt="BluJoy Labs" className="h-[27px] sm:h-[30px] w-auto" />
           </Link>
 
           <div className="flex items-center gap-3">

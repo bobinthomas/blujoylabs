@@ -1,7 +1,8 @@
 {
-  "name": "[AI and software specialist — full public name to be supplied]",
-  "title": "[Confirmed BluJoy role or title]",
-  "bio": "[One short paragraph about software development, automation and AI experience, and the work he delivers for BluJoy clients]",
+  "name": "Kariappa",
+  "title": "Principal Consultant, AI & Solution Engineering",
+  "bio": "Kariappa brings over 13 years of experience across enterprise technology, implementation, customer success, presales, solution consulting and business development. His strength lies in understanding complex business requirements and translating them into practical, technology-led solutions. In recent years, his work has increasingly focused on AI-enabled solution design, rapid prototyping and identifying where AI, automation and conventional software can be combined to solve real business problems. He works closely with customers and engineering teams from early-stage requirement discovery and solution shaping through feasibility, commercial positioning and delivery, with a strong focus on turning ideas and ambiguous requirements into solutions that can actually be built and used.",
   "linkedin": "",
+  "photo": "/api/media/images/team/kariappa.jpg",
   "order": 1
 }

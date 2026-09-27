@@ -129,7 +129,7 @@ export default async function AboutPage() {
                       <img
                         src={person.entry.photo}
                         alt={person.entry.name}
-                        className="mb-5 h-16 w-16 rounded-full object-cover"
+                        className="mb-5 h-24 w-24 rounded-full object-cover ring-4 ring-white"
                       />
                     ) : (
                       <span
