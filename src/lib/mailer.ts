@@ -25,7 +25,7 @@ type SendEmailBinding = {
 };
 type MailEnv = { EMAIL?: SendEmailBinding; NOTIFY_TO?: string; NOTIFY_FROM?: string };
 
-export const FALLBACK_CONTACT_EMAIL = "connect@bluejoylabs.com";
+export const FALLBACK_CONTACT_EMAIL = "connect@blujoylabs.com";
 
 export type Notification = {
   subject: string;
@@ -62,7 +62,7 @@ export async function sendNotification(n: Notification): Promise<SendResult> {
   }
 
   const to = env.NOTIFY_TO || FALLBACK_CONTACT_EMAIL;
-  const from = env.NOTIFY_FROM || "website@bluejoylabs.com";
+  const from = env.NOTIFY_FROM || "website@blujoylabs.com";
 
   const text = rows.map(([k, v]) => `${k}:\n${v}`).join("\n\n");
   const html =

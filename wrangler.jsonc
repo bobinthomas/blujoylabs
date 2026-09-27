@@ -14,16 +14,16 @@
 	"vars": {
 		"KEYSTATIC_GITHUB_CLIENT_ID": "Ov23licWqAwqa6b3o8Q3",
 		// Enquiry + newsletter notifications (src/lib/mailer.ts). NOTIFY_FROM's domain
-		// must be onboarded: `wrangler email sending enable bluejoylabs.com`.
-		"NOTIFY_TO": "connect@bluejoylabs.com",
-		"NOTIFY_FROM": "website@bluejoylabs.com"
+		// must be onboarded: `wrangler email sending enable blujoylabs.com`.
+		"NOTIFY_TO": "connect@blujoylabs.com",
+		"NOTIFY_FROM": "website@blujoylabs.com"
 	},
 	// Cloudflare Email Service. Locked to the one inbox, so the public forms can
 	// never be used to send mail to anyone else.
 	"send_email": [
 		{
 			"name": "EMAIL",
-			"allowed_destination_addresses": ["connect@bluejoylabs.com"]
+			"allowed_destination_addresses": ["connect@blujoylabs.com"]
 		}
 	],
 	"env": {
@@ -33,13 +33,13 @@
 				"enabled": true
 			},
 			"vars": {
-				"NOTIFY_TO": "connect@bluejoylabs.com",
-				"NOTIFY_FROM": "website@bluejoylabs.com"
+				"NOTIFY_TO": "connect@blujoylabs.com",
+				"NOTIFY_FROM": "website@blujoylabs.com"
 			},
 			"send_email": [
 				{
 					"name": "EMAIL",
-					"allowed_destination_addresses": ["connect@bluejoylabs.com"]
+					"allowed_destination_addresses": ["connect@blujoylabs.com"]
 				}
 			]
 		}
