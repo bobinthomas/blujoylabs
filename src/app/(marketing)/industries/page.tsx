@@ -6,7 +6,7 @@ import { getKeystaticReader } from "@/lib/keystatic-reader";
 
 export const metadata: Metadata = {
   title: "Industries",
-  description: "Government, enterprise, and growth-stage companies — we speak your language and understand your constraints.",
+  description: "Government, enterprise, and growth-stage companies: we speak your language and understand your constraints.",
 };
 
 export default async function IndustriesPage() {
@@ -24,7 +24,7 @@ export default async function IndustriesPage() {
       />
 
       <AlternatingRows
-        rows={page.industries.map((row) => ({ ...row, imagePlaceholderLabel: `Photo — ${row.title}` }))}
+        rows={page.industries.map((row) => ({ ...row, imagePlaceholderLabel: `Photo: ${row.title}` }))}
       />
 
       <SplitCTA

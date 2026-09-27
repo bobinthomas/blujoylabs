@@ -93,7 +93,7 @@ export default async function ResourcesPage() {
               {page.featuredImage ? (
                 <img src={page.featuredImage} alt="" className="w-full min-h-[240px] object-cover" />
               ) : (
-                <ImagePlaceholder label="Photo — latest article" className="w-full min-h-[240px] rounded-none border-r-0" />
+                <ImagePlaceholder label="Photo: latest article" className="w-full min-h-[240px] rounded-none border-r-0" />
               )}
               <div className="p-8 sm:p-10 flex flex-col justify-center">
                 <div className="w-12 h-12 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mb-5">

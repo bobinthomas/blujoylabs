@@ -1,13 +1,13 @@
 {
   "heroEyebrow": "Industries",
   "heroHeadline": "Trusted across sectors",
-  "heroSubheadline": "Government, enterprise, and growth-stage companies — we speak your language and understand your constraints.",
+  "heroSubheadline": "Government, enterprise, and growth-stage companies: we speak your language and understand your constraints.",
   "heroImage": "/api/media/images/industries/heroImage.jpg",
 
   "industries": [
     {
       "title": "Federal Civilian Agencies",
-      "description": "We support contractors pursuing civilian portfolios — from health and human services to transportation and energy. Our GovCon expertise helps proposals align with agency priorities, and our design and AI capabilities help you deliver once you win.",
+      "description": "We support contractors pursuing civilian portfolios, from health and human services to transportation and energy. Our GovCon expertise helps proposals align with agency priorities, and our design and AI capabilities help you deliver once you win.",
       "bullets": ["Proposal development for civilian RFPs", "AI-enabled solutions for federal delivery teams", "Digital transformation and UX modernization"],
       "image": "/api/media/images/industries/industries/0/image.jpg"
     },
@@ -19,13 +19,13 @@
     },
     {
       "title": "State & Local Government",
-      "description": "State and local opportunities move differently than federal — and we know the rhythm. From RFP response to digital delivery, we help you serve communities effectively.",
+      "description": "State and local opportunities move differently than federal, and we know the rhythm. From RFP response to digital delivery, we help you serve communities effectively.",
       "bullets": ["State and local RFP support", "Citizen-facing digital services design", "Grant and funding application support"],
       "image": "/api/media/images/industries/industries/2/image.jpg"
     },
     {
       "title": "Commercial Enterprises",
-      "description": "Not every client wears a uniform. We bring the same rigor to commercial engagements — helping businesses build AI-enabled solutions, redesign digital experiences, and compete in crowded markets.",
+      "description": "Not every client wears a uniform. We bring the same rigor to commercial engagements, helping businesses build AI-enabled solutions, redesign digital experiences, and compete in crowded markets.",
       "bullets": ["Use-case-led AI consulting and engineering", "Product design and digital transformation", "eCommerce and growth engineering", "Brand strategy and market positioning"],
       "image": "/api/media/images/industries/industries/3/image.jpg"
     },
@@ -38,7 +38,7 @@
   ],
 
   "ctaHeading": "Not sure where you fit?",
-  "ctaDescription": "Tell us about your organization and what you're trying to achieve — we'll help you figure out where to start.",
+  "ctaDescription": "Tell us about your organization and what you're trying to achieve, and we'll help you figure out where to start.",
   "ctaLabel": "Schedule a Free Consultation",
   "ctaImage": "/api/media/images/industries/ctaImage.jpg"
 }

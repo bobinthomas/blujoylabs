@@ -8,7 +8,7 @@ import { getKeystaticReader } from "@/lib/keystatic-reader";
 
 export const metadata: Metadata = {
   title: "Careers",
-  description: "Join a team that does meaningful work — GovCon, AI, and design, three disciplines, one culture of excellence.",
+  description: "Join a team that does meaningful work across GovCon, AI, and design: three disciplines, one culture of excellence.",
 };
 
 export default async function CareersPage() {
@@ -23,7 +23,7 @@ export default async function CareersPage() {
   // listing, consistent with SAP being pulled from every other launch surface.
   const positions = [...jobPostings]
     .filter((pos) => !pos.slug.startsWith("sap-"))
-    // Postings still holding their seeded "[Placeholder — ...]" description aren't
+    // Postings still holding their seeded "[Placeholder: ...]" description aren't
     // real openings yet; the "Don't see your role listed?" CTA still catches interest.
     .filter((pos) => !pos.entry.description.trim().startsWith("["))
     .sort((a, b) => (a.entry.order ?? 0) - (b.entry.order ?? 0));
@@ -82,7 +82,7 @@ export default async function CareersPage() {
                 d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14M4 8h16M4 4h16a1 1 0 011 1v14a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1z"
               />
             </svg>
-            <span className="text-xs font-medium uppercase tracking-wider">Photo — life at BluJoy</span>
+            <span className="text-xs font-medium uppercase tracking-wider">Photo: life at BluJoy</span>
           </div>
         )}
         <div

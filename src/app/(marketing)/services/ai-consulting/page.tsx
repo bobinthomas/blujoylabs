@@ -12,7 +12,7 @@ import { ICONS, type IconKey } from "@/lib/icons";
 export const metadata: Metadata = {
   title: "AI Consulting & Solution Engineering",
   description:
-    "From requirement to working solution — use-case discovery, custom solution development, GenAI and knowledge solutions, and AI agent prototypes.",
+    "From requirement to working solution: use-case discovery, custom solution development, GenAI and knowledge solutions, and AI agent prototypes.",
 };
 
 export default async function AIConsultingPage() {
