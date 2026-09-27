@@ -4,28 +4,69 @@ import keystaticConfig, { isLocalStorage } from "../../keystatic.config";
 
 const REPO = "bobinthomas/blujoylabs" as const;
 
-/** GitHub's REST API requires a User-Agent header; Cloudflare Workers omit one by default. */
-function patchFetchForGitHubApi() {
-  if (typeof globalThis.fetch !== "function") return;
-  const originalFetch = globalThis.fetch.bind(globalThis);
-  if ((originalFetch as { __keystaticPatched?: boolean }).__keystaticPatched) return;
+/** How long GitHub API reads are served from Cloudflare's edge cache. */
+const CONTENT_TTL_SECONDS = 60; // page content: CMS edits show up within a minute
+const MEDIA_TTL_SECONDS = 300; // raw image bytes change far less often
 
-  const patched = (input: RequestInfo | URL, init?: RequestInit) => {
-    const headers = new Headers(init?.headers);
-    if (!headers.has("User-Agent")) {
-      headers.set("User-Agent", "blujoylabs/1.0 (Keystatic GitHub reader)");
+type EdgeCache = {
+  match(request: Request): Promise<Response | undefined>;
+  put(request: Request, response: Response): Promise<void>;
+};
+
+/**
+ * Wraps fetch for the content reader and the media route:
+ *  - adds the User-Agent GitHub's REST API requires (Workers send none), and
+ *  - serves GET requests to api.github.com from Cloudflare's edge cache.
+ *
+ * Without the cache every page view made fresh GitHub API calls: slow first
+ * loads after a push, and a hard traffic ceiling from GitHub's 5,000
+ * requests/hour limit. Only successful GETs are cached; the key includes the
+ * Accept header because the same URL returns JSON or raw bytes depending on it.
+ * Where no edge cache exists (local `next dev`) requests pass straight through.
+ */
+export function ensureGitHubFetchPatched() {
+  if (typeof globalThis.fetch !== "function") return;
+  if ((globalThis.fetch as { __bjPatched?: boolean }).__bjPatched) return;
+  const originalFetch = globalThis.fetch.bind(globalThis);
+
+  const patched = async (input: RequestInfo | URL, init?: RequestInit) => {
+    const request = new Request(input, init);
+    if (!request.headers.has("User-Agent")) {
+      request.headers.set("User-Agent", "blujoylabs/1.0 (Keystatic GitHub reader)");
     }
-    return originalFetch(input, { ...init, headers });
+
+    const cache = (globalThis as { caches?: { default?: EdgeCache } }).caches?.default;
+    if (!cache || request.method !== "GET" || !request.url.startsWith("https://api.github.com/")) {
+      return originalFetch(request);
+    }
+
+    const accept = request.headers.get("Accept") ?? "";
+    const keyUrl = new URL(request.url);
+    keyUrl.searchParams.set("__bj_accept", accept);
+    const key = new Request(keyUrl.toString(), { method: "GET" });
+
+    const hit = await cache.match(key);
+    if (hit) return hit;
+
+    const response = await originalFetch(request);
+    if (response.ok) {
+      const ttl = accept.includes("raw") ? MEDIA_TTL_SECONDS : CONTENT_TTL_SECONDS;
+      const headers = new Headers(response.headers);
+      headers.set("Cache-Control", `public, max-age=${ttl}`);
+      headers.delete("Set-Cookie");
+      await cache.put(key, new Response(response.clone().body, { status: response.status, headers }));
+    }
+    return response;
   };
-  (patched as { __keystaticPatched?: boolean }).__keystaticPatched = true;
-  globalThis.fetch = patched;
+  (patched as { __bjPatched?: boolean }).__bjPatched = true;
+  globalThis.fetch = patched as typeof fetch;
 }
 
 function createContentReader() {
   const token = process.env.KEYSTATIC_GITHUB_TOKEN;
 
   if (token && !isLocalStorage) {
-    patchFetchForGitHubApi();
+    ensureGitHubFetchPatched();
     return createGitHubReader(keystaticConfig, { repo: REPO, token });
   }
 

@@ -7,6 +7,7 @@ import Reveal from "@/components/Reveal";
 import { getKeystaticReader } from "@/lib/keystatic-reader";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/careers" },
   title: "Careers",
   description: "Join a team that does meaningful work — GovCon, AI, and design, three disciplines, one culture of excellence.",
 };
@@ -68,7 +69,7 @@ export default async function CareersPage() {
       {/* Life Here — full-bleed culture banner */}
       <section className="relative min-h-[380px] sm:min-h-[440px] flex items-center overflow-hidden bg-navy-200">
         {page.cultureImage ? (
-          <img src={page.cultureImage} alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <img loading="lazy" decoding="async" src={page.cultureImage} alt="" className="absolute inset-0 w-full h-full object-cover" />
         ) : (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 border-2 border-dashed border-navy-300 text-navy-400">
             <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">

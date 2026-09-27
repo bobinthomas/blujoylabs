@@ -11,6 +11,7 @@ import { getKeystaticReader } from "@/lib/keystatic-reader";
 // Unlinked from navigation until a truthful, permissioned success story exists —
 // kept out of search indexing in the meantime rather than deleting the route.
 export const metadata: Metadata = {
+  alternates: { canonical: "/success-stories" },
   title: "Success Stories",
   description: "Real wins, real transformations, real partnerships.",
   robots: { index: false, follow: false },

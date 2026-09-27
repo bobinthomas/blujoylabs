@@ -23,7 +23,7 @@ export default function SplitCTA({
         <Reveal>
           <div className="grid sm:grid-cols-2 rounded-2xl overflow-hidden">
             {image ? (
-              <img src={image} alt="" className="w-full min-h-[280px] object-cover" />
+              <img loading="lazy" decoding="async" src={image} alt="" className="w-full min-h-[280px] object-cover" />
             ) : (
               <ImagePlaceholder label={imagePlaceholderLabel} className="w-full min-h-[280px] rounded-none border-r-0" />
             )}

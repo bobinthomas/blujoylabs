@@ -4,6 +4,7 @@ import ContactForm from "@/components/ContactForm";
 import { getKeystaticReader } from "@/lib/keystatic-reader";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
   title: "Contact",
   description: "Tell us what you are working on and where you need help — we'll review your enquiry and contact you to discuss the next step.",
 };

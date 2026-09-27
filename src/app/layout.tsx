@@ -31,6 +31,16 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  // Resolves relative canonical and social-image URLs to the live domain.
+  metadataBase: new URL("https://blujoylabs.com"),
+  // Link previews (LinkedIn, Slack, iMessage, email). The image itself is
+  // app/opengraph-image.png; each page's own title and description flow in.
+  openGraph: {
+    type: "website",
+    siteName: "BluJoy Labs",
+    locale: "en_US",
+  },
+  twitter: { card: "summary_large_image" },
   title: {
     default: "BluJoy Labs | GovCon Support, AI Consulting and Design & Engineering",
     template: "%s | BluJoy Labs",

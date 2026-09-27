@@ -32,7 +32,7 @@ export default function TestimonialSplit({
               </div>
             </div>
             {image ? (
-              <img src={image} alt="" className="w-full min-h-[280px] object-cover" />
+              <img loading="lazy" decoding="async" src={image} alt="" className="w-full min-h-[280px] object-cover" />
             ) : (
               <ImagePlaceholder label={imagePlaceholderLabel} className="w-full min-h-[280px] rounded-none border-l-0" />
             )}

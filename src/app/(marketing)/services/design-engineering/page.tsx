@@ -15,6 +15,7 @@ import { ICONS, type IconKey } from "@/lib/icons";
 const SLUG = "design-engineering";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/services/design-engineering" },
   title: "Design & Engineering",
   description:
     "Brand identity, product design, and website design and development — with scope and deliverables tailored to your project.",

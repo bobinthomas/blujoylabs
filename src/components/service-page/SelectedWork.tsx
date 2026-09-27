@@ -40,7 +40,7 @@ export default function SelectedWork({
             <Reveal key={item.title} delay={i * 90} className="h-full">
               <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-warm-border bg-white">
                 {item.image ? (
-                  <img src={item.image} alt="" className="w-full aspect-[4/3] object-cover" />
+                  <img loading="lazy" decoding="async" src={item.image} alt="" className="w-full aspect-[4/3] object-cover" />
                 ) : (
                   <ImagePlaceholder label="Visual" className="w-full aspect-[4/3] rounded-none" />
                 )}

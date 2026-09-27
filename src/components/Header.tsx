@@ -22,6 +22,9 @@ export default function Header({
 }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  // Separate from the desktop dropdown: its click-outside handler treats the whole
+  // mobile sheet as "outside", which collapsed this submenu mid-tap and sent taps to About/Contact.
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const pathname = usePathname();
   const servicesRef = useRef<HTMLDivElement>(null);
 
@@ -39,6 +42,7 @@ export default function Header({
   if (pathname !== lastPathname) {
     setLastPathname(pathname);
     setServicesOpen(false);
+    setMobileServicesOpen(false);
     setMobileOpen(false);
   }
 
@@ -211,15 +215,15 @@ export default function Header({
               {/* Same grouping as the desktop dropdown, collapsed into the sheet. */}
               <button
                 type="button"
-                aria-expanded={servicesOpen}
-                onClick={() => setServicesOpen((open) => !open)}
+                aria-expanded={mobileServicesOpen}
+                onClick={() => setMobileServicesOpen((open) => !open)}
                 className={`flex items-center justify-between px-3 py-2.5 text-sm font-medium rounded-lg ${
                   servicesActive ? "bg-pale-blue text-blue-700" : "text-navy-700 hover:bg-warm-dark"
                 }`}
               >
                 Services
                 <svg
-                  className={`w-4 h-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`}
+                  className={`w-4 h-4 transition-transform ${mobileServicesOpen ? "rotate-180" : ""}`}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -228,7 +232,7 @@ export default function Header({
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              {servicesOpen && (
+              {mobileServicesOpen && (
                 <div className="flex flex-col gap-1 pl-3 border-l border-warm-border ml-3">
                   {servicesLinks.map((link) => {
                     const active = isActive(pathname, link.href);

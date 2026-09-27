@@ -10,6 +10,7 @@ import { getKeystaticReader } from "@/lib/keystatic-reader";
 import { ICONS, type IconKey } from "@/lib/icons";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/services/ai-consulting" },
   title: "AI Consulting & Solution Engineering",
   description:
     "From requirement to working solution — use-case discovery, custom solution development, GenAI and knowledge solutions, and AI agent prototypes.",

@@ -9,6 +9,7 @@ import { getKeystaticReader } from "@/lib/keystatic-reader";
 // yet) and it's unlinked from nav/footer — noindexed rather than deleted so
 // the structure is ready once real content and destinations are supplied.
 export const metadata: Metadata = {
+  alternates: { canonical: "/resources" },
   title: "Resources & Insights",
   description: "Guides, best practices, and insights from the front lines of GovCon, AI, and digital design.",
   robots: { index: false, follow: false },
@@ -92,7 +93,7 @@ export default async function ResourcesPage() {
           <Reveal className="mb-6">
             <div className="rounded-2xl bg-white border border-warm-border overflow-hidden grid lg:grid-cols-2">
               {page.featuredImage ? (
-                <img src={page.featuredImage} alt="" className="w-full min-h-[240px] object-cover" />
+                <img loading="lazy" decoding="async" src={page.featuredImage} alt="" className="w-full min-h-[240px] object-cover" />
               ) : (
                 <ImagePlaceholder label="Photo — latest article" className="w-full min-h-[240px] rounded-none border-r-0" />
               )}
@@ -100,7 +101,7 @@ export default async function ResourcesPage() {
                 <div className="w-12 h-12 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mb-5">
                   {CATEGORY_META[page.featuredCategory]?.icon}
                 </div>
-                <h3 className="text-2xl font-medium text-navy-900 mb-4">{CATEGORY_META[page.featuredCategory]?.title}</h3>
+                <h2 className="text-2xl font-medium text-navy-900 mb-4">{CATEGORY_META[page.featuredCategory]?.title}</h2>
                 <ul className="space-y-0.5">
                   {featuredItems.map((item) => (
                     <li key={item.slug}>
@@ -128,7 +129,7 @@ export default async function ResourcesPage() {
                 <div className="w-12 h-12 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mb-5">
                   {CATEGORY_META[cat].icon}
                 </div>
-                <h3 className="text-xl font-medium text-navy-900 mb-4">{CATEGORY_META[cat].title}</h3>
+                <h2 className="text-xl font-medium text-navy-900 mb-4">{CATEGORY_META[cat].title}</h2>
                 <ul className="space-y-0.5">
                   {(byCategory.get(cat) ?? []).map((item) => (
                     <li key={item.slug}>

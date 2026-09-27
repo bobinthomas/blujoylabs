@@ -11,6 +11,7 @@ import { getKeystaticReader } from "@/lib/keystatic-reader";
  * change with it, or it becomes an inaccurate public statement.
  */
 export const metadata: Metadata = {
+  alternates: { canonical: "/privacy" },
   title: "Privacy Policy",
   description:
     "How BluJoy Labs collects, uses and retains the personal information you submit through this website.",

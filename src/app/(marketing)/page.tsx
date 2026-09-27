@@ -2,8 +2,26 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
+import type { Metadata } from "next";
 import { getKeystaticReader } from "@/lib/keystatic-reader";
 import { ICONS, type IconKey } from "@/lib/icons";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
+
+/** Organization structured data, so search engines can build a proper listing. */
+const ORGANIZATION_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "BluJoy Labs",
+  url: "https://blujoylabs.com",
+  logo: "https://blujoylabs.com/icon.svg",
+  email: "connect@blujoylabs.com",
+  description:
+    "BluJoy Labs provides GovCon support, AI consulting and solution development, and brand, product and website design.",
+  knowsAbout: ["Government contracting", "Proposal management", "AI consulting", "Product design", "Website development"],
+};
 
 function IconMark({
   d,
@@ -28,12 +46,16 @@ export default async function HomePage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_JSON_LD) }}
+      />
       {/* Hero — navy wash over the photo, near-white text, white primary button.
           Both CTAs point at on-page anchors (#enquiry / #services), so neither
           can become a dead destination. */}
       <section className="relative -mt-20 sm:-mt-[88px] lg:-mt-24 min-h-[620px] sm:min-h-[700px] lg:min-h-[780px] flex items-end overflow-hidden bg-navy-900">
         {home.heroImage ? (
-          <img
+          <img fetchPriority="high"
             src={home.heroImage}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"

@@ -18,7 +18,7 @@ export default function AlternatingRows({ rows }: { rows: readonly Row[] }) {
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
               <Reveal className={i % 2 === 1 ? "lg:order-2" : ""}>
                 {row.image ? (
-                  <img src={row.image} alt="" className="w-full aspect-[16/9] lg:aspect-[4/3] object-cover rounded-2xl" />
+                  <img loading="lazy" decoding="async" src={row.image} alt="" className="w-full aspect-[16/9] lg:aspect-[4/3] object-cover rounded-2xl" />
                 ) : (
                   <ImagePlaceholder label={row.imagePlaceholderLabel} className="w-full aspect-[16/9] lg:aspect-[4/3]" />
                 )}

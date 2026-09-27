@@ -48,7 +48,7 @@ export default function PathwaysGrid({
             >
               {showImages &&
                 (p.image ? (
-                  <img src={p.image} alt="" className="w-full aspect-[4/3] mb-5 object-cover rounded-2xl" />
+                  <img loading="lazy" decoding="async" src={p.image} alt="" className="w-full aspect-[4/3] mb-5 object-cover rounded-2xl" />
                 ) : (
                   <ImagePlaceholder label={p.imagePlaceholderLabel ?? "Photo"} className="w-full aspect-[4/3] mb-5" />
                 ))}

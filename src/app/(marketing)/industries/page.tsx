@@ -5,6 +5,7 @@ import SplitCTA from "@/components/service-page/SplitCTA";
 import { getKeystaticReader } from "@/lib/keystatic-reader";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/industries" },
   title: "Industries",
   description: "Government, enterprise, and growth-stage companies — we speak your language and understand your constraints.",
 };

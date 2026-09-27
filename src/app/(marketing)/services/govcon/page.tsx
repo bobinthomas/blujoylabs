@@ -16,6 +16,7 @@ import { ICONS, type IconKey } from "@/lib/icons";
 const SLUG = "govcon";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/services/govcon" },
   title: "Federal and SLED Capture and Proposal Support",
   description:
     "Capture, proposal writing and management support for Federal and SLED contractors. Explore monthly team support or help with an individual pursuit.",

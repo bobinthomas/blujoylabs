@@ -12,6 +12,7 @@ const EYEBROW = "text-lg sm:text-xl font-mono tracking-wider text-blue-600 upper
 const initial = (name: string) => (name.replace(/[^A-Za-z]/g, "").charAt(0) || "?").toUpperCase();
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about" },
   title: "About Us",
   description:
     "BluJoy Labs brings together specialists in government contracting support, AI and application development, and design, giving small businesses access to experienced support at a cost they can manage.",
@@ -42,7 +43,7 @@ export default async function AboutPage() {
       {/* Opening — compact navy band, near-white text, no oversized photo block */}
       <section className="relative -mt-20 sm:-mt-[88px] lg:-mt-24 flex items-end overflow-hidden bg-navy-900 min-h-[520px] sm:min-h-[580px]">
         {page.heroImage ? (
-          <img src={page.heroImage} alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <img fetchPriority="high" src={page.heroImage} alt="" className="absolute inset-0 w-full h-full object-cover" />
         ) : (
           <ImagePlaceholder label="Hero photo" className="absolute inset-0 w-full h-full rounded-none" />
         )}

@@ -18,7 +18,7 @@ export default function ServiceIntro({
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <Reveal>
             {image ? (
-              <img src={image} alt="" className="w-full aspect-[4/3] lg:aspect-square object-cover rounded-2xl" />
+              <img loading="lazy" decoding="async" src={image} alt="" className="w-full aspect-[4/3] lg:aspect-square object-cover rounded-2xl" />
             ) : (
               <ImagePlaceholder label={imagePlaceholderLabel} className="w-full aspect-[4/3] lg:aspect-square" />
             )}

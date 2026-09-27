@@ -27,7 +27,7 @@ export default function ServiceHero({
   return (
     <section className="relative -mt-20 sm:-mt-[88px] lg:-mt-24 min-h-[560px] sm:min-h-[640px] lg:min-h-[720px] flex items-end overflow-hidden bg-navy-200">
       {image ? (
-        <img src={image} alt="" className="absolute inset-0 w-full h-full object-cover" />
+        <img fetchPriority="high" src={image} alt="" className="absolute inset-0 w-full h-full object-cover" />
       ) : (
         <div className="absolute inset-0 border-2 border-dashed border-navy-300 text-navy-400">
           <div className="absolute top-20 right-6 sm:top-24 sm:right-10 flex flex-col items-center gap-2 max-w-[160px] sm:max-w-[200px]">
