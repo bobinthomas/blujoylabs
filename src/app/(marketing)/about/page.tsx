@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import Reveal from "@/components/Reveal";
+import ExpandableText from "@/components/ExpandableText";
 import { getKeystaticReader } from "@/lib/keystatic-reader";
 import { ICONS, type IconKey } from "@/lib/icons";
 
@@ -120,18 +121,22 @@ export default async function AboutPage() {
                 {page.leadershipHeading}
               </h2>
             </Reveal>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid items-start gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {team.map((person, i) => (
-                <Reveal key={person.slug} delay={i * 80} className="h-full">
-                  <div className="flex h-full flex-col rounded-2xl border border-warm-border bg-warm p-6 sm:p-7">
-                    {/* A real headshot when supplied; otherwise an initial — never a stock person */}
-                    {person.entry.photo ? (
+                <Reveal key={person.slug} delay={i * 80}>
+                  <div className="flex flex-col overflow-hidden rounded-2xl border border-warm-border bg-warm">
+                    {/* A real headshot runs edge to edge across the top of the card */}
+                    {person.entry.photo && (
                       <img
                         src={person.entry.photo}
                         alt={person.entry.name}
-                        className="mb-5 h-24 w-24 rounded-full object-cover ring-4 ring-white"
+                        loading="lazy"
+                        className="aspect-[4/5] w-full object-cover object-top"
                       />
-                    ) : (
+                    )}
+                    <div className="flex flex-1 flex-col p-6 sm:p-7">
+                    {/* No photo: an initial, never a stock person */}
+                    {!person.entry.photo && (
                       <span
                         aria-hidden="true"
                         className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-pale-blue font-display text-2xl text-blue-700"
@@ -141,9 +146,12 @@ export default async function AboutPage() {
                     )}
                     <p className="font-display text-xl text-navy-900">{person.entry.name}</p>
                     <p className="mt-1 text-sm text-blue-600">{person.entry.title}</p>
-                    <p className="mt-4 border-t border-warm-border pt-4 text-[16px] leading-relaxed text-navy-600">
-                      {person.entry.bio}
-                    </p>
+                    <div className="mt-4 border-t border-warm-border pt-4">
+                      <ExpandableText
+                        text={person.entry.bio ?? ""}
+                        className="text-[16px] leading-relaxed text-navy-600"
+                      />
+                    </div>
                     {person.entry.linkedin && (
                       <a
                         href={person.entry.linkedin}
@@ -158,6 +166,7 @@ export default async function AboutPage() {
                         <span className="sr-only"> profile for {person.entry.name}</span>
                       </a>
                     )}
+                    </div>
                   </div>
                 </Reveal>
               ))}
