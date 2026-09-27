@@ -1,29 +1,20 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 
 /**
- * Sends site notifications (enquiries, newsletter sign-ups) through Cloudflare
- * Email Service's `send_email` Worker binding — no API keys involved.
+ * Sends site notifications (enquiries, newsletter sign-ups) through Resend's
+ * HTTP API (free tier: 3,000 emails a month, 100 a day).
  *
- * The binding is locked in wrangler.jsonc to a single destination
- * (`allowed_destination_addresses`), so these public forms can never be used to
- * relay mail anywhere else. Recipient and sender come from the Worker vars
- * NOTIFY_TO / NOTIFY_FROM; the sender's domain must be onboarded to Cloudflare
- * Email Service (`wrangler email sending enable <domain>`) or sends fail with
- * E_SENDER_NOT_VERIFIED.
+ * Every message goes to one fixed inbox (NOTIFY_TO) — visitor input only ever
+ * appears in the body and the Reply-To, never as a recipient — so these public
+ * forms cannot be used to send mail to anyone else.
+ *
+ * Config (Worker settings):
+ *   RESEND_API_KEY  secret — `npx wrangler secret put RESEND_API_KEY`
+ *   NOTIFY_TO       var    — the team inbox
+ *   NOTIFY_FROM     var    — sender; its domain must be verified in Resend
  */
 
-type EmailAddress = { email: string; name?: string };
-type SendEmailBinding = {
-  send(message: {
-    to: string | EmailAddress | (string | EmailAddress)[];
-    from: string | EmailAddress;
-    subject: string;
-    text?: string;
-    html?: string;
-    replyTo?: string | EmailAddress;
-  }): Promise<{ messageId: string }>;
-};
-type MailEnv = { EMAIL?: SendEmailBinding; NOTIFY_TO?: string; NOTIFY_FROM?: string };
+type MailEnv = { RESEND_API_KEY?: string; NOTIFY_TO?: string; NOTIFY_FROM?: string };
 
 export const FALLBACK_CONTACT_EMAIL = "connect@blujoylabs.com";
 
@@ -40,25 +31,30 @@ const escapeHtml = (s: string) =>
   s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
 function readEnv(): MailEnv {
+  let cf: MailEnv = {};
   try {
-    return getCloudflareContext().env as unknown as MailEnv;
+    cf = getCloudflareContext().env as unknown as MailEnv;
   } catch {
     // Plain `next dev` has no Cloudflare context.
-    return {};
   }
+  return {
+    RESEND_API_KEY: cf.RESEND_API_KEY ?? process.env.RESEND_API_KEY,
+    NOTIFY_TO: cf.NOTIFY_TO ?? process.env.NOTIFY_TO,
+    NOTIFY_FROM: cf.NOTIFY_FROM ?? process.env.NOTIFY_FROM,
+  };
 }
 
 export async function sendNotification(n: Notification): Promise<SendResult> {
   const env = readEnv();
   const rows = n.fields.filter(([, v]) => v && v.trim()) as [string, string][];
 
-  if (!env.EMAIL) {
+  if (!env.RESEND_API_KEY) {
     // Local development only: log instead of sending, so the forms stay testable.
     if (process.env.NODE_ENV === "development") {
       console.log(`[mailer] (dev, not sent) ${n.subject}`, Object.fromEntries(rows));
       return { ok: true };
     }
-    return { ok: false, reason: "EMAIL binding is not configured" };
+    return { ok: false, reason: "RESEND_API_KEY is not configured" };
   }
 
   const to = env.NOTIFY_TO || FALLBACK_CONTACT_EMAIL;
@@ -77,18 +73,26 @@ export async function sendNotification(n: Notification): Promise<SendResult> {
     `</table>`;
 
   try {
-    const res = await env.EMAIL.send({
-      to,
-      from: { email: from, name: "BluJoy Labs Website" },
-      subject: n.subject,
-      text,
-      html,
-      ...(n.replyTo ? { replyTo: n.replyTo } : {}),
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        from: `BluJoy Labs Website <${from}>`,
+        to: [to],
+        subject: n.subject,
+        text,
+        html,
+        ...(n.replyTo ? { reply_to: n.replyTo.name ? `${n.replyTo.name} <${n.replyTo.email}>` : n.replyTo.email } : {}),
+      }),
     });
-    return { ok: true, messageId: res.messageId };
+    const data = (await res.json().catch(() => ({}))) as { id?: string; name?: string; message?: string };
+    if (!res.ok) {
+      console.error("[mailer] Resend rejected the send:", res.status, data.name, data.message);
+      return { ok: false, reason: data.name || `HTTP ${res.status}` };
+    }
+    return { ok: true, messageId: data.id };
   } catch (err) {
-    const e = err as { code?: string; message?: string };
-    console.error("[mailer] send failed:", e.code, e.message);
-    return { ok: false, reason: e.code || e.message || "send failed" };
+    console.error("[mailer] send failed:", err instanceof Error ? err.message : err);
+    return { ok: false, reason: "network error" };
   }
 }

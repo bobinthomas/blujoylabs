@@ -11,21 +11,22 @@
 	"observability": {
 		"enabled": true
 	},
+	// Production domains. Custom domains create their own DNS records and SSL
+	// certificates; www redirects to the bare domain (next.config.ts).
+	// The site lives only on blujoylabs.com; a second public copy on workers.dev
+	// would compete with it in search results.
+	"workers_dev": false,
+	"routes": [
+		{ "pattern": "blujoylabs.com", "custom_domain": true },
+		{ "pattern": "www.blujoylabs.com", "custom_domain": true }
+	],
 	"vars": {
 		"KEYSTATIC_GITHUB_CLIENT_ID": "Ov23licWqAwqa6b3o8Q3",
-		// Enquiry + newsletter notifications (src/lib/mailer.ts). NOTIFY_FROM's domain
-		// must be onboarded: `wrangler email sending enable blujoylabs.com`.
+		// Enquiry + newsletter notifications via Resend (src/lib/mailer.ts). NOTIFY_FROM's
+		// domain must be verified in Resend; the API key is the RESEND_API_KEY secret.
 		"NOTIFY_TO": "connect@blujoylabs.com",
 		"NOTIFY_FROM": "website@blujoylabs.com"
 	},
-	// Cloudflare Email Service. Locked to the one inbox, so the public forms can
-	// never be used to send mail to anyone else.
-	"send_email": [
-		{
-			"name": "EMAIL",
-			"allowed_destination_addresses": ["connect@blujoylabs.com"]
-		}
-	],
 	"env": {
 		"preview": {
 			"name": "blujaylabs-website-preview",
@@ -35,13 +36,7 @@
 			"vars": {
 				"NOTIFY_TO": "connect@blujoylabs.com",
 				"NOTIFY_FROM": "website@blujoylabs.com"
-			},
-			"send_email": [
-				{
-					"name": "EMAIL",
-					"allowed_destination_addresses": ["connect@blujoylabs.com"]
-				}
-			]
+			}
 		}
 	}
 }
