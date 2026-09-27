@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ServiceHero from "@/components/service-page/ServiceHero";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import Reveal from "@/components/Reveal";
+import NewsletterForm from "@/components/NewsletterForm";
 import { getKeystaticReader } from "@/lib/keystatic-reader";
 
 // Every item in this section currently links to "#" (no real articles exist
@@ -151,20 +152,7 @@ export default async function ResourcesPage() {
         <Reveal className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-light tracking-tight text-white">{page.newsletterHeading}</h2>
           <p className="mt-4 text-white/70 leading-relaxed">{page.newsletterDescription}</p>
-          <form className="mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input
-              type="email"
-              required
-              placeholder="Email address"
-              className="w-full flex-1 rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm text-white placeholder:text-white/40 focus:border-blue-400 focus:outline-none"
-            />
-            <button
-              type="submit"
-              className="inline-flex items-center justify-center gap-1.5 rounded-full bg-blue-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-700 whitespace-nowrap"
-            >
-              Subscribe
-            </button>
-          </form>
+          <NewsletterForm />
         </Reveal>
       </section>
     </>

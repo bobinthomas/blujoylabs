@@ -19,10 +19,7 @@ export default async function CareersPage() {
   ]);
   if (!page) throw new Error("careersPage singleton is missing");
 
-  // SAP postings stay in the content source but are held out of the public
-  // listing, consistent with SAP being pulled from every other launch surface.
   const positions = [...jobPostings]
-    .filter((pos) => !pos.slug.startsWith("sap-"))
     // Postings still holding their seeded "[Placeholder — ...]" description aren't
     // real openings yet; the "Don't see your role listed?" CTA still catches interest.
     .filter((pos) => !pos.entry.description.trim().startsWith("["))

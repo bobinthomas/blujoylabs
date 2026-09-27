@@ -69,6 +69,7 @@ export default function ContactForm({
               service: data.get("service"),
               message: data.get("message"),
               deadline: data.get("deadline") || undefined,
+              website: data.get("website") || undefined,
             }),
           });
           // Only a accepted submission may show the success state — the entered
@@ -86,6 +87,12 @@ export default function ContactForm({
       className={`space-y-5 rounded-2xl border border-warm-border bg-white p-8 sm:p-10 ${className}`}
     >
       {heading && <h2 className="text-2xl font-medium text-navy-900">{heading}</h2>}
+      {/* Spam trap: invisible to people and skipped by keyboard and screen readers;
+          naive bots fill it in, and the API then discards the submission. */}
+      <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+        <label htmlFor="cf-website">Website</label>
+        <input id="cf-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
       {description && <p className="text-navy-600">{description}</p>}
 
       <div className="grid gap-5 sm:grid-cols-2">

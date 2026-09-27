@@ -123,7 +123,6 @@ export default config({
           options: [
             { label: "Blog & Articles", value: "blog-articles" },
             { label: "GovCon Guides", value: "govcon-guides" },
-            { label: "SAP Best Practices", value: "sap-best-practices" },
             { label: "Design Systems Playbooks", value: "design-playbooks" },
             { label: "FAQs", value: "faqs" },
             { label: "News & Events", value: "news-events" },
@@ -142,7 +141,7 @@ export default config({
       path: "content/services/*",
       format: { data: "json" },
       schema: {
-        slug: fields.slug({ name: { label: "URL Slug", description: "e.g. govcon, sap, design-engineering" } }),
+        slug: fields.slug({ name: { label: "URL Slug", description: "e.g. govcon, design-engineering" } }),
         metaTitle: fields.text({ label: "Meta Title" }),
         metaDescription: fields.text({ label: "Meta Description", multiline: true }),
 
@@ -634,7 +633,6 @@ export default config({
           options: [
             { label: "Blog & Articles", value: "blog-articles" },
             { label: "GovCon Guides", value: "govcon-guides" },
-            { label: "SAP Best Practices", value: "sap-best-practices" },
             { label: "Design Systems Playbooks", value: "design-playbooks" },
             { label: "FAQs", value: "faqs" },
             { label: "News & Events", value: "news-events" },
