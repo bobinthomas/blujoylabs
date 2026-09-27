@@ -32,11 +32,14 @@ const nextConfig: NextConfig = {
   // One canonical address: https://blujoylabs.com. The www host and plain http
   // both redirect there permanently, keeping the path. The bare "/" gets its own
   // rule because an empty `:path*` is emitted literally in the Location header.
+  // `has` values are regular expressions matched anywhere in the string, so they
+  // MUST be anchored: an unanchored "http" also matches "https" and redirects
+  // every request to itself (this took the site down once).
   async redirects() {
-    const www = [{ type: "host" as const, value: "www.blujoylabs.com" }];
+    const www = [{ type: "host" as const, value: "^www\\.blujoylabs\\.com$" }];
     const http = [
-      { type: "host" as const, value: "blujoylabs.com" },
-      { type: "header" as const, key: "x-forwarded-proto", value: "http" },
+      { type: "host" as const, value: "^blujoylabs\\.com$" },
+      { type: "header" as const, key: "x-forwarded-proto", value: "^http$" },
     ];
     return [
       { source: "/", has: www, destination: `${CANONICAL}/`, permanent: true },
