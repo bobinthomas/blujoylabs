@@ -126,8 +126,9 @@ export default function Footer({
         </div>
       </div>
 
-      {/* Oversized watermark logo, cropped by the footer's edges */}
-      <div className="relative flex h-28 items-center justify-center overflow-hidden border-t border-white/10 sm:h-40 lg:h-48">
+      {/* Oversized watermark logo. The vertical padding keeps it clear of the
+          dividing lines above and below; the image fills the height left inside. */}
+      <div className="relative flex h-32 items-center justify-center overflow-hidden border-t border-white/10 py-6 sm:h-48 sm:py-9 lg:h-56 lg:py-11">
         <img
           src="/blujoy-logo.svg"
           alt=""
